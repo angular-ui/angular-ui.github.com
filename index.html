@@ -1,48 +1,80 @@
 <!DOCTYPE html>
 <html lang="en" ng:app="demoApp">
 <head>
-  <title>Angular.JS-UI</title>
-  <script type="text/javascript" src="http://code.angularjs.org/1.0.0rc2/angular-1.0.0rc2.min.js"></script>
-  <script type="text/javascript" src="http://angular-ui.github.com/angular-ui/lib/angular-ui.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
-  <link rel="stylesheet" type="text/css" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" />
-  <link rel="stylesheet" type="text/css" href="http://angular-ui.github.com/angular-ui/lib/angular-ui.min.css" />
+	<title>Angular.JS-UI</title>
+	<script type="text/javascript" src="http://code.angularjs.org/1.0.0rc2/angular-1.0.0rc2.min.js"></script>
+	<script type="text/javascript" src="http://angular-ui.github.com/angular-ui/lib/angular-ui.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="http://angular-ui.github.com/angular-ui/lib/angular-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/app.css" />
 </head>
 <body>
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="index.html">Angular.JS-UI</a>
-        <div class="nav-collapse">
-          <ul class="nav">
-            <li class="active">
-              <a href="index.html">Home</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div role="main">
-    <div class="container">
-      <div class="hero-unit">
-        <h1>Angular.JS-UI</h1>
-        <p>Demos</p>
-      </div>
-      <div ng:class="row">
-        <div class="span12" ng:controller="TooltipController">
-          <h3>Tooltip</h3>
-          <p>
-            <a ng-bind-html="item.title" class="help" ui:tooltip="{{item}}"></a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+	<header class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html">Angular.JS-UI</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active">
+							<a href="index.html">Home</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div role="main">
+		<div class="container">
+			<div class="hero-unit">
+				<h1>Angular.JS-UI</h1>
+				<p>Demos</p>
+			</div>
+			<article class="span12" ng:controller="TooltipCtrl">
+				<h2>Tooltip</h2>
+				<h3>What?</h3>
+				<p>Adds a tooltip to any element</p>
+				<p>
+					<a class="help" ui:tooltip="{{item}}">Hover Over Me</a>
+				</p>
+				<h3>How?</h3>
+<pre ng:non-bindable>$scope.item =  {
+	title : 'Title',
+	body  : 'Tooltip Body...'
+};</pre>
+				<pre ng:non-bindable>&lt;a class="help" ui:tooltip="{{item}}"&gt;Hover Over Me&lt;/a&gt;</pre>
+			</article>
+			<article class="span12">
+				<h2>Show, Hide and Toggle Alternatives</h2>
+				<h3>What?</h3>
+				<p>Instead of doing <code>ng:show</code> and <code>ng:hide</code> which simply sets <code>display:block/none</code> a <code>ui-show</code> and <code>ui-hide</code> class will be added which can give you tighter control over how things appear or disappear.</p>
+				<p>
+					<a ng:click="showHide=!showHide">Toggle State: {{!!showHide}}</a> <span ui:show="showHide">Show</span> <span ui:hide="showHide">Hide</span> <span ui:toggle="showHide">Toggle</span>
+				</p>
+				<h3>Why?</h3>
+				<p>CSS3 transitions of course! Applying a class means you can specify exactly how these two states behave. In addition, the show/hide variants do not enforce css rules when they are false (unless you use toggle), so the default CSS can still apply.</p>
+
+				<p><a ng:click="showHideAn=!showHideAn">Toggle State: {{!!showHideAn}}</a></p>
+				<p class="animate">
+					<div ui:show="showHideAn">Show</div>
+					<div ui:hide="showHideAn">Hide</div>
+					<div ui:toggle="showHideAn">Toggle</div>
+				</p>
+				<blockquote>But can't you just do <code>ng:class="someExpression&&'ui-show'"</code>?</blockquote>
+				<p>... shutup.</p>
+				
+				<h3>How?</h3>
+<pre ng:non-bindable>&lt;span ui:show=&quot;showHide&quot;&gt;Show&lt;/span&gt;
+&lt;span ui:hide=&quot;showHide&quot;&gt;Hide&lt;/span&gt;
+&lt;span ui:toggle=&quot;showHide&quot;&gt;Toggle&lt;/span&gt;
+</pre>
+			</article>
+		</div>
+	</div>
 </body>
 </html>

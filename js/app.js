@@ -14,7 +14,7 @@ demoApp.config(function($locationProvider) {
  * Tooltip Demo Controller
  */
 
-function TooltipController($scope) {
+function TooltipCtrl($scope) {
   $scope.item =  {
     title : 'Title',
     body  : 'Tooltip Body...'

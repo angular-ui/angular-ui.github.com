@@ -1,0 +1,26 @@
+/*** ShowHide ***/
+.ui-show {
+	display: block;
+}
+.ui-hide {
+	display: none;
+}
+.animate {
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+.animate .ui-show {
+	padding: 10px;
+	height: 10px;
+	margin: 10px;
+}
+.animate .ui-hide {
+	display: block;
+	padding: 0 10px;
+	height: 0;
+	margin: 0;
+	opacity: 0;
+}
