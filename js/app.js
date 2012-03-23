@@ -3,7 +3,7 @@
  * demoApp - 1.0.0rc2
  */
 
-var demoApp = angular.module('demoApp', [], function($routeProvider) {
+var demoApp = angular.module('demoApp', ['ui'], function($routeProvider) {
 });
 
 demoApp.config(function($locationProvider) {  
