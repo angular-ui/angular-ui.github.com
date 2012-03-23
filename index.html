@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng:app="demoApp">
 <head>
   <title>Angular.JS-UI</title>
   <script type="text/javascript" src="http://code.angularjs.org/1.0.0rc2/angular-1.0.0rc2.min.js"></script>
   <script type="text/javascript" src="https://raw.github.com/angular-ui/angular-ui/master/lib/angular-ui.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
   <link rel="stylesheet" type="text/css" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" />
   <link rel="stylesheet" type="text/css" href="https://raw.github.com/angular-ui/angular-ui/master/lib/angular-ui.min.css" />
 </head>
@@ -32,6 +33,14 @@
       <div class="hero-unit">
         <h1>Angular.JS-UI</h1>
         <p>Demos</p>
+      </div>
+      <div ng:class="row">
+        <div class="span12" ng:controller="TooltipController">
+          <h3>Tooltip</h3>
+          <p>
+            <a ng-bind-html="item.title" class="help" ui:tooltip="item"></a>
+          </p>
+        </div>
       </div>
     </div>
   </div>
