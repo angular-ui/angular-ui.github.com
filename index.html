@@ -44,7 +44,7 @@
 				<h2>jQuery Passthrough</h2>
 				<h3>What?</h3>
 				<p>Fires a jQuery command specified in the expression on an element.</p>
-				<p><input value="Click Here to show the jQuery UI Datepicker" ui:jq="datepicker"></p>
+				<p><input value="Click Here for Datepicker" ui:jq="datepicker"></p>
 				
 				<h3>Why?</h3>
 				<p>Not every jQuery plugin requires creating a new directive just to use it. Instead, use the pass-through directive to rapidly port functionality. It is probably the best solution for 75% of the cases you will encounter.</p>
@@ -68,17 +68,18 @@
 
 				<p><a ng:click="showHideAn=!showHideAn">Toggle State: {{!!showHideAn}}</a></p>
 				<p class="animate">
-					<div ui:show="showHideAn">Show</div>
-					<div ui:hide="showHideAn">Hide</div>
-					<div ui:toggle="showHideAn">Toggle</div>
+					<span ui:show="showHideAn">Show</span>
+					<span ui:hide="showHideAn">Hide</span>
+					<span ui:toggle="showHideAn">Toggle</span>
 				</p>
 				<blockquote>But can't you just do <code>ng:class="someExpression&&'ui-show'"</code>?</blockquote>
 				<p>... shutup.</p>
 				
 				<h3>How?</h3>
-<pre ng:non-bindable>&lt;span ui:show=&quot;showHide&quot;&gt;Show&lt;/span&gt;
-&lt;span ui:hide=&quot;showHide&quot;&gt;Hide&lt;/span&gt;
-&lt;span ui:toggle=&quot;showHide&quot;&gt;Toggle&lt;/span&gt;
+<pre ng:non-bindable>&lt;p&gt;&lt;a ng:click=&quot;showHide=!showHide&quot;&gt;Toggle State: {{!!showHide}}&lt;/a&gt;&lt;/p&gt;
+&lt;div ui:show=&quot;showHide&quot;&gt;Show&lt;/div&gt;
+&lt;div ui:hide=&quot;showHide&quot;&gt;Hide&lt;/div&gt;
+&lt;div ui:toggle=&quot;showHide&quot;&gt;Toggle&lt;/div&gt;
 </pre>
 			</article>
 		</div>
