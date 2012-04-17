@@ -8,6 +8,8 @@ var demoApp = angular.module('demoApp', ['ui'], function($routeProvider) {
 
 demoApp.config(function($locationProvider) {  
   $locationProvider.hashPrefix('');
+  // Make code pretty
+  window.prettyPrint && prettyPrint()
 });
 
 /**

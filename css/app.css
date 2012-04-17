@@ -1,3 +1,10 @@
+body {
+	margin-top: 60px;
+}
+section {
+	margin-top: 60px;
+}
+
 /*** ShowHide ***/
 .ui-show {
 	display: block;

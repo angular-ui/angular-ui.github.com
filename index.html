@@ -4,36 +4,61 @@
 	<title>Angular.JS-UI</title>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+	<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="http://code.angularjs.org/1.0.0rc2/angular-1.0.0rc2.min.js"></script>
 	<script type="text/javascript" src="http://angular-ui.github.com/angular-ui/build/angular-ui.js"></script>
+	<script type="text/javascript" src="js/prettify.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 
 	<link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="http://angular-ui.github.com/angular-ui/build/angular-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/prettify.css" />
 	<link rel="stylesheet" type="text/css" href="css/app.css" />
 </head>
-<body>
+<body data-spy="scroll">
 	<header class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</a>
-				<a class="brand" href="index.html">Angular.JS-UI</a>
+				<a class="brand" href="index.html">AngularJs - UI</a>
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li class="active">
 							<a href="index.html">Home</a>
 						</li>
-						<li>
-							<a href="https://github.com/angular-ui/angular-ui">Code on Github</a>
+						<li class="dropdown">
+							<a class="dropdown-toggle" href="#" data-toggle="dropdown">
+								Directives
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#directives-date">Date</a></li>
+								<li><a href="#directives-jq">jQuery Passthrough</a></li>
+								<li><a href="#directives-keypress">Keypress</a></li>
+								<li><a href="#directives-linky">Linky</a></li>
+								<li><a href="#directives-mask">Mask</a></li>
+								<li><a href="#directives-remove">Remove</a></li>
+								<li><a href="#directives-reset">Reset</a></li>
+								<li><a href="#directives-scrollfix">Scrollfix</a></li>
+								<li><a href="#directives-select2">Select2</a></li>
+								<li><a href="#directives-showhide">Show / Hide / Toggle</a></li>
+							</ul>
 						</li>
-						<li>
-							<a href="https://github.com/angular-ui/angular-ui/downloads">Download</a>
+						<li class="dropdown">
+							<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+								Filters
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#filters-length">Length</a></li>
+								<li><a href="#filters-highlight">Highlight</a></li>
+								<li><a href="#filters-unique">Unique</a></li>
+							</ul>
 						</li>
+					</ul>
+					<ul class="pull-right nav">
+						<li><a href="https://github.com/angular-ui/angular-ui/downloads">Download</a></li>
+						<li><a href="https://github.com/angular-ui/angular-ui">Code on Github</a></li>
 					</ul>
 				</div>
 			</div>
@@ -41,13 +66,30 @@
 	</header>
 	<div role="main">
 		<div class="container">
-			<div class="hero-unit">
-				<h1>Angular.JS-UI</h1>
-				<p>Demos</p>
-			</div>
+			<header class="jumbotron subhead" id="overview">
+				<h1>AngularJs - UI</h1>
+				<p class="lead">The enhancement companion suite to AngularJs framework.</p>
+			</header>
 			
-			<article class="span12">
-				<h2>jQuery Passthrough</h2>
+			<section id="directives-date">
+				<div class="page-header">
+					<h1>Date</h1>
+				</div>
+				<h3>What?</h3>
+				<p></p>
+				<p><input value="Click Here for Datepicker" ui:jq="datepicker"></p>
+				
+				<h3>Why?</h3>
+				<p></p>
+				
+				<h3>How?</h3>
+<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+			</section>
+			
+			<section id="directives-jq">
+				<div class="page-header">
+					<h1>jQuery Passthrough</h1>
+				</div>
 				<h3>What?</h3>
 				<p>Fires a jQuery command specified in the expression on an element.</p>
 				<p><input value="Click Here for Datepicker" ui:jq="datepicker"></p>
@@ -57,13 +99,119 @@
 				<p>If a plugin requires more robust integration with AngularJs then you may need to look into creating a custom directive instead, or <a href="https://github.com/angular-ui/angular-ui/issues?sort=created&direction=desc&state=open">contact us</a> with a request.</p>
 				
 				<h3>How?</h3>
-<pre>&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
 				<p>You can also add a <code>ui:options</code> attribute that will be evaluated and passed to the command.</p>
 				<p>You will also be able to create an app-wide configuration so that you aren't forced to manually pass options every time you call the directive.</p>
-			</article>
+			</section>
 			
-			<article class="span12">
-				<h2>Show, Hide and Toggle Alternatives</h2>
+			<section id="directives-keypress">
+				<div class="page-header">
+					<h1>Keypress</h1>
+				</div>
+				<h3>What?</h3>
+				<p></p>
+				<p><input value="Click Here for Datepicker" ui:jq="datepicker"></p>
+
+				<h3>Why?</h3>
+				<p></p>
+
+				<h3>How?</h3>
+<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+			</section>
+			
+			<section id="directives-linky">
+				<div class="page-header">
+					<h1>Linky</h1>
+				</div>
+				<h3>What?</h3>
+				<p></p>
+				<p><input value="Click Here for Datepicker" ui:jq="datepicker"></p>
+
+				<h3>Why?</h3>
+				<p></p>
+
+				<h3>How?</h3>
+<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+			</section>
+			
+			<section id="directives-mask">
+				<div class="page-header">
+					<h1>Mask</h1>
+				</div>
+				<h3>What?</h3>
+				<p></p>
+				<p><input value="Click Here for Datepicker" ui:mask></p>
+
+				<h3>Why?</h3>
+				<p></p>
+
+				<h3>How?</h3>
+<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+			</section>
+			
+			<section id="directives-remove">
+				<div class="page-header">
+					<h1>Remove</h1>
+				</div>
+				<h3>What?</h3>
+				<p></p>
+				<p><input value="Click Here for Datepicker" ui:mask></p>
+
+				<h3>Why?</h3>
+				<p></p>
+
+				<h3>How?</h3>
+<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+			</section>
+			
+			<section id="directives-reset">
+				<div class="page-header">
+					<h1>Reset</h1>
+				</div>
+				<h3>What?</h3>
+				<p></p>
+				<p><input value="Click Here for Datepicker" ui:mask></p>
+
+				<h3>Why?</h3>
+				<p></p>
+
+				<h3>How?</h3>
+<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+			</section>
+			
+			<section id="directives-scrollfix">
+				<div class="page-header">
+					<h1>Scrollfix</h1>
+				</div>
+				<h3>What?</h3>
+				<p>Add a 'ui-fixed' class to elements when the page scrolls past them</p>
+				<p ui-scrollfix>They see me rollin...</p>
+
+				<h3>Why?</h3>
+				<p></p>
+
+				<h3>How?</h3>
+<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+			</section>
+			
+			<section id="directives-select2">
+				<div class="page-header">
+					<h1>Select2</h1>
+					<small><a href="#">Select2</a> is inspired by <a href="http://harvesthq.github.com/chosen">Chosen</a></small>
+				</div>
+				<h3>What?</h3>
+
+				<h3>Why?</h3>
+				<p></p>
+
+				<h3>How?</h3>
+<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+			</section>
+			
+			<section id="directives-showhide">
+				<div class="page-header">
+					<h1>Show, Hide and Toggle Alternatives</h1>
+				</div>
 				<h3>What?</h3>
 				<p>Instead of doing <code>ng:show</code> and <code>ng:hide</code> which simply sets <code>display:block/none</code> a <code>ui-show</code> and <code>ui-hide</code> class will be added which can give you tighter control over how things appear or disappear.</p>
 				<p>
@@ -82,12 +230,57 @@
 				<p>... shutup.</p>
 				
 				<h3>How?</h3>
-<pre ng:non-bindable>&lt;p&gt;&lt;a ng:click=&quot;showHide=!showHide&quot;&gt;Toggle State: {{!!showHide}}&lt;/a&gt;&lt;/p&gt;
+<pre class="prettyprint linenums" ng:non-bindable>&lt;p&gt;&lt;a ng:click=&quot;showHide=!showHide&quot;&gt;Toggle State: {{!!showHide}}&lt;/a&gt;&lt;/p&gt;
 &lt;div ui:show=&quot;showHide&quot;&gt;Show&lt;/div&gt;
 &lt;div ui:hide=&quot;showHide&quot;&gt;Hide&lt;/div&gt;
 &lt;div ui:toggle=&quot;showHide&quot;&gt;Toggle&lt;/div&gt;
 </pre>
-			</article>
+			</section>
+			
+			<section id="filters-length">
+				<div class="page-header">
+					<h1>Length</h1>
+				</div>
+				<h3>What?</h3>
+				<p></p>
+				<p><input value="Click Here for Datepicker" ui:jq="datepicker"></p>
+
+				<h3>Why?</h3>
+				<p></p>
+
+				<h3>How?</h3>
+<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+			</section>
+			
+			<section id="filters-highlight">
+				<div class="page-header">
+					<h1>Highlight</h1>
+				</div>
+				<h3>What?</h3>
+				<p></p>
+				<p><input value="Click Here for Datepicker" ui:jq="datepicker"></p>
+
+				<h3>Why?</h3>
+				<p></p>
+
+				<h3>How?</h3>
+<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+			</section>
+			
+			<section id="filters-unique">
+				<div class="page-header">
+					<h1>Unique</h1>
+				</div>
+				<h3>What?</h3>
+				<p></p>
+				<p><input value="Click Here for Datepicker" ui:jq="datepicker"></p>
+
+				<h3>Why?</h3>
+				<p></p>
+
+				<h3>How?</h3>
+<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+			</section>
 		</div>
 	</div>
 </body>
