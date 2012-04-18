@@ -169,14 +169,14 @@
 					<h1>Reset</h1>
 				</div>
 				<h3>What?</h3>
-				<p></p>
-				<p><input value="Click Here for Datepicker" ui:mask></p>
+				<p>Adds an icon or link that empties the input element</p>
+				<p><input value="Hover over me" ui-reset></p>
 
 				<h3>Why?</h3>
-				<p></p>
+				<p>Convenience?</p>
 
 				<h3>How?</h3>
-<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+<pre class="prettyprint">&lt;input value=&quot;Hover over me&quot; ui-reset&gt;</pre>
 			</section>
 			
 			<section id="directives-scrollfix">
@@ -188,10 +188,11 @@
 				<p ui-scrollfix>They see me rollin...</p>
 
 				<h3>Why?</h3>
-				<p></p>
+				<p>Make elements sticky, or simply appear different after scrolling past a certain point</p>
 
 				<h3>How?</h3>
-<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+<pre class="prettyprint">&lt;p ui-scrollfix&gt;They see me rollin...&lt;/p&gt;</pre>
+				<p>You can optionally pass a number to <code>ui-scrollfix</code> which would override the detected y-offset of the element</p>
 			</section>
 			
 			<section id="directives-select2">
@@ -200,12 +201,25 @@
 					<small><a href="#">Select2</a> is inspired by <a href="http://harvesthq.github.com/chosen">Chosen</a></small>
 				</div>
 				<h3>What?</h3>
+				<p>Value is: {{select2}}</p>
+				<select ui-select2 ng-model="select2">
+					<option value="">Pick a number</option>
+					<option value="one">First</option>
+					<option value="two">Second</option>
+					<option value="three">Third</option>
+				</select>
 
 				<h3>Why?</h3>
-				<p></p>
+				<p>This would work fine using the jQuery passthrough alone, but this directive adds support for changing the ng-model directly. If the value is programmatically updated, then select2 is automatically updated to reflect the changes.</p>
 
 				<h3>How?</h3>
-<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui:jq=&quot;datepicker&quot;&gt;</pre>
+<pre class="prettyprint linenums" ng-non-bindable>&lt;p&gt;Value is: {{select2}}&lt;/p&gt;
+&lt;select ui-select2 ng-model=&quot;select2&quot;&gt;
+	&lt;option value=&quot;&quot;&gt;Pick a number&lt;/option&gt;
+	&lt;option value=&quot;one&quot;&gt;First&lt;/option&gt;
+	&lt;option value=&quot;two&quot;&gt;Second&lt;/option&gt;
+	&lt;option value=&quot;three&quot;&gt;Third&lt;/option&gt;
+&lt;/select&gt;</pre>
 			</section>
 			
 			<section id="directives-showhide">
@@ -230,7 +244,7 @@
 				<p>... shutup.</p>
 				
 				<h3>How?</h3>
-<pre class="prettyprint linenums" ng:non-bindable>&lt;p&gt;&lt;a ng:click=&quot;showHide=!showHide&quot;&gt;Toggle State: {{!!showHide}}&lt;/a&gt;&lt;/p&gt;
+<pre class="prettyprint linenums" ng-non-bindable>&lt;p&gt;&lt;a ng:click=&quot;showHide=!showHide&quot;&gt;Toggle State: {{!!showHide}}&lt;/a&gt;&lt;/p&gt;
 &lt;div ui:show=&quot;showHide&quot;&gt;Show&lt;/div&gt;
 &lt;div ui:hide=&quot;showHide&quot;&gt;Hide&lt;/div&gt;
 &lt;div ui:toggle=&quot;showHide&quot;&gt;Toggle&lt;/div&gt;
