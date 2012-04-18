@@ -142,7 +142,7 @@
 				</div>
 				<h3>What?</h3>
 				<p></p>
-				<p><input value="" ng-model="phone" ui-mask></p>
+				<p><input value="" ng-model="phone"></p>
 
 				<h3>Why?</h3>
 				<p></p>
@@ -203,7 +203,7 @@
 				</div>
 				<h3>What?</h3>
 				<p>Value is: {{select2}} <a ng-click="select2='two'">(choose second)</a></p>
-				<select ui-select2 ng-model="select2" placeholder="Pick a number">
+				<select ui-select2 ng-model="select2" data-placeholder="Pick a number">
 					<option value=""></option>
 					<option value="one">First</option>
 					<option value="two">Second</option>
