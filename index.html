@@ -92,13 +92,18 @@
 				<div class="page-header">
 					<h1>jQuery Passthrough</h1>
 				</div>
-				<h3>What?</h3>
-				<p>Fires a jQuery command specified in the expression on an element.</p>
-				<p><input value="Click Here for Datepicker" ui-jq="datepicker"></p>
-				
-				<h3>Why?</h3>
-				<p>Not every jQuery plugin requires creating a new directive just to use it. Instead, use the pass-through directive to rapidly port functionality. It is probably the best solution for 75% of the cases you will encounter.</p>
-				<p>If a plugin requires more robust integration with AngularJs then you may need to look into creating a custom directive instead, or <a href="https://github.com/angular-ui/angular-ui/issues?sort=created&direction=desc&state=open">contact us</a> with a request.</p>
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<p>Fires a jQuery command specified in the expression on an element.</p>
+						<p><input value="Click Here for Datepicker" ui-jq="datepicker"></p>
+					</div>
+					<div class="span6">
+						<h3>Why?</h3>
+						<p>Not every jQuery plugin requires creating a new directive just to use it. Instead, use the pass-through directive to rapidly port functionality. It is probably the best solution for 75% of the cases you will encounter.</p>
+						<p>If a plugin requires more robust integration with AngularJs then you may need to look into creating a custom directive instead, or <a href="https://github.com/angular-ui/angular-ui/issues?sort=created&direction=desc&state=open">contact us</a> with a request.</p>
+					</div>
+				</div>
 				
 				<h3>How?</h3>
 <pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui-jq=&quot;datepicker&quot;&gt;</pre>
@@ -201,18 +206,25 @@
 					<h1>Select2</h1>
 					<small><a href="#">Select2</a> is inspired by <a href="http://harvesthq.github.com/chosen">Chosen</a></small>
 				</div>
-				<h3>What?</h3>
-				<p>Value is: {{select2}} <a ng-click="select2='two'">(choose second)</a></p>
-				<select ui-select2 ng-model="select2" data-placeholder="Pick a number">
-					<option value=""></option>
-					<option value="one">First</option>
-					<option value="two">Second</option>
-					<option value="three">Third</option>
-				</select>
-
-				<h3>Why?</h3>
-				<p>This would work fine using the jQuery passthrough alone, but this directive adds support for changing the ng-model directly. If the value is programmatically updated, then select2 is automatically updated to reflect the changes.</p>
-
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<div class="well">
+							<p>Value is: {{select2}} <a ng-click="select2='two'">(choose second)</a></p>
+							<select ui-select2 ng-model="select2" data-placeholder="Pick a number">
+								<option value=""></option>
+								<option value="one">First</option>
+								<option value="two">Second</option>
+								<option value="three">Third</option>
+							</select>
+						</div>
+					</div>
+					<div class="span6">
+						<h3>Why?</h3>
+						<p>This would work fine using the jQuery passthrough alone, but this directive adds support for changing the ng-model directly. If the value is programmatically updated, then select2 is automatically updated to reflect the changes.</p>
+					</div>
+				</div>
+				
 				<h3>How?</h3>
 <pre class="prettyprint linenums" ng-non-bindable>&lt;p&gt;Value is: {{select2}} &lt;a ng-click=&quot;select2=&#x27;two&#x27;&quot;&gt;(choose second)&lt;/a&gt;&lt;/p&gt;
 &lt;select ui-select2 ng-model=&quot;select2&quot;&gt;
@@ -227,22 +239,29 @@
 				<div class="page-header">
 					<h1>Show, Hide and Toggle Alternatives</h1>
 				</div>
-				<h3>What?</h3>
-				<p>Instead of doing <code>ng-show</code> and <code>ng-hide</code> which simply sets <code>display:block/none</code> a <code>ui-show</code> and <code>ui-hide</code> class will be added which can give you tighter control over how things appear or disappear.</p>
-				<p>
-					<a ng-click="showHide=!showHide">Toggle State: {{!!showHide}}</a> <span ui-show="showHide">Show</span> <span ui-hide="showHide">Hide</span> <span ui-toggle="showHide">Toggle</span>
-				</p>
-				<h3>Why?</h3>
-				<p>CSS3 transitions of course! Applying a class means you can specify exactly how these two states behave. In addition, the show/hide variants do not enforce css rules when they are false (unless you use toggle), so the default CSS can still apply.</p>
-
-				<p><a ng-click="showHideAn=!showHideAn">Toggle State: {{!!showHideAn}}</a></p>
-				<p class="animate">
-					<span ui-show="showHideAn">Show</span>
-					<span ui-hide="showHideAn">Hide</span>
-					<span ui-toggle="showHideAn">Toggle</span>
-				</p>
-				<blockquote>But can't you just do <code>ng-class="someExpression&&'ui-show'"</code>?</blockquote>
-				<p>... shutup.</p>
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<p>Instead of doing <code>ng-show</code> and <code>ng-hide</code> which simply sets <code>display:block/none</code> a <code>ui-show</code> and <code>ui-hide</code> class will be added which can give you tighter control over how things appear or disappear.</p>
+						<p class="well">
+							<a ng-click="showHide=!showHide">Toggle State: {{!!showHide}}</a> <span ui-show="showHide">Show</span> <span ui-hide="showHide">Hide</span> <span ui-toggle="showHide">Toggle</span>
+						</p>
+					</div>
+					<div class="span6">
+						<h3>Why?</h3>
+						<p>CSS3 transitions of course! Applying a class means you can specify exactly how these two states behave. In addition, the show/hide variants do not enforce css rules when they are false (unless you use toggle), so the default CSS can still apply.</p>
+						<div class="well">
+							<p><a ng-click="showHideAn=!showHideAn">Toggle State: {{!!showHideAn}}</a></p>
+							<p class="animate">
+								<span ui-show="showHideAn">Show</span>
+								<span ui-hide="showHideAn">Hide</span>
+								<span ui-toggle="showHideAn">Toggle</span>
+							</p>
+						</div>
+						<blockquote>But can't you just do <code>ng-class="someExpression&&'ui-show'"</code>?</blockquote>
+						<p>... shutup.</p>
+					</div>
+				</div>
 				
 				<h3>How?</h3>
 <pre class="prettyprint linenums" ng-non-bindable>&lt;p&gt;&lt;a ng-click=&quot;showHide=!showHide&quot;&gt;Toggle State: {{!!showHide}}&lt;/a&gt;&lt;/p&gt;
