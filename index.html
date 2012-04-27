@@ -5,7 +5,7 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 	<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="http://code.angularjs.org/1.0.0rc2/angular-1.0.0rc2.min.js"></script>
+	<script type="text/javascript" src="http://code.angularjs.org/1.0.0rc6/angular-1.0.0rc6.min.js"></script>
 	<script type="text/javascript" src="http://angular-ui.github.com/angular-ui/build/angular-ui.js"></script>
 	<script type="text/javascript" src="js/prettify.js"></script>
 	<script type="text/javascript" src="http://ivaynberg.github.com/select2/select2-master/select2.js"></script>
@@ -226,13 +226,15 @@
 				</div>
 				
 				<h3>How?</h3>
-<pre class="prettyprint linenums" ng-non-bindable>&lt;p&gt;Value is: {{select2}} &lt;a ng-click=&quot;select2=&#x27;two&#x27;&quot;&gt;(choose second)&lt;/a&gt;&lt;/p&gt;
+<pre class="prettyprint linenums" ng-non-bindable>
+&lt;p&gt;Value is: {{select2}} &lt;a ng-click=&quot;select2=&#x27;two&#x27;&quot;&gt;(choose second)&lt;/a&gt;&lt;/p&gt;
 &lt;select ui-select2 ng-model=&quot;select2&quot;&gt;
 	&lt;option value=&quot;&quot;&gt;Pick a number&lt;/option&gt;
 	&lt;option value=&quot;one&quot;&gt;First&lt;/option&gt;
 	&lt;option value=&quot;two&quot;&gt;Second&lt;/option&gt;
 	&lt;option value=&quot;three&quot;&gt;Third&lt;/option&gt;
-&lt;/select&gt;</pre>
+&lt;/select&gt;
+</pre>
 			</section>
 			
 			<section id="directives-showhide">
@@ -242,6 +244,8 @@
 				<div class="row">
 					<div class="span6">
 						<h3>What?</h3>
+						
+						
 						<p>Instead of doing <code>ng-show</code> and <code>ng-hide</code> which simply sets <code>display:block/none</code> a <code>ui-show</code> and <code>ui-hide</code> class will be added which can give you tighter control over how things appear or disappear.</p>
 						<p class="well">
 							<a ng-click="showHide=!showHide">Toggle State: {{!!showHide}}</a> <span ui-show="showHide">Show</span> <span ui-hide="showHide">Hide</span> <span ui-toggle="showHide">Toggle</span>
@@ -264,41 +268,72 @@
 				</div>
 				
 				<h3>How?</h3>
-<pre class="prettyprint linenums" ng-non-bindable>&lt;p&gt;&lt;a ng-click=&quot;showHide=!showHide&quot;&gt;Toggle State: {{!!showHide}}&lt;/a&gt;&lt;/p&gt;
+<pre class="prettyprint linenums" ng-non-bindable>
+&lt;p&gt;&lt;a ng-click=&quot;showHide=!showHide&quot;&gt;Toggle State: {{!!showHide}}&lt;/a&gt;&lt;/p&gt;
 &lt;div ui-show=&quot;showHide&quot;&gt;Show&lt;/div&gt;
 &lt;div ui-hide=&quot;showHide&quot;&gt;Hide&lt;/div&gt;
 &lt;div ui-toggle=&quot;showHide&quot;&gt;Toggle&lt;/div&gt;
 </pre>
 			</section>
 			
-			<section id="filters-length">
+			<section id="filters-length" ng-controller="LengthCtrl">
 				<div class="page-header">
 					<h1>Length</h1>
 				</div>
-				<h3>What?</h3>
-				<p></p>
-				<p><input value="Click Here for Datepicker" ui-jq="datepicker"></p>
-
-				<h3>Why?</h3>
-				<p></p>
-
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<p>Get the length attribute of an array or string</p>
+						<div class="well">
+							<p><input ng-model="lengthFilter" placeholder="Filter the list"></p>
+							<p>There are {{items | filter:lengthFilter | length}} items.</p>
+							<ul>
+								<li ng-repeat="value in items | filter:lengthFilter">{{value}}</li>
+							</ul>
+						</div>
+					</div>
+					<div class="span6">
+						<h3>Why?</h3>
+						<p>If you used another filter to modify the array or string, you cannot look at its inherit properties. This allows you to get the length property.</p>
+					</div>
+				</div>
 				<h3>How?</h3>
-<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui-jq=&quot;datepicker&quot;&gt;</pre>
+<pre class="prettyprint linenums">
+&lt;p&gt;&lt;input ng-model=&quot;lengthFilter&quot; placeholder=&quot;Filter the list&quot;&gt;&lt;/p&gt;
+&lt;p&gt;There are {{items | filter:lengthFilter | length}} items.&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li ng-repeat=&quot;value in items | filter:lengthFilter&quot;&gt;{{value}}&lt;/li&gt;
+&lt;/ul&gt;
+...
+$scope.items = ['First','Second','Third','Fourth','Fifth'];
+</pre>
 			</section>
 			
 			<section id="filters-highlight">
 				<div class="page-header">
 					<h1>Highlight</h1>
 				</div>
-				<h3>What?</h3>
-				<p></p>
-				<p><input value="Click Here for Datepicker" ui-jq="datepicker"></p>
-
-				<h3>Why?</h3>
-				<p></p>
-
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<p>Easily highlight some text in a block</p>
+						<div class="well">
+							<p><input placeholder="Enter some text to highlight" ng-model="highlightText"></p>
+							<p ng-bind-html-unsafe="'Hello there, how are you today? I\'m fine thank you.' | highlight:highlightText"></p>
+						</div>
+					</div>
+					<div class="span6">
+						<h3>Why?</h3>
+						<p></p>
+					</div>
+				</div>
 				<h3>How?</h3>
-<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui-jq=&quot;datepicker&quot;&gt;</pre>
+<pre class="prettyprint linenums">
+&lt;p&gt;&lt;input placeholder=&quot;Enter some text to highlight&quot; value=&quot;you&quot; ng-model=&quot;highlightText&quot;&gt;&lt;/p&gt;
+&lt;p ng-bind-html-unsafe=&quot;&#x27;Hello there, how are you today? I\'m fine thank you.&#x27; | highlight:highlightText&quot;&gt;&lt;/p&gt;
+...
+.match { background: yellow; }
+</pre>
 			</section>
 			
 			<section id="filters-unique">

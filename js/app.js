@@ -23,4 +23,14 @@ function TooltipCtrl($scope) {
   };
 };
 
+function LengthCtrl($scope) {
+	$scope.items = [
+		'First',
+		'Second',
+		'Third',
+		'Fourth',
+		'Fifth'
+	];
+}
+
 /* EOF */

@@ -32,3 +32,8 @@ section {
 	margin: 0;
 	opacity: 0;
 }
+
+/*** Highlight ***/
+.match {
+	background: yellow;
+}
