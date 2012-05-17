@@ -23,6 +23,12 @@ function TooltipCtrl($scope) {
   };
 };
 
+function EventCtrl($scope) {
+	$scope.blurCallback = function(e) {
+		alert('Goodbye');
+	};
+};
+
 function LengthCtrl($scope) {
 	$scope.items = [
 		'First',

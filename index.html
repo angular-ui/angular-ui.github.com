@@ -34,8 +34,9 @@
 								<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="#directives-date">Date</a></li>
 								<li><a href="#directives-jq">jQuery Passthrough</a></li>
+								<li><a href="#directives-event">Event Binder</a></li>
+								<li><a href="#directives-date">Date</a></li>
 								<li><a href="#directives-keypress">Keypress</a></li>
 								<li><a href="#directives-linky">Linky</a></li>
 								<li><a href="#directives-mask">Mask</a></li>
@@ -73,21 +74,6 @@
 				<p class="lead">The enhancement companion suite to AngularJs framework.</p>
 			</header>
 			
-			<section id="directives-date">
-				<div class="page-header">
-					<h1>Date</h1>
-				</div>
-				<h3>What?</h3>
-				<p></p>
-				<p><input value="Click Here for Datepicker" ui-jq="datepicker"></p>
-				
-				<h3>Why?</h3>
-				<p></p>
-				
-				<h3>How?</h3>
-<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui-jq=&quot;datepicker&quot;&gt;</pre>
-			</section>
-			
 			<section id="directives-jq">
 				<div class="page-header">
 					<h1>jQuery Passthrough</h1>
@@ -109,6 +95,51 @@
 <pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui-jq=&quot;datepicker&quot;&gt;</pre>
 				<p>You can also add a <code>ui-options</code> attribute that will be evaluated and passed to the command.</p>
 				<p>You will also be able to create an app-wide configuration so that you aren't forced to manually pass options every time you call the directive.</p>
+			</section>
+			
+			<section id="directives-event" ng-controller="EventCtrl">
+				<div class="page-header">
+					<h1>Event Binder</h1>
+				</div>
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<p>Bind a callback to any event not natively supported by Angular.</p>
+						<p class="well"><input value="Focus and then Blur this input" ui-event="'blur'" ui-event-call="blurCallback"></p>
+					</div>
+					<div class="span6">
+						<h3>Why?</h3>
+						<p>For Blurs, Focus, Double-Clicks or any other event you may choose that isn't built-in. Might have to add the ability to pass multiple callbacks though.</p>
+					</div>
+				</div>
+				
+				<h3>How?</h3>
+				<p>HTML:</p>
+				<pre class="prettyprint">&lt;input value=&quot;Focus on this input&quot; ui-event=&quot;'blur'&quot; ui-event-call=&quot;blurCallback&quot;&gt;</pre>
+				<p>Javascript:</p>
+<pre class="prettyprint linenums">function EventCtrl($scope) {
+	$scope.focusCallback = function(e) {
+		alert('Hello there');
+	};
+};</pre>
+				<p>You can alternatively pass multiple events as an object:</p>
+				<pre class="prettyprint">&lt;input ui-event=&quot;{ focus : function(){alert(&#x27;hi&#x27;)}, blur : function(){alert(&#x27;bye&#x27;)} }&quot;&gt;</pre>
+				<p>You can also pass a <code>ui-event-data</code> attribute which will be available in the callback functions as <code>event.data</code>.</p>
+			</section>
+			
+			<section id="directives-date">
+				<div class="page-header">
+					<h1>Date</h1>
+				</div>
+				<h3>What?</h3>
+				<p></p>
+				<p><input value="Click Here for Datepicker" ui-jq="datepicker"></p>
+				
+				<h3>Why?</h3>
+				<p></p>
+				
+				<h3>How?</h3>
+<pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui-jq=&quot;datepicker&quot;&gt;</pre>
 			</section>
 			
 			<section id="directives-keypress">
