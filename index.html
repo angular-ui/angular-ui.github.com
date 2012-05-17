@@ -115,10 +115,10 @@
 				
 				<h3>How?</h3>
 				<p>HTML:</p>
-				<pre class="prettyprint">&lt;input value=&quot;Focus on this input&quot; ui-event=&quot;'blur'&quot; ui-event-call=&quot;blurCallback&quot;&gt;</pre>
+				<pre class="prettyprint">&lt;input value=&quot;Focus on this input&quot; ui-event=&quot; 'blur' &quot; ui-event-call=&quot;blurCallback&quot;&gt;</pre>
 				<p>Javascript:</p>
 <pre class="prettyprint linenums">function EventCtrl($scope) {
-	$scope.focusCallback = function(e) {
+	$scope.blurCallback = function(e) {
 		alert('Hello there');
 	};
 };</pre>
