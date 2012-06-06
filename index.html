@@ -69,10 +69,30 @@
 	</header>
 	<div role="main">
 		<div class="container">
-			<header class="jumbotron subhead" id="overview">
+			<header class="hero-unit" id="overview">
 				<h1>AngularJs - UI</h1>
-				<p class="lead">The enhancement companion suite to AngularJs framework.</p>
+				<p>The enhancement companion suite to AngularJs framework.</p>
 			</header>
+			
+			<section class="" id="configuration">
+				<h1>Global Default Configuration</h1>
+				<div class="row">
+					<div class="span6">
+						<p>If you don't want to pass a configuration or set of options to each directive, you can alternatively declare a global variable that will be merged instead. Your passed options will be used to override the global configuration too.</p>
+						<p>Use <code>module.value('ui.config', {})</code> to declare a global configuration. Namespace each configuration by the directive or filter name (<strong>camelCased</strong>) without the ui prefix.</p>
+					</div>
+					<div class="span6">
+						<p>Here is an example to make all <a href="#directive-select2">select2</a> directives clearable by default:</p>
+<pre class="prettyprint linenums">var myModule = angular.module('myModule', ['ui']);
+myModule.value('ui.config', {
+	select2: {
+		allowClear: true
+	}
+});
+</pre>
+					</div>
+				</div>
+			</section>
 			
 			<section id="directives-jq">
 				<div class="page-header">
