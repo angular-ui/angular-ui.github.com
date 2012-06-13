@@ -73,7 +73,7 @@
 				<h1>AngularJs - UI</h1>
 				<p>The enhancement companion suite to AngularJs framework.</p>
 			</header>
-			
+
 			<section class="" id="configuration">
 				<h1>Global Default Configuration</h1>
 				<div class="row">
@@ -82,7 +82,7 @@
 						<p>Use <code>module.value('ui.config', {})</code> to declare a global configuration. Namespace each configuration by the directive or filter name (<strong>camelCased</strong>) without the ui prefix.</p>
 					</div>
 					<div class="span6">
-						<p>Here is an example to make all <a href="#directive-select2">select2</a> directives clearable by default:</p>
+						<p>Here is an example to make all <a href="#directives-select2">select2</a> directives clearable by default:</p>
 <pre class="prettyprint linenums">var myModule = angular.module('myModule', ['ui']);
 myModule.value('ui.config', {
 	select2: {
@@ -93,7 +93,7 @@ myModule.value('ui.config', {
 					</div>
 				</div>
 			</section>
-			
+
 			<section id="directives-jq">
 				<div class="page-header">
 					<h1>jQuery Passthrough</h1>
@@ -110,13 +110,13 @@ myModule.value('ui.config', {
 						<p>If a plugin requires more robust integration with AngularJs then you may need to look into creating a custom directive instead, or <a href="https://github.com/angular-ui/angular-ui/issues?sort=created&direction=desc&state=open">contact us</a> with a request.</p>
 					</div>
 				</div>
-				
+
 				<h3>How?</h3>
 <pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui-jq=&quot;datepicker&quot;&gt;</pre>
 				<p>You can also add a <code>ui-options</code> attribute that will be evaluated and passed to the command.</p>
 				<p>You will also be able to create an app-wide configuration so that you aren't forced to manually pass options every time you call the directive.</p>
 			</section>
-			
+
 			<section id="directives-event" ng-controller="EventCtrl">
 				<div class="page-header">
 					<h1>Event Binder</h1>
@@ -132,7 +132,7 @@ myModule.value('ui.config', {
 						<p>For Blurs, Focus, Double-Clicks or any other event you may choose that isn't built-in. Might have to add the ability to pass multiple callbacks though.</p>
 					</div>
 				</div>
-				
+
 				<h3>How?</h3>
 				<p>HTML:</p>
 				<pre class="prettyprint">&lt;input value=&quot;Focus on this input&quot; ui-event=&quot; 'blur' &quot; ui-event-call=&quot;blurCallback&quot;&gt;</pre>
@@ -146,7 +146,7 @@ myModule.value('ui.config', {
 				<pre class="prettyprint">&lt;input ui-event=&quot;{ focus : function(){alert(&#x27;hi&#x27;)}, blur : function(){alert(&#x27;bye&#x27;)} }&quot;&gt;</pre>
 				<p>You can also pass a <code>ui-event-data</code> attribute which will be available in the callback functions as <code>event.data</code>.</p>
 			</section>
-			
+
 			<section id="directives-date">
 				<div class="page-header">
 					<h1>Date</h1>
@@ -154,21 +154,21 @@ myModule.value('ui.config', {
 				<h3>What?</h3>
 				<p></p>
 				<p><input value="Click Here for Datepicker" ui-jq="datepicker"></p>
-				
+
 				<h3>Why?</h3>
 				<p></p>
-				
+
 				<h3>How?</h3>
 <pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui-jq=&quot;datepicker&quot;&gt;</pre>
 			</section>
-			
-			<section id="directives-keypress">
+
+			<section id="directives-keypress" ng-controller="KeypressCtrl">
 				<div class="page-header">
 					<h1>Keypress</h1>
 				</div>
 				<h3>What?</h3>
 				<p></p>
-				<p><input value="Click Here for Datepicker" ui-jq="datepicker"></p>
+				<p><textarea ng-model="keypressModel" ui-keypress="13,keypressCallback"></textarea>
 
 				<h3>Why?</h3>
 				<p></p>
@@ -176,7 +176,7 @@ myModule.value('ui.config', {
 				<h3>How?</h3>
 <pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui-jq=&quot;datepicker&quot;&gt;</pre>
 			</section>
-			
+
 			<section id="directives-linky">
 				<div class="page-header">
 					<h1>Linky</h1>
@@ -191,7 +191,7 @@ myModule.value('ui.config', {
 				<h3>How?</h3>
 <pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui-jq=&quot;datepicker&quot;&gt;</pre>
 			</section>
-			
+
 			<section id="directives-mask">
 				<div class="page-header">
 					<h1>Mask</h1>
@@ -206,7 +206,7 @@ myModule.value('ui.config', {
 				<h3>How?</h3>
 <pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui-jq=&quot;datepicker&quot;&gt;</pre>
 			</section>
-			
+
 			<section id="directives-remove">
 				<div class="page-header">
 					<h1>Remove</h1>
@@ -220,7 +220,7 @@ myModule.value('ui.config', {
 				<h3>How?</h3>
 <pre class="prettyprint">&lt;input value=&quot;Click Here to show the jQuery UI Datepicker&quot; ui-jq=&quot;datepicker&quot;&gt;</pre>
 			</section>
-			
+
 			<section id="directives-reset">
 				<div class="page-header">
 					<h1>Reset</h1>
@@ -235,7 +235,7 @@ myModule.value('ui.config', {
 				<h3>How?</h3>
 <pre class="prettyprint">&lt;input value=&quot;Hover over me&quot; ui-reset&gt;</pre>
 			</section>
-			
+
 			<section id="directives-scrollfix">
 				<div class="page-header">
 					<h1>Scrollfix</h1>
@@ -251,7 +251,7 @@ myModule.value('ui.config', {
 <pre class="prettyprint">&lt;p ui-scrollfix&gt;They see me rollin...&lt;/p&gt;</pre>
 				<p>You can optionally pass a number to <code>ui-scrollfix</code> which would override the detected y-offset of the element</p>
 			</section>
-			
+
 			<section id="directives-select2">
 				<div class="page-header">
 					<h1>Select2</h1>
@@ -275,7 +275,7 @@ myModule.value('ui.config', {
 						<p>This would work fine using the jQuery passthrough alone, but this directive adds support for changing the ng-model directly. If the value is programmatically updated, then select2 is automatically updated to reflect the changes.</p>
 					</div>
 				</div>
-				
+
 				<h3>How?</h3>
 <pre class="prettyprint linenums" ng-non-bindable>
 &lt;p&gt;Value is: {{select2}} &lt;a ng-click=&quot;select2=&#x27;two&#x27;&quot;&gt;(choose second)&lt;/a&gt;&lt;/p&gt;
@@ -287,7 +287,7 @@ myModule.value('ui.config', {
 &lt;/select&gt;
 </pre>
 			</section>
-			
+
 			<section id="directives-showhide">
 				<div class="page-header">
 					<h1>Show, Hide and Toggle Alternatives</h1>
@@ -295,8 +295,8 @@ myModule.value('ui.config', {
 				<div class="row">
 					<div class="span6">
 						<h3>What?</h3>
-						
-						
+
+
 						<p>Instead of doing <code>ng-show</code> and <code>ng-hide</code> which simply sets <code>display:block/none</code> a <code>ui-show</code> and <code>ui-hide</code> class will be added which can give you tighter control over how things appear or disappear.</p>
 						<p class="well">
 							<a ng-click="showHide=!showHide">Toggle State: {{!!showHide}}</a> <span ui-show="showHide">Show</span> <span ui-hide="showHide">Hide</span> <span ui-toggle="showHide">Toggle</span>
@@ -317,7 +317,7 @@ myModule.value('ui.config', {
 						<p>... shutup.</p>
 					</div>
 				</div>
-				
+
 				<h3>How?</h3>
 <pre class="prettyprint linenums" ng-non-bindable>
 &lt;p&gt;&lt;a ng-click=&quot;showHide=!showHide&quot;&gt;Toggle State: {{!!showHide}}&lt;/a&gt;&lt;/p&gt;
@@ -326,7 +326,7 @@ myModule.value('ui.config', {
 &lt;div ui-toggle=&quot;showHide&quot;&gt;Toggle&lt;/div&gt;
 </pre>
 			</section>
-			
+
 			<section id="filters-length" ng-controller="LengthCtrl">
 				<div class="page-header">
 					<h1>Length</h1>
@@ -359,7 +359,7 @@ myModule.value('ui.config', {
 $scope.items = ['First','Second','Third','Fourth','Fifth'];
 </pre>
 			</section>
-			
+
 			<section id="filters-highlight">
 				<div class="page-header">
 					<h1>Highlight</h1>
@@ -386,7 +386,7 @@ $scope.items = ['First','Second','Third','Fourth','Fifth'];
 .match { background: yellow; }
 </pre>
 			</section>
-			
+
 			<section id="filters-unique">
 				<div class="page-header">
 					<h1>Unique</h1>

@@ -6,7 +6,7 @@
 var demoApp = angular.module('demoApp', ['ui'], function($routeProvider) {
 });
 
-demoApp.config(function($locationProvider) {  
+demoApp.config(function($locationProvider) {
   $locationProvider.hashPrefix('');
   // Make code pretty
   window.prettyPrint && prettyPrint()
@@ -37,6 +37,13 @@ function LengthCtrl($scope) {
 		'Fourth',
 		'Fifth'
 	];
+}
+
+function KeypressCtrl($scope) {
+	$scope.keypressModel = 'Type something in and hit [Enter]. Remember that this normally adds a new line in textareas';
+	$scope.keypressCallback = function(e) {
+		alert('You typed: "' + $scope.keypressModel + '"');
+	};
 }
 
 /* EOF */
