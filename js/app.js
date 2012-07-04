@@ -40,10 +40,26 @@ function LengthCtrl($scope) {
 }
 
 function KeypressCtrl($scope) {
-	$scope.keypressModel = 'Type something in and hit [Enter]. Remember that this normally adds a new line in textareas';
-	$scope.keypressCallback = function(e) {
-		alert('You typed: "' + $scope.keypressModel + '"');
+	$scope.keypressCallback = function(event) {
+		event.preventDefault();
+		alert('Voila!');
 	};
+}
+
+function ScrollfixCtrl($scope) {
+	$scope.scrollfix = -50;
+}
+
+function UniqueCtrl($scope) {
+	$scope.items = [
+		{ firstName: 'Dean', lastName: 'Sofer', id: 1, gender: 'Male' },
+		{ firstName: 'Dean', lastName: 'Kuntz', id: 2, gender: 'Male' },
+		{ firstName: 'Peter', lastName: 'Piper', id: 3, gender: 'Female' },
+		{ firstName: 'Peter', lastName: 'Darwin', id: 4, gender: 'Male' },
+		{ firstName: 'Janet', lastName: 'Piper', id: 5, gender: 'Female' },
+		{ firstName: 'Dan', lastName: 'Doyon', id: 6, gender: 'Male' },
+		{ firstName: 'Andy', lastName: 'Joslin', id: 1, gender: 'Male' },
+	];
 }
 
 /* EOF */

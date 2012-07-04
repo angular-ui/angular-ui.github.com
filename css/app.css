@@ -5,6 +5,36 @@ section {
 	padding-top: 40px;
 }
 
+/*** Reset ***/
+.ui-reset {
+	width: 14px;
+	height: 14px;
+	margin: 5px;
+	*margin-right: .3em;
+	line-height: 14px;
+	vertical-align: text-top;
+	background-image: url("http://twitter.github.com/bootstrap/assets/img/glyphicons-halflings.png");
+	background-position: 14px 14px;
+	background-repeat: no-repeat;
+    background-position: -48px -96px;
+}
+
+/*** Remove ***/
+#directives-remove ul.piped-list {
+	padding: 0;
+	margin: 10px 0;
+}
+#directives-remove .piped-list li {
+	display: inline-block;
+	border-left: 2px solid;
+	margin-left: 5px;
+	padding-left: 10px;
+}
+#directives-remove .piped-list li:first-child {
+	border-left: none;
+	margin-left: 0;
+}
+
 /*** ShowHide ***/
 .ui-show {
 	display: block;
@@ -21,15 +51,9 @@ section {
 	transition: all 0.5s ease;
 }
 .animate .ui-show {
-	padding: 10px;
-	height: 10px;
-	margin: 10px;
+	color: blue;
 }
 .animate .ui-hide {
-	display: block;
-	padding: 0 10px;
-	height: 0;
-	margin: 0;
 	opacity: 0;
 }
 #EmptyField {
@@ -37,6 +61,10 @@ section {
 	width:300px;
 	height:100px;
 	overflow: scroll;
+}
+/*** Select2 ***/
+#directives-select2 select {
+	width: 200px;
 }
 /*** Scrollfix ***/
 #scrollExample p {
@@ -62,7 +90,7 @@ section {
 }
 
 /*** Highlight ***/
-.match {
+.ui-match {
 	background: yellow;
 }
 
