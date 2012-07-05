@@ -178,22 +178,28 @@ $scope.blurCallback = function(e) {
 				<div class="page-header">
 					<h1>Date</h1>
 				</div>
-				<h3>What?</h3>
-				<p>Calendar picker with ng-model integration</p>
-				<div class="well">
-					<p><input value="Click Here for Datepicker" ng-model="date" ui-date></p>					
-					<p>Selected Date: {{date}}</p>
-				</div>
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<p>Calendar picker with ng-model integration</p>
+						<div class="well">
+							<p><input value="Click Here for Datepicker" ng-model="date" ui-date></p>					
+							<p>Selected Date: {{date}}</p>
+							<div ng-model="date" ui-date></div>
+						</div>	
+					</div>
+					<div class="span6">
+						<h3>Why?</h3>
+						<p>Because you want to be able to update the calendar programmatically if it'a already open. Amongst other things</p>
 
-				<h3>Why?</h3>
-				<p>Because you want to be able to update the calendar programmatically if it'a already open. Amongst other things</p>
-
-				<h3>How?</h3>
-<pre class="prettyprint" ng-non-bindable>
+						<h3>How?</h3>
+<pre class="prettyprint linenums" ng-non-bindable>
 &lt;input ng-model="date" ui-date&gt;
-
 Selected Date: {{date}}
+&lt;div ng-model="date" ui-date&gt;&lt;/div&gt;
 </pre>
+					</div>
+				</div>
 			</section>
 
 			<section id="directives-keypress" ng-controller="KeypressCtrl">
@@ -268,6 +274,7 @@ $scope.keypressCallback = function(e) {
 						</div>
 						<h3>Why?</h3>
 						<p>In situations where DOM traversal matters (such as the CSS selectors <code>:first-child</code>, <code>:last-child</code> and <code>:nth()-child</code>), simply hiding elements is not enough.</p>
+						<p class="alert alert-error"><i class="icon-info-sign"></i> Further testing is needed to see if this directive breaks compiler traversal in the latest version of AngularJS. <strong>Use at your own risk!</strong></p>
 					</div>
 					<div class="span6">
 
@@ -332,12 +339,13 @@ $scope.keypressCallback = function(e) {
 					<div class="span6">
 						<h3>Why?</h3>
 						<p>Make elements sticky, or simply appear different after scrolling past a certain point</p>
+						<p class="alert alert-info"><i class="icon-info-sign"></i> Remember that this directive <strong>only</strong> adds a <code>ui-scrollfix</code> class to the element. It is up to you to add the corresponding CSS rules, however it also gives you the ability to add other rules instead if you prefer.</p>
 					</div>
 				</div>
 
 				<h3>How?</h3>
 <pre class="prettyprint" ng-non-bindable>&lt;p ui-scrollfix&gt;They see me scrollin...&lt;/p&gt;</pre>
-				<p>You can optionally pass a number to <code>ui-scrollfix</code> which would override the detected y-offset of the element</p>
+				<p>You can optionally pass a number to <code>ui-scrollfix</code> which would override the detected y-offset of the element. Values can be either absolute <code>600</code> or offset from the calculated value <code>-50</code> or <code>+100</code>.</p>
 			</section>
 
 			<section id="directives-select2">
@@ -488,6 +496,7 @@ $scope.items = [&#x27;First&#x27;,&#x27;Second&#x27;,&#x27;Third&#x27;,&#x27;Fou
 				<div class="page-header">
 					<h1>Unique</h1>
 				</div>
+				<p class="alert alert-error"><i class="icon-info-sign"></i> This filter is currently broken. Do not use.</p>
 				<div class="row">
 					<div class="span6">
 						<h3>What?</h3>
