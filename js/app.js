@@ -29,6 +29,10 @@ function EventCtrl($scope) {
 	};
 };
 
+function ModalCtrl($scope) {
+  $scope.modalShown = false;
+}
+
 function LengthCtrl($scope) {
 	$scope.items = [
 		'First',
