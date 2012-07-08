@@ -12,6 +12,8 @@
 	<script type="text/javascript" src="https://raw.github.com/petebacondarwin/angular-contrib/master/js/lib/jquery.maskedinput-1.3.js"></script>
 	<script type="text/javascript" src="http://ivaynberg.github.com/select2/select2-master/select2.js"></script>
 	<script type="text/javascript" src="http://craigsworks.com/projects/qtip_new/packages/nightly/jquery.qtip.js"></script>
+	<script type="text/javascript" src="http://fiddle.tinymce.com/tinymce/3.5.4.1/jquery.tinymce.js"></script>
+	<script type="text/javascript" src="http://fiddle.tinymce.com/tinymce/3.5.4.1/tiny_mce_jquery_src.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 
 	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet">
@@ -49,6 +51,7 @@
 								<li><a href="#directives-scrollfix">Scrollfix</a></li>
 								<li><a href="#directives-select2">Select2</a></li>
 								<li><a href="#directives-showhide">Show / Hide / Toggle</a></li>
+								<li><a href="#directives-tinymce">TinyMCE</a></li>
 							</ul>
 						</li>
 						<li class="dropdown">
@@ -433,6 +436,41 @@ $scope.keypressCallback = function(e) {
 </pre>
 				<p>Using <code>ui-show</code> or <code>ui-hide</code> will add a class of the same name when the expression is true.</p>
 				<p>Use <code>ui-toggle</code> if you want to leverage both classes, as <code>ui-show</code> will be added when true and <code>ui-hide</code> when false.</p>
+			</section>
+			
+			<section id="directives-tinymce">
+				<div class="page-header">
+					<h1>TinyMCE</h1>
+				</div>
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<p>TinyMCE WYSIWYG integration</p>
+						<div class="well">
+							<textarea ui-tinymce="{theme:'simple'}" ng-model="tinymce"></textarea>
+							<h4>Output:</h4>
+							<p>{{tinymce}}</p>
+						</div>
+					</div>
+					<div class="span6">
+						<h3>How?</h3>
+						<p>This example shows how you can use <code>ui.config</code> for greater convenience. You can still pass the configuration as the expression (even in addition to <code>ui.config</code>).</p>
+<pre class="prettyprint linenums" ng-non-bindable>
+&lt;textarea ui-tinymce ng-model=&quot;tinymce&quot;&gt;&lt;/textarea&gt;
+&lt;p&gt;{{tinymce}}&lt;/p&gt;
+
+&lt;script&gt;
+myModule.value(&#x27;ui.config&#x27;, {
+   tinymce: {
+      theme: &#x27;simple&#x27;,
+   }
+});
+&lt;/script&gt;
+</pre>
+					</div>
+				</div>
+
+				
 			</section>
 
 			<section id="filters-length" ng-controller="LengthCtrl">
