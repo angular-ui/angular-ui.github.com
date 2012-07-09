@@ -337,7 +337,7 @@ $scope.keypressCallback = function(e) {
 						<h3>What?</h3>
 						<p>Takes the twitter bootstrap modal and lets you assign an ng-model to it.  You can open/close the modal any way you want: data-* attributes, or use elm.modal('show'), or whatever.  The ng-model you give will always correspond to whether the modal is opened or not, and if you set it it will also change the modal.
 						<p>
-							<div id="myModal" class="modal hide" ui-modal ng-model="modalShown">
+							<div id="myModal" class="modal hide fade" ui-modal ng-model="modalShown">
 								<div class="modal-header"><h1>Modalin'!</h1></div>
 								<div class="modal-body">
 									<p>Cool beans, dude.</p>
@@ -485,12 +485,13 @@ $scope.keypressCallback = function(e) {
 				<div class="page-header">
 					<h1>TinyMCE</h1>
 				</div>
+				<p class="alert alert-error"><i class="icon-info-sign"></i> Demo disabled temporarily due to conflicts with other directives. Use at your own risk!</p>
 				<div class="row">
 					<div class="span6">
 						<h3>What?</h3>
 						<p>TinyMCE WYSIWYG integration</p>
 						<div class="well">
-							<textarea ui-tinymce="{theme:'simple'}" ng-model="tinymce"></textarea>
+							<textarea ng-model="tinymce"></textarea>
 							<h4>Output:</h4>
 							<p>{{tinymce}}</p>
 						</div>
