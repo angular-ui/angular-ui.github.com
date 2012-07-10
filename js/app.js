@@ -24,7 +24,7 @@ function TooltipCtrl($scope) {
 };
 
 function EventCtrl($scope) {
-	$scope.blurCallback = function(e) {
+	$scope.blurCallback = function() {
 		alert('Goodbye');
 	};
 };
