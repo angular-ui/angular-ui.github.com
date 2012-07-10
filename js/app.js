@@ -44,8 +44,7 @@ function LengthCtrl($scope) {
 }
 
 function KeypressCtrl($scope) {
-	$scope.keypressCallback = function(event) {
-		event.preventDefault();
+	$scope.keypressCallback = function() {
 		alert('Voila!');
 	};
 }
