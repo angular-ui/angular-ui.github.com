@@ -24,10 +24,14 @@ function TooltipCtrl($scope) {
 };
 
 function EventCtrl($scope) {
-	$scope.blurCallback = function(e) {
+	$scope.blurCallback = function() {
 		alert('Goodbye');
 	};
 };
+
+function ModalCtrl($scope) {
+  $scope.modalShown = false;
+}
 
 function LengthCtrl($scope) {
 	$scope.items = [
@@ -40,8 +44,7 @@ function LengthCtrl($scope) {
 }
 
 function KeypressCtrl($scope) {
-	$scope.keypressCallback = function(event) {
-		event.preventDefault();
+	$scope.keypressCallback = function() {
 		alert('Voila!');
 	};
 }
