@@ -19,7 +19,6 @@
 	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="angular-ui/build/angular-ui.css" />
-	<!-- <link rel="stylesheet" type="text/css" href="/angular-ui/build/angular-ui.css" /> -->
 	<link rel="stylesheet" type="text/css" href="css/prettify.css" />
 	<link rel="stylesheet" type="text/css" href="http://ivaynberg.github.com/select2/select2-master/select2.css" />
 	<link rel="stylesheet" type="text/css" href="http://craigsworks.com/projects/qtip_new/packages/nightly/jquery.qtip.css" />
@@ -53,6 +52,7 @@
 								<li><a href="#directives-select2">Select2</a></li>
 								<li><a href="#directives-showhide">Show / Hide / Toggle</a></li>
 								<li><a href="#directives-tinymce">TinyMCE</a></li>
+								<li><a href="#directives-currency">Currency</a></li>
 							</ul>
 						</li>
 						<li class="dropdown">
@@ -512,6 +512,64 @@ myModule.value(&#x27;ui.config&#x27;, {
    }
 });
 &lt;/script&gt;
+</pre>
+					</div>
+				</div>
+
+				
+			</section>
+
+			<section id="directives-currency" ng-controller="CurrencyCtrl">
+				<div class="page-header">
+					<h1>Currency</h1>
+				</div>
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<p>Angular currencyFilter wrapper</p>
+						<div class="well">
+							<span ui-currency ng-model="nums.pos"></span>
+							<span ui-currency="{ symbol: '$', zero: 'my-zero-class'}" ng-model="nums.zero"></span>
+							<span ui-currency ng-model="nums.neg"></span>
+						</div>
+					</div>
+					<div class="span6">
+						<h3>Why?</h3>
+						<p>In angular, you are able to specify what the currency symbol is (however, you might not want to change it for localization). 
+							This directive gives greater control over your currency elements by allowing you to set CSS styles based on the number's sign. 
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span12">
+						<h3>How?</h3>
+						<p>This example shows how you can use <code>ui.config</code> for greater convenience. You can still pass the configuration as the expression (even in addition to <code>ui.config</code>).</p>
+<pre class="prettyprint linenums" ng-non-bindable>
+&lt;span ui-currency ng-model=&quot;nums.pos&quot;&gt;&lt;/span&gt;
+&lt;span ui-currency=&quot;{ symbol: '$', zero: 'my-zero-class'}&quot; ng-model=&quot;nums.zero&quot;&gt;&lt;/span&gt;
+&lt;span ui-currency ng-model=&quot;nums.neg&quot;&gt;&lt;/span&gt;
+
+&lt;script&gt;
+myModule.value(&#x27;ui.config&#x27;, {
+   currency: {
+      symbol: &#x27;USD$&#x27;,
+   }
+});
+&lt;/script&gt;
+&lt;style&gt;
+span[ui-currency] {
+  display:block;
+}
+.ui-currency-pos {
+  font-weight: bold;
+}
+.ui-currency-neg {
+  font-size: 125%;
+}
+.my-zero-class {
+  color: #000;
+}
+&lt;/style&gt;
 </pre>
 					</div>
 				</div>

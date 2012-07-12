@@ -3,8 +3,11 @@
  * demoApp - 1.0.0rc2
  */
 
-var demoApp = angular.module('demoApp', ['ui'], function($routeProvider) {
-});
+var demoApp = angular.module('demoApp', ['ui'], function($routeProvider) {}).value('ui.config', {
+	currency: {
+		  symbol: 'USD$'
+		}
+	});
 
 demoApp.config(function($locationProvider) {
   $locationProvider.hashPrefix('');
@@ -65,4 +68,11 @@ function UniqueCtrl($scope) {
 	];
 }
 
+function CurrencyCtrl($scope) {
+	$scope.nums =  {
+	    pos : 1000,
+	    neg : -12345,
+	    zero: 0
+	};
+};
 /* EOF */
