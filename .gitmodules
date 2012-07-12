@@ -1,3 +1,18 @@
 [submodule "angular-ui"]
 	path = angular-ui
 	url = git://github.com/angular-ui/angular-ui.git
+[submodule "lib/select2"]
+	path = lib/select2
+	url = git://github.com/ivaynberg/select2.git
+[submodule "lib/qTip2"]
+	path = lib/qTip2
+	url = git://github.com/Craga89/qTip2.git
+[submodule "lib/maskedinput"]
+	path = lib/maskedinput
+	url = git://github.com/digitalBush/jquery.maskedinput.git
+[submodule "lib/bootstrap"]
+	path = lib/bootstrap
+	url = git://github.com/twitter/bootstrap.git
+[submodule "lib/tinymce"]
+	path = lib/tinymce
+	url = git://github.com/tinymce/tinymce.git
