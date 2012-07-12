@@ -185,6 +185,8 @@ $scope.blurCallback = function(e) {
 						<div class="well">
 							<p><input value="Click Here for Datepicker" ng-model="date" ui-date></p>					
 							<p>Selected Date: {{date}}</p>
+							<p>Formatted Date: {{ date.toLocaleDateString()}}</p>
+							<p>Selected Month: {{date.getMonth()}}</p>
 							<div ng-model="date" ui-date></div>
 						</div>	
 					</div>
@@ -196,6 +198,8 @@ $scope.blurCallback = function(e) {
 <pre class="prettyprint linenums" ng-non-bindable>
 &lt;input ng-model="date" ui-date&gt;
 Selected Date: {{date}}
+Formatted Date: {{ date.toLocaleDateString()}}
+Selected Month: {{date.getMonth()}}
 &lt;div ng-model="date" ui-date&gt;&lt;/div&gt;
 </pre>
 					</div>
