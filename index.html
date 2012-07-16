@@ -368,7 +368,7 @@ $scope.resetModal = &#x27;Hover over me&#x27;;
 						<h3>What?</h3>
 						<p>Takes the twitter bootstrap modal and lets you assign an ng-model to it.  You can open/close the modal any way you want: data-* attributes, or use elm.modal('show'), or whatever.  The ng-model you give will always correspond to whether the modal is opened or not, and if you set it it will also change the modal.
 						<p>
-							<div id="myModal" class="modal hide fade" ui-modal ng-model="modalShown">
+							<div id="modalGuy" class="modal hide fade" ui-modal ng-model="modalShown">
 								<div class="modal-header"><h1>Modalin'!</h1></div>
 								<div class="modal-body">
 									<p>Cool beans, dude.</p>
@@ -379,7 +379,7 @@ $scope.resetModal = &#x27;Hover over me&#x27;;
 								</div>
 							</div>
 							<a class="btn" ng-click="modalShown=true">Open Modal with ng-model</a><br>
-							<a class="btn" data-toggle="modal" data-target="#myModal">Open Modal with data-toggle="modal"</a>
+							<a class="btn" data-toggle="modal" href="#modalGuy">Open Modal with data-toggle="modal"</a>
 						</p>
 						<h3>Why?</h3>
 						<p>We wanted to be able to open/close a modal programatically, so we stuck an ng-model onto the bootstrap modal and called it a day.</p>
