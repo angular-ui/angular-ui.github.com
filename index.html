@@ -13,6 +13,7 @@
 	<script type="text/javascript" src="lib/select2/select2.js"></script>
 	<script type="text/javascript" src="lib/qTip2/dist/jquery.qtip.min.js"></script>
 	<script type="text/javascript" src="lib/CodeMirror2/lib/codemirror.js"></script>
+	<script type="text/javascript" src="lib/CodeMirror2/mode/javascript/javascript.js"></script>
 	<script type="text/javascript" src="http://fiddle.tinymce.com/tinymce/3.5.4.1/jquery.tinymce.js"></script>
 	<script type="text/javascript" src="http://fiddle.tinymce.com/tinymce/3.5.4.1/tiny_mce_jquery_src.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
@@ -24,6 +25,7 @@
 	<link rel="stylesheet" type="text/css" href="lib/select2/select2.css" >
 	<link rel="stylesheet" type="text/css" href="lib/qTip2/dist/jquery.qtip.css" >
 	<link rel="stylesheet" type="text/css" href="lib/CodeMirror2/lib/codemirror.css" >
+	<link rel="stylesheet" type="text/css" href="lib/CodeMirror2/theme/monokai.css" >
 	
 	<link rel="stylesheet" type="text/css" href="css/app.css" >
 </head>
@@ -152,7 +154,7 @@ myModule.value(&#x27;ui.config&#x27;, {
 </pre>
 			</section>
 
-			<section id="directives-codemirror">
+			<section id="directives-codemirror" ng-controller="CodeMirrorCtrl">
 				<div class="page-header">
 					<h1>CodeMirror</h1>
 				</div>
@@ -160,12 +162,12 @@ myModule.value(&#x27;ui.config&#x27;, {
 					<div class="span6">
 						<h3>What?</h3>
 						<p>IDE? In <em>my</em> textareas? Surely you're joking.</p>
-						<p><textarea ui-codemirror ng-model="codeMirrorModel"></textarea></p>
+						<p><textarea ui-codemirror="{theme:'monokai'}" ng-model="codeMirrorModel"></textarea></p>
 					</div>
 					<div class="span6">
 						<h3>How?</h3>
 <pre class="prettyprint" ng-non-bindable>
-&lt;textarea ui-codemirror ng-model=&quot;codeMirrorModel&quot;&gt;&lt;/textarea&gt;
+&lt;textarea ui-codemirror=&quot;{theme:&#x27;monokai&#x27;}&quot; ng-model=&quot;codeMirrorModel&quot;&gt;&lt;/textarea&gt;
 </pre>
 					</div>
 				</div>
@@ -248,11 +250,10 @@ Selected Month: {{ date.getMonth() }}
 						<p>The directive takes a hash (object) with the key code as the key and the callback function to fire as the value. The callback function takes an 'event' param</p>
 						<p class="alert alert-info">Note that <strong>13</strong> represents the <code>RETURN</code> key code.</p>
 <pre class="prettyprint" ng-non-bindable>
-&lt;textarea ui-keypress=&quot;{ 13 : keypressCallback }&quot;&gt;&lt;/textarea&gt;
+&lt;textarea ui-keypress=&quot;{ 13 : 'keypressCallback()' }&quot;&gt;&lt;/textarea&gt;
 
 &lt;script&gt;
-$scope.keypressCallback = function(e) {
-	e.preventDefault();
+$scope.keypressCallback = function() {
 	alert('Voila!');
 };
 &lt;/script&gt;

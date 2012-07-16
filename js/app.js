@@ -13,9 +13,9 @@ angular.module('demoApp', ['ui'], function($locationProvider) {
 	}
 });
 
-/**
- * Tooltip Demo Controller
- */
+function CodeMirrorCtrl($scope) {
+    $scope.codeMirrorModel = "var helloWorld = 'Success!';";
+}
 
 function TooltipCtrl($scope) {
 	$scope.item =  {
