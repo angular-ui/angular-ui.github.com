@@ -99,3 +99,17 @@ section {
 	width: 100%;
 	height: 100px;
 }
+
+span[ui-currency] {
+	display:block;
+}
+/*** Currency ***/
+.ui-currency-pos {
+  font-weight: bold;
+}
+.ui-currency-neg {
+  font-size: 125%;
+}
+.ui-currency-zero {
+  color: #000;
+}

@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="demoApp">
 <head>
-	<title>Angular.JS-UI</title>
+	<title>AngularUI for AngularJS</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-	<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.min.js"></script>
+	
+	<script src="lib/bootstrap/docs/assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="http://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
 	<script type="text/javascript" src="angular-ui/build/angular-ui.js"></script>
 	<script type="text/javascript" src="js/prettify.js"></script>
-	<script type="text/javascript" src="https://raw.github.com/petebacondarwin/angular-contrib/master/js/lib/jquery.maskedinput-1.3.js"></script>
-	<script type="text/javascript" src="http://ivaynberg.github.com/select2/select2-master/select2.js"></script>
-	<script type="text/javascript" src="http://craigsworks.com/projects/qtip_new/packages/nightly/jquery.qtip.js"></script>
+	<script type="text/javascript" src="lib/maskedinput/src/jquery.maskedinput.js"></script>
+	<script type="text/javascript" src="lib/select2/select2.js"></script>
+	<script type="text/javascript" src="lib/qTip2/dist/jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="lib/CodeMirror2/lib/codemirror.js"></script>
+	<script type="text/javascript" src="lib/CodeMirror2/mode/javascript/javascript.js"></script>
 	<script type="text/javascript" src="http://fiddle.tinymce.com/tinymce/3.5.4.1/jquery.tinymce.js"></script>
 	<script type="text/javascript" src="http://fiddle.tinymce.com/tinymce/3.5.4.1/tiny_mce_jquery_src.js"></script>
-	<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-modal.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 
 	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="angular-ui/build/angular-ui.css" />
-	<!-- <link rel="stylesheet" type="text/css" href="/angular-ui/build/angular-ui.css" /> -->
-	<link rel="stylesheet" type="text/css" href="css/prettify.css" />
-	<link rel="stylesheet" type="text/css" href="http://ivaynberg.github.com/select2/select2-master/select2.css" />
-	<link rel="stylesheet" type="text/css" href="http://craigsworks.com/projects/qtip_new/packages/nightly/jquery.qtip.css" />
-	<link rel="stylesheet" type="text/css" href="css/app.css" />
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/docs/assets/css/bootstrap.css" >
+	<link rel="stylesheet" type="text/css" href="angular-ui/build/angular-ui.css" >
+	<link rel="stylesheet" type="text/css" href="css/prettify.css" >
+	<link rel="stylesheet" type="text/css" href="lib/select2/select2.css" >
+	<link rel="stylesheet" type="text/css" href="lib/qTip2/dist/jquery.qtip.css" >
+	<link rel="stylesheet" type="text/css" href="lib/CodeMirror2/lib/codemirror.css" >
+	<link rel="stylesheet" type="text/css" href="lib/CodeMirror2/theme/monokai.css" >
+	
+	<link rel="stylesheet" type="text/css" href="css/app.css" >
 </head>
 <body data-spy="scroll">
 	<header class="navbar navbar-fixed-top">
@@ -53,6 +57,7 @@
 								<li><a href="#directives-select2">Select2</a></li>
 								<li><a href="#directives-showhide">Show / Hide / Toggle</a></li>
 								<li><a href="#directives-tinymce">TinyMCE</a></li>
+								<li><a href="#directives-currency">Currency</a></li>
 							</ul>
 						</li>
 						<li class="dropdown">
@@ -78,8 +83,8 @@
 	<div role="main">
 		<div class="container">
 			<header class="hero-unit" id="overview">
-				<h1>AngularJs - UI</h1>
-				<p>The enhancement companion suite to AngularJs framework.</p>
+				<h1>AngularUI</h1>
+				<p>The enhancement companion suite to the <a href="http://angularjs.org">AngularJS</a> framework.</p>
 			</header>
 
 			<section class="" id="defaults">
@@ -149,6 +154,25 @@ myModule.value(&#x27;ui.config&#x27;, {
 </pre>
 			</section>
 
+			<section id="directives-codemirror" ng-controller="CodeMirrorCtrl">
+				<div class="page-header">
+					<h1>CodeMirror</h1>
+				</div>
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<p>IDE? In <em>my</em> textareas? Surely you're joking.</p>
+						<p><textarea ui-codemirror="{theme:'monokai'}" ng-model="codeMirrorModel"></textarea></p>
+					</div>
+					<div class="span6">
+						<h3>How?</h3>
+<pre class="prettyprint" ng-non-bindable>
+&lt;textarea ui-codemirror=&quot;{theme:&#x27;monokai&#x27;}&quot; ng-model=&quot;codeMirrorModel&quot;&gt;&lt;/textarea&gt;
+</pre>
+					</div>
+				</div>
+			</section>
+
 			<section id="directives-event" ng-controller="EventCtrl">
 				<div class="page-header">
 					<h1>Event Binder</h1>
@@ -189,9 +213,9 @@ $scope.blurCallback = function() {
 							<ng-form name="dateForm">
 								<p><input name="dateField" value="Click Here for Datepicker" ng-model="date" ui-date></p>					
 							</ng-form>
-							<p>Selected Date: {{date}}</p>
+							<p>Selected Date: {{ date }}</p>
 							<p>Formatted Date: {{ date | date: 'mediumDate'}}</p>
-							<p>Selected Month: {{date.getMonth()}}</p>
+							<p>Selected Month: {{ date.getMonth() }}</p>
 							<div ng-model="date" ui-date></div>
 						</div>	
 					</div>
@@ -202,9 +226,9 @@ $scope.blurCallback = function() {
 						<h3>How?</h3>
 <pre class="prettyprint linenums" ng-non-bindable>
 &lt;input ng-model="date" ui-date&gt;
-Selected Date: {{date}}
+Selected Date: {{ date }}
 Formatted Date: {{ date | date: 'mediumDate'}}
-Selected Month: {{date.getMonth()}}
+Selected Month: {{ date.getMonth() }}
 &lt;div ng-model="date" ui-date&gt;&lt;/div&gt;
 </pre>
 					</div>
@@ -219,7 +243,7 @@ Selected Month: {{date.getMonth()}}
 					<div class="span6">
 						<h3>What?</h3>
 						<p>Bind an event to a particular keypress</p>
-						<p><textarea ui-keypress="{13:keypressCallback}">Type something in and hit [Enter]. Remember that this normally adds a new line in textareas</textarea></p>
+						<p><textarea ui-keypress="{13:'keypressCallback($event)'}">Type something in and hit [Enter]. Remember that this normally adds a new line in textareas</textarea></p>
 						<h3>Why?</h3>
 						<p>Cuz you feel like it? Maybe I should stop doing the 'Why' sections, running out of explanations...</p>
 					</div>
@@ -228,11 +252,10 @@ Selected Month: {{date.getMonth()}}
 						<p>The directive takes a hash (object) with the key code as the key and the callback function to fire as the value. The callback function takes an 'event' param</p>
 						<p class="alert alert-info">Note that <strong>13</strong> represents the <code>RETURN</code> key code.</p>
 <pre class="prettyprint" ng-non-bindable>
-&lt;textarea ui-keypress=&quot;{ 13 : keypressCallback }&quot;&gt;&lt;/textarea&gt;
+&lt;textarea ui-keypress=&quot;{ 13 : 'keypressCallback()' }&quot;&gt;&lt;/textarea&gt;
 
 &lt;script&gt;
-$scope.keypressCallback = function(e) {
-	e.preventDefault();
+$scope.keypressCallback = function() {
 	alert('Voila!');
 };
 &lt;/script&gt;
@@ -247,7 +270,7 @@ $scope.keypressCallback = function(e) {
 				</div>
 				<h3>What?</h3>
 				<p></p>
-				<p><input ng-model="maskDemo" ui-mask="'99-99-9999'"></p>
+				<p><input ng-model="maskDemo" ui-mask="'99-99-9999'" placeholder="__-__-____"></p>
 
 				<h3>Why?</h3>
 				<p></p>
@@ -312,7 +335,7 @@ $scope.keypressCallback = function(e) {
 				</div>
 			</section>
 
-			<section id="directives-reset">
+			<section id="directives-reset" ng-controller="ResetCtrl">
 				<div class="page-header">
 					<h1>Reset</h1>
 				</div>
@@ -320,14 +343,20 @@ $scope.keypressCallback = function(e) {
 					<div class="span6">
 						<h3>What?</h3>
 						<p>Adds an icon or link that empties the input element</p>
-						<p><input value="Hover over me" ui-reset></p>
+						<p><input ng-model="resetModel" ui-reset></p>
 					</div>
 					<div class="span6">
 						<h3>Why?</h3>
 						<p>Convenience?</p>
 
 						<h3>How?</h3>
-						<pre class="prettyprint" ng-non-bindable>&lt;input value=&quot;Hover over me&quot; ui-reset&gt;</pre>
+<pre class="prettyprint" ng-non-bindable>
+&lt;input ng-model="resetModel" ui-reset&gt;
+
+&lt;script&gt;
+$scope.resetModal = &#x27;Hover over me&#x27;;
+&lt;/script&gt;
+</pre>
 					</div>
 				</div>
 			</section>
@@ -341,7 +370,7 @@ $scope.keypressCallback = function(e) {
 						<h3>What?</h3>
 						<p>Takes the twitter bootstrap modal and lets you assign an ng-model to it.  You can open/close the modal any way you want: data-* attributes, or use elm.modal('show'), or whatever.  The ng-model you give will always correspond to whether the modal is opened or not, and if you set it it will also change the modal.
 						<p>
-							<div id="myModal" class="modal hide fade" ui-modal ng-model="modalShown">
+							<div id="modalGuy" class="modal hide" ui-modal ng-model="modalShown">
 								<div class="modal-header"><h1>Modalin'!</h1></div>
 								<div class="modal-body">
 									<p>Cool beans, dude.</p>
@@ -351,8 +380,8 @@ $scope.keypressCallback = function(e) {
 									<a class="btn" ng-click="modalShown=false">Close ng-model way</a>
 								</div>
 							</div>
-							<a class="btn" ng-click="modalShown=true">Open Modal with ng-model</a><br />
-							<a class="btn" data-toggle="modal" data-target="#myModal">Open Modal with data-toggle="modal"</a>
+							<a class="btn" ng-click="modalShown=true">Open Modal with ng-model</a><br>
+							<a class="btn" data-toggle="modal" href="#modalGuy">Open Modal with data-toggle="modal"</a>
 						</p>
 						<h3>Why?</h3>
 						<p>We wanted to be able to open/close a modal programatically, so we stuck an ng-model onto the bootstrap modal and called it a day.</p>
@@ -361,7 +390,7 @@ $scope.keypressCallback = function(e) {
 						<h3>How?</h3>
 						<pre class="prettyprint linenums" ng-non-bindable>
 &lt;script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-modal.js"&gt;&lt;/script&gt;
-&lt;div ui-modal ng-model="modalShown" id="myModal" class="modal hide"&gt;
+&lt;div ui-modal ng-model="modalShown" id="myModal"&gt;
   Cool, a modal dialog!
   &lt;a data-dismiss="modal"&gt;Close 1&lt;/a&gt;
   &lt;a ng-click="modalShown=false"&gt;Close 2&lt;/a&gt;
@@ -521,6 +550,64 @@ myModule.value(&#x27;ui.config&#x27;, {
 				
 			</section>
 
+			<section id="directives-currency" ng-controller="CurrencyCtrl">
+				<div class="page-header">
+					<h1>Currency</h1>
+				</div>
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<p>Angular currencyFilter wrapper</p>
+						<div class="well">
+							<span ui-currency ng-model="nums.pos"></span>
+							<span ui-currency="{ symbol: '$', zero: 'my-zero-class'}" ng-model="nums.zero"></span>
+							<span ui-currency ng-model="nums.neg"></span>
+						</div>
+					</div>
+					<div class="span6">
+						<h3>Why?</h3>
+						<p>In angular, you are able to specify what the currency symbol is (however, you might not want to change it for localization). 
+							This directive gives greater control over your currency elements by allowing you to set CSS styles based on the number's sign. 
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span12">
+						<h3>How?</h3>
+						<p>This example shows how you can use <code>ui.config</code> for greater convenience. You can still pass the configuration as the expression (even in addition to <code>ui.config</code>).</p>
+<pre class="prettyprint linenums" ng-non-bindable>
+&lt;span ui-currency ng-model=&quot;nums.pos&quot;&gt;&lt;/span&gt;
+&lt;span ui-currency=&quot;{ symbol: '$', zero: 'my-zero-class'}&quot; ng-model=&quot;nums.zero&quot;&gt;&lt;/span&gt;
+&lt;span ui-currency ng-model=&quot;nums.neg&quot;&gt;&lt;/span&gt;
+
+&lt;script&gt;
+myModule.value(&#x27;ui.config&#x27;, {
+   currency: {
+      symbol: &#x27;USD$&#x27;,
+   }
+});
+&lt;/script&gt;
+&lt;style&gt;
+span[ui-currency] {
+  display:block;
+}
+.ui-currency-pos {
+  font-weight: bold;
+}
+.ui-currency-neg {
+  font-size: 125%;
+}
+.my-zero-class {
+  color: #000;
+}
+&lt;/style&gt;
+</pre>
+					</div>
+				</div>
+
+				
+			</section>
+
 			<section id="filters-length" ng-controller="LengthCtrl">
 				<div class="page-header">
 					<h1>Length</h1>
@@ -528,7 +615,7 @@ myModule.value(&#x27;ui.config&#x27;, {
 				<div class="row">
 					<div class="span6">
 						<h3>What?</h3>
-						<p>Get the length attribute of an array or string</p>
+						<p>Get the length attribute of an array, string, or object</p>
 						<div class="well">
 							<p><input ng-model="lengthFilter" placeholder="Filter the list"></p>
 							<p>There are {{items | filter:lengthFilter | length}} items.</p>
