@@ -210,9 +210,11 @@ $scope.blurCallback = function() {
 						<h3>What?</h3>
 						<p>Calendar picker with ng-model integration</p>
 						<div class="well">
-							<p><input value="Click Here for Datepicker" ng-model="date" ui-date></p>					
+							<ng-form name="dateForm">
+								<p><input name="dateField" value="Click Here for Datepicker" ng-model="date" ui-date></p>					
+							</ng-form>
 							<p>Selected Date: {{ date }}</p>
-							<p>Formatted Date: {{ date.toLocaleDateString() }}</p>
+							<p>Formatted Date: {{ date | date: 'mediumDate'}}</p>
 							<p>Selected Month: {{ date.getMonth() }}</p>
 							<div ng-model="date" ui-date></div>
 						</div>	
@@ -225,7 +227,7 @@ $scope.blurCallback = function() {
 <pre class="prettyprint linenums" ng-non-bindable>
 &lt;input ng-model="date" ui-date&gt;
 Selected Date: {{ date }}
-Formatted Date: {{ date.toLocaleDateString() }}
+Formatted Date: {{ date | date: 'mediumDate'}}
 Selected Month: {{ date.getMonth() }}
 &lt;div ng-model="date" ui-date&gt;&lt;/div&gt;
 </pre>
