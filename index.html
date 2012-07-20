@@ -223,9 +223,11 @@ $scope.blurCallback = function() {
 						<h3>What?</h3>
 						<p>Calendar picker with ng-model integration</p>
 						<div class="well">
-							<p><input value="Click Here for Datepicker" ng-model="date" ui-date></p>					
+							<ng-form name="dateForm">
+								<p><input name="dateField" value="Click Here for Datepicker" ng-model="date" ui-date></p>					
+							</ng-form>
 							<p>Selected Date: {{ date }}</p>
-							<p>Formatted Date: {{ date.toLocaleDateString() }}</p>
+							<p>Formatted Date: {{ date | date: 'mediumDate'}}</p>
 							<p>Selected Month: {{ date.getMonth() }}</p>
 							<div ng-model="date" ui-date></div>
 						</div>	
@@ -238,7 +240,7 @@ $scope.blurCallback = function() {
 <pre class="prettyprint linenums" ng-non-bindable>
 &lt;input ng-model="date" ui-date&gt;
 Selected Date: {{ date }}
-Formatted Date: {{ date.toLocaleDateString() }}
+Formatted Date: {{ date | date: 'mediumDate'}}
 Selected Month: {{ date.getMonth() }}
 &lt;div ng-model="date" ui-date&gt;&lt;/div&gt;
 </pre>
@@ -263,10 +265,10 @@ Selected Month: {{ date.getMonth() }}
 						<p>The directive takes a hash (object) with the key code as the key and the callback function to fire as the value. The callback function takes an 'event' param</p>
 						<p class="alert alert-info">Note that <strong>13</strong> represents the <code>RETURN</code> key code.</p>
 <pre class="prettyprint" ng-non-bindable>
-&lt;textarea ui-keypress=&quot;{ 13 : 'keypressCallback()' }&quot;&gt;&lt;/textarea&gt;
+&lt;textarea ui-keypress=&quot;{ 13 : 'keypressCallback($event)' }&quot;&gt;&lt;/textarea&gt;
 
 &lt;script&gt;
-$scope.keypressCallback = function() {
+$scope.keypressCallback = function($event) {
 	alert('Voila!');
 };
 &lt;/script&gt;
