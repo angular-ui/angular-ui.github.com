@@ -252,10 +252,10 @@ Selected Month: {{ date.getMonth() }}
 						<p>The directive takes a hash (object) with the key code as the key and the callback function to fire as the value. The callback function takes an 'event' param</p>
 						<p class="alert alert-info">Note that <strong>13</strong> represents the <code>RETURN</code> key code.</p>
 <pre class="prettyprint" ng-non-bindable>
-&lt;textarea ui-keypress=&quot;{ 13 : 'keypressCallback()' }&quot;&gt;&lt;/textarea&gt;
+&lt;textarea ui-keypress=&quot;{ 13 : 'keypressCallback($event)' }&quot;&gt;&lt;/textarea&gt;
 
 &lt;script&gt;
-$scope.keypressCallback = function() {
+$scope.keypressCallback = function($event) {
 	alert('Voila!');
 };
 &lt;/script&gt;
