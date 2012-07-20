@@ -4,6 +4,12 @@ body {
 section {
 	padding-top: 40px;
 }
+.icon-github {
+	background: no-repeat url('../lib/bootstrap/docs/assets/img/github-16px.png');
+	width: 16px;
+	height: 16px;
+}
+
 
 /*** Reset ***/
 .ui-reset {

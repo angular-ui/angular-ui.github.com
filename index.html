@@ -26,7 +26,6 @@
 	<link rel="stylesheet" type="text/css" href="lib/qTip2/dist/jquery.qtip.css" >
 	<link rel="stylesheet" type="text/css" href="lib/CodeMirror2/lib/codemirror.css" >
 	<link rel="stylesheet" type="text/css" href="lib/CodeMirror2/theme/monokai.css" >
-	
 	<link rel="stylesheet" type="text/css" href="css/app.css" >
 </head>
 <body data-spy="scroll">
@@ -73,8 +72,17 @@
 						</li>
 					</ul>
 					<ul class="pull-right nav">
-						<li><a href="https://github.com/angular-ui/angular-ui/downloads">Download</a></li>
-						<li><a href="https://github.com/angular-ui/angular-ui">Code on Github</a></li>
+						<li><a href="https://github.com/angular-ui/angular-ui/graphs/contributors">Contributors</a></li>
+						<li class="dropdown">
+							<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+								Need Help?
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="https://github.com/angular-ui/angular-ui/issues?sort=updated&state=open">AngularUI broken or want a new feature?</a></li>
+								<li><a href="https://github.com/angular-ui/angular-ui.github.com/issues?sort=updated&state=open">Demo page broken or missing demos?</a></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -83,6 +91,10 @@
 	<div role="main">
 		<div class="container">
 			<header class="hero-unit" id="overview">
+				<p class="pull-right btn-group">
+					<a class="btn btn-large" href=""><i class="icon-github"></i> Code on Github</a>
+					<a class="btn btn-large btn-primary" href=""><i class="icon-download-alt icon-white"></i> Download</a>
+				</p>
 				<h1>AngularUI</h1>
 				<p>The enhancement companion suite to the <a href="http://angularjs.org">AngularJS</a> framework.</p>
 			</header>
