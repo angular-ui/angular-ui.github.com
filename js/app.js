@@ -59,6 +59,11 @@ function ScrollfixCtrl($scope) {
 	$scope.scrollfix = -50;
 }
 
+function InflectorCtrl($scope) {
+	$scope.inflectorText = 'Here Is my_phoneNumber';
+	$scope.inflectorType = 'humanize';
+}
+
 function UniqueCtrl($scope) {
 	$scope.items = [
 		{ firstName: 'Dean',	lastName: 'Sofer',	id: 1, gender: 'Male'	},
