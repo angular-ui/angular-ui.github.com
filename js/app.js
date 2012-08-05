@@ -76,6 +76,10 @@ function UniqueCtrl($scope) {
 	];
 }
 
+function AnimateCtrl($scope) {
+  $scope.items = [];
+}
+
 function CurrencyCtrl($scope) {
 	$scope.nums =  {
 		pos : 1000,

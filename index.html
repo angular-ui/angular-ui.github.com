@@ -374,6 +374,55 @@ $scope.resetModal = &#x27;Hover over me&#x27;;
 					</div>
 				</div>
 			</section>
+			
+			<section id="directives-animate" ng-controller="AnimateCtrl">
+				<div class="page-header">
+					<h1>Animate</h1>
+				</div>
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<p>Transition the injection of new DOM elements.</p>
+						<p class="alert">Support will later be added for transitioning the removal of DOM elements due to the complexity of this task.</p>
+						<a class="btn" ng-click="items.push(true)"><i class="icon-plus"></i> Add Item</a>
+						<ul class="animations">
+							<li ng-repeat="item in items" ui-animate>Item #{{$index+1}}</li>
+						</ul>
+						<pre>$scope.items: {{items}}</pre>
+						<h3>Why?</h3>
+						<p>People have been asking for a way to animate the addition and removal of DOM elements. This is a simple way of doing it using CSS3 transitions. A 'hidden' transitionable class (that doesn't use <code>dislay:none</code>) is attached to the node before it's injected and then immediately removed after.</p>
+					</div>
+					<div class="span6">
+						<h3>How?</h3>
+						<p>You can pass a string to use as the class to transition to / from (such as <code>ui-hide</code>). An object can also be passed with support for a <code>class</code> attribute. More options will be supported with future updates.</p>
+<pre class="prettyprint linenums" ng-non-bindable>
+&lt;a ng-click=&quot;items.push(true)&quot;&gt;Add Item&lt;/a&gt;
+&lt;ul&gt;
+  &lt;li ng-repeat=&quot;item in items&quot; ui-animate&gt;{{item}}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;style&gt;
+li {
+  transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  background: lightblue;
+  max-height: 50px; /* 1000px works too */
+  overflow: hidden;
+  padding: 5px;
+}
+/* The 'hidden' state to transition from & to */
+li.ui-animate {
+  opacity: 0;
+  max-height: 0;
+  padding: 0 5px;
+}
+&lt;/style&gt;
+</pre>
+					</div>
+				</div>
+			</section>
 
 			<section id="directives-modal" ng-controller="ModalCtrl">
 				<div class="page-header">

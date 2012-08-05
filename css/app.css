@@ -25,6 +25,28 @@ section {
     background-position: -48px -96px;
 }
 
+/*** Animate ***/
+#directives-animate .animations {
+	list-style: none;
+	padding: 0;
+	margin: 10px 0;
+}
+#directives-animate .animations li {
+	transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	background: lightblue;
+	max-height: 50px;
+	overflow: hidden;
+	padding: 5px;
+}
+#directives-animate .animations li.ui-animate {
+	opacity: 0;
+	max-height: 0;
+	padding: 0 5px;
+}
+
 /*** If ***/
 #directives-if ul.piped-list {
 	padding: 0;
