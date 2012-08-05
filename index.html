@@ -320,7 +320,6 @@ $scope.keypressCallback = function($event) {
 						</div>
 						<h3>Why?</h3>
 						<p>In situations where DOM traversal matters (such as the CSS selectors <code>:first-child</code>, <code>:last-child</code> and <code>:nth()-child</code>), simply hiding elements is not enough.</p>
-						<p class="alert alert-error"><i class="icon-info-sign"></i> Further testing is needed to see if this directive breaks compiler traversal in the latest version of AngularJS. <strong>Use at your own risk!</strong></p>
 					</div>
 					<div class="span6">
 
@@ -358,6 +357,7 @@ $scope.keypressCallback = function($event) {
 						<h3>What?</h3>
 						<p>Adds an icon or link that empties the input element</p>
 						<p><input ng-model="resetModel" ui-reset></p>
+						<p class="alert alert-info"><i class="icon-info-sign"></i> Remember that you have control over the CSS. Make the icon always show by changing the CSS to match  the <code>:hover</code> state.</p>
 					</div>
 					<div class="span6">
 						<h3>Why?</h3>
