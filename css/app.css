@@ -25,18 +25,18 @@ section {
     background-position: -48px -96px;
 }
 
-/*** Remove ***/
-#directives-remove ul.piped-list {
+/*** If ***/
+#directives-if ul.piped-list {
 	padding: 0;
 	margin: 10px 0;
 }
-#directives-remove .piped-list li {
+#directives-if .piped-list li {
 	display: inline-block;
 	border-left: 2px solid;
 	margin-left: 5px;
 	padding-left: 10px;
 }
-#directives-remove .piped-list li:first-child {
+#directives-if .piped-list li:first-child {
 	border-left: none;
 	margin-left: 0;
 }

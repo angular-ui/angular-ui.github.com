@@ -51,7 +51,7 @@
 								<li><a href="#directives-keypress">Keypress</a></li>
 								<li><a href="#directives-mask">Mask</a></li>
 								<li><a href="#directives-modal">Modal</a></li>
-								<li><a href="#directives-remove">Remove</a></li>
+								<li><a href="#directives-if">If</a></li>
 								<li><a href="#directives-reset">Reset</a></li>
 								<li><a href="#directives-scrollfix">Scrollfix</a></li>
 								<li><a href="#directives-select2">Select2</a></li>
@@ -296,24 +296,24 @@ $scope.keypressCallback = function($event) {
 </pre>
 			</section>
 
-			<section id="directives-remove">
+			<section id="directives-if">
 				<div class="page-header">
-					<h1>Remove</h1>
+					<h1>If</h1>
 				</div>
 				<div class="row">
 					<div class="span6">
 						<h3>What?</h3>
 						<p>Remove elements from the DOM completely instead of just hiding it.</p>
 						<div class="well">
-							<h4>Using <code>ng-hide</code></h4>
+							<h4>Using <code>ng-show</code></h4>
 							<ul class="piped-list">
-								<li ng-hide="true">First</li>
+								<li ng-show="false">First</li>
 								<li>Middle</li>
 								<li>Last</li>
 							</ul>
-							<h4>Using <code>ui-remove</code></h4>
+							<h4>Using <code>ui-if</code></h4>
 							<ul class="piped-list">
-								<li ui-remove="true">First</li>
+								<li ui-if="false">First</li>
 								<li>Middle</li>
 								<li>Last</li>
 							</ul>
@@ -327,7 +327,7 @@ $scope.keypressCallback = function($event) {
 						<h3>How?</h3>
 <pre class="prettyprint linenums" ng-non-bindable>
 &lt;ul class="piped-list"&gt;
-	&lt;li ui-remove=&quot;true&quot;&gt;First&lt;/li&gt;
+	&lt;li ui-if=&quot;false&quot;&gt;First&lt;/li&gt;
 	&lt;li&gt;Middle&lt;/li&gt;
 	&lt;li&gt;Last&lt;/li&gt;
 &lt;/ul&gt;
@@ -632,7 +632,7 @@ span[ui-currency] {
 						<p>Get the length attribute of an array, string, or object</p>
 						<div class="well">
 							<p><input ng-model="lengthFilter" placeholder="Filter the list"></p>
-							<p>There are {{items | filter:lengthFilter | length}} items.</p>
+							<p>There are {{(items | filter:lengthFilter).length}} items.</p>
 							<ul>
 								<li ng-repeat="value in items | filter:lengthFilter">{{value}}</li>
 							</ul>
@@ -646,7 +646,7 @@ span[ui-currency] {
 				<h3>How?</h3>
 <pre class="prettyprint linenums" ng-non-bindable>
 &lt;input ng-model=&quot;lengthFilter&quot; placeholder=&quot;Filter the list&quot;&gt;
-&lt;p&gt;There are {{items | filter:lengthFilter | length}} items.&lt;/p&gt;
+&lt;p&gt;There are {{(items | filter:lengthFilter).length}} items.&lt;/p&gt;
 &lt;ul&gt;
 	&lt;li ng-repeat=&quot;value in items | filter:lengthFilter&quot;&gt;{{value}}&lt;/li&gt;
 &lt;/ul&gt;
