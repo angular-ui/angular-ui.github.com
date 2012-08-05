@@ -25,6 +25,11 @@ section {
     background-position: -48px -96px;
 }
 
+/*** Map ***/
+#directives-map .map {
+  height: 400px;
+}
+
 /*** Animate ***/
 #directives-animate .animations {
 	list-style: none;
