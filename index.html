@@ -502,7 +502,8 @@ $scope.resetModal = &#x27;Hover over me&#x27;;
 					</div>
 					<div class="span6">
 						<h3>How?</h3>
-						<p>You can pass a string to use as the class to transition to / from (such as <code>ui-hide</code>). An object can also be passed with support for a <code>class</code> attribute. More options will be supported with future updates.</p>
+						<p>Add default state CSS and CSS3 transitions to the DOM elements you wish to ui-animate. Then apply your 'hidden' CSS to the <code>.ui-animate</code> state. The nodes will transition from your 'hidden' state to their default state. Refer to the CSS below as an example.</p>
+						<p>You can pass a string to use as an alternative class (such as <code>ui-hide</code>). Support for other options will be added in the future.</p>
 <pre class="prettyprint linenums" ng-non-bindable>
 &lt;a ng-click=&quot;items.push(true)&quot;&gt;Add Item&lt;/a&gt;
 &lt;ul&gt;
