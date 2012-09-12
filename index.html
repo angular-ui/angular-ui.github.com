@@ -10,7 +10,7 @@
 	<script src="http://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
 	<script src="angular-ui/build/angular-ui.js"></script>
 	<script src="js/prettify.js"></script>
-	<script src="lib/maskedinput/src/jquery.maskedinput.js"></script>
+	<script src="lib/maskedinput/jquery.maskedinput.js"></script>
 	<script src="lib/select2/select2.js"></script>
 	<script src="lib/CodeMirror/lib/codemirror.js"></script>
 	<script src="lib/CodeMirror/mode/javascript/javascript.js"></script>
@@ -425,12 +425,13 @@ $scope.keypressCallback = function($event) {
 			</section>
 
 			<section id="directives-mask">
-				<div class="page-header">
+				<div class="page-header" ng-init="maskDemo = 12345678">
 					<h1>Mask</h1>
 				</div>
 				<h3>What?</h3>
 				<p></p>
 				<p><input ng-model="maskDemo" ui-mask="'99-99-9999'" placeholder="__-__-____"></p>
+				<p>Mask model value: {{maskDemo}}</p>
 
 				<h3>Why?</h3>
 				<p></p>
@@ -937,7 +938,7 @@ $scope.items = [&#x27;First&#x27;,&#x27;Second&#x27;,&#x27;Third&#x27;,&#x27;Fou
 						<label><input type="radio" value="variable" ng-model="inflectorType"> Variable</label>
 					</p>
 					<p><input placeholder="Enter some text to inflect" ng-model="inflectorText"></p>
-					<p>{{inflectorText|inflector:inflectorType}}</p>
+					<!--<p>{{inflectorText|inflector:inflectorType}}</p>-->
 				</div>
 
 				<h3>How?</h3>
