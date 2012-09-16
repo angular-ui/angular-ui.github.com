@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="demoApp" id="top">
 <head>
+	<meta charset="utf-8">
 	<title>AngularUI for AngularJS</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
@@ -62,6 +63,7 @@
 								<li><a scrollto href="#directives-showhide">Show / Hide / Toggle</a></li>
 								<li><a scrollto href="#directives-tinymce">TinyMCE</a></li>
 								<li><a scrollto href="#directives-currency">Currency</a></li>
+								<li><a scrollto href="#directives-template">Template</a></li>
 							</ul>
 						</li>
 						<li class="dropdown">
@@ -74,6 +76,7 @@
 								<li><a scrollto href="#filters-highlight">Highlight</a></li>
 								<li><a scrollto href="#filters-inflector">Inflector</a></li>
 								<li><a scrollto href="#filters-unique">Unique</a></li>
+								<li><a scrollto href="#filters-template">Template</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -858,6 +861,45 @@ span[ui-currency] {
 				
 			</section>
 
+			<section id="directives-template">
+				<div class="page-header">
+					<h1>Template</h1>
+				</div>
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<p>This is a boilerplate of how to create a custom directive that works with AngularUI's global defaults (uiConfig).</p>
+					</div>
+					<div class="span6">
+						<h3>Why?</h3>
+						<p>Well to contribute your awesome, world-changing ui element to AngularUI, of course!</p>
+					</div>
+				</div>
+
+			<h3>How?</h3>
+			<p>Below is the boilerplate code, if you are contributing to AngularUI and have specific styling requirements, 
+				you would create a <a href="http://lesscss.org/" target="_blank">less</a> stylesheet named after your directive and placed in the aptly-title subdirectory <code>stylesheets</code>. Our build system will convert it to css. 
+			</p>
+
+<pre class="prettyprint" ng-non-bindable>
+angular.module('ui.directives').directive('uiTemplate', ['ui.config', function (uiConfig) {
+  var options = uiConfig.uiTemplate || {};
+  return {
+    restrict: 'EAC', // supports using directive as element, attribute and class
+    link: function (iScope, iElement, iAttrs, controller) {
+      var opts;
+
+      // opts is link element-specific options merged on top of global defaults. 
+      // If you only extend the global default, then all instances would override each other
+      opts = angular.extend({}, options, iAttrs.uiTemplate);
+
+      // your logic goes here
+    }
+  };
+}]);
+</pre>
+			</section>
+
 			<section id="filters-length" ng-controller="LengthCtrl">
 				<div class="page-header">
 					<h1>Length</h1>
@@ -1003,6 +1045,30 @@ $scope.items = [
 </pre>
 					</div>
 				</div>
+			</section>
+
+			<section id="directives-filter">
+				<div class="page-header">
+					<h1>Template</h1>
+				</div>
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<p>This is a boilerplate of how to create a custom filter that works with AngularUI's global defaults (uiConfig).</p>
+					</div>
+					<div class="span6">
+						<h3>Why?</h3>
+						<p>Well, to contribute your most-excellent AngularJS filter to AngularUI!</p>
+					</div>
+				</div>
+				<h3>How?</h3>
+<pre class="prettyprint" ng-non-bindable>
+angular.module('ui.filters').filter('filterTmpl', ['ui.config', function (uiConfig) {
+  return function (value) {
+    return value;
+  };
+}]);
+</pre>
 			</section>
 		</div>
 	</div>
