@@ -126,6 +126,35 @@ myModule.value('ui.config', {
 				</div>
 			</section>
 
+
+			<section id="ieshiv">
+				<div class="page-header">
+					<h1>IE Shiv <small>shim or whatever you wanna call it</small></h1>
+				</div>
+
+					<h3>Why?</h3>
+					<p>In brief, custom tag elements (and thus directives that support them) like <code>&lt;ng-view&gt;</code> or <code>&lt;ui-currency&gt;</code> are ignored by IE 8 and older. Custom tags are cool because they are terse and give semantic to your awesome html5 app. AngularJS has provided a <a href="http://docs.angularjs.org/guide/ie" target="_blank">recipe</a> for doing this, however, our solution saves you the fuss.</p>
+
+					<h3>How?</h3>
+					<p>Below is how you would incorporate shiv by putting it into the <code>&lt;head&gt;</code> of your html code. For more,
+						 see <a href="https://github.com/angular-ui/angular-ui/tree/master/common/ieshiv" target="_blank">code page</a> on github
+					</p>    
+<pre class="prettyprint linenums" ng-non-bindable>&lt;head&gt;
+
+&lt;!--[if lte IE 8]&gt;
+    &lt;script&gt; 
+    // The ieshiv takes care of our ui.directives and AngularJS's ng-view, ng-include and ng-pluralize.
+    // However, IF you have custom directives (yours or someone else's) then 
+    // add the directly containing module into <code>window.myAngularModules</code>
+
+    window.myAngularModules = [ 'yourModule.ThatContainsAtLeastSomeDirectives', 'somebodyElsesModule' ]; // optional
+    &lt;/script&gt;
+    &lt;script src="build/angular-ui-ieshiv.js"&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+     
+&lt;/head&gt;</pre>
+			</section>
+
 			<section id="directives-jq">
 				<div class="page-header">
 					<h1>jQuery Passthrough</h1>
