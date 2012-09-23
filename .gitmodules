@@ -18,4 +18,4 @@
 	url = git://github.com/tinymce/tinymce.git
 [submodule "lib/CodeMirror2"]
 	path = lib/CodeMirror2
-	url = git://github.com/marijnh/CodeMirror2
+	url = git://github.com/marijnh/CodeMirror
