@@ -247,7 +247,9 @@ $scope.blurCallback = function() {
 								<a class="btn btn-primary" ng-click="setMarkerPosition(currentMarker, currentMarkerLat, currentMarkerLng)">Set Position</a>
 							</div>
 						</div>
-						<div ui-map="myMap" class="span8 map"
+                        <!--Giving the div an id="map_canvas" fix problems with twitter bootstrap affecting
+                        google maps-->
+						<div id="map_canvas" ui-map="myMap" class="span8 map"
 							ui-event="{'map-click': 'addMarker($event)', 'map-zoom_changed': 'setZoomMessage(myMap.getZoom())' }" 
 							ui-options="mapOptions">
 						</div>
@@ -276,7 +278,9 @@ $scope.blurCallback = function() {
   &lt;a ng-click=&quot;setMarkerPosition(currentMarker, currentMarkerLat, currentMarkerLng)&quot;&gt;Set Position&lt;/a&gt;
 &lt;/div&gt;
 
-&lt;div ui-map=&quot;myMap&quot; class=&quot;map&quot;
+&lt;!-- Giving the div an id="map_canvas" fix problems with twitter bootstrap affecting
+google maps --&gt;
+&lt;div id=&quot;map_canvas&quot; ui-map=&quot;myMap&quot; class=&quot;map&quot;
   ui-event=&quot;{&#x27;map-click&#x27;: &#x27;addMarker($event)&#x27;, &#x27;map-zoom_changed&#x27;: &#x27;setZoomMessage(myMap.getZoom())&#x27; }&quot; 
   ui-options=&quot;mapOptions&quot;&gt;
 &lt;/div&gt;
