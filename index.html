@@ -1,19 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="en" ng-app="demoApp" id="top">
 <head>
 	<title>AngularUI for AngularJS</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-	
+
 	<script src="lib/bootstrap/docs/assets/js/bootstrap.min.js"></script>
 	<script src="http://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
 	<script src="angular-ui/build/angular-ui.js"></script>
 	<script src="js/prettify.js"></script>
 	<script src="lib/maskedinput/src/jquery.maskedinput.js"></script>
 	<script src="lib/select2/select2.js"></script>
-	<script src="lib/qTip2/dist/jquery.qtip.min.js"></script>
-	<script src="lib/CodeMirror2/lib/codemirror.js"></script>
-	<script src="lib/CodeMirror2/mode/javascript/javascript.js"></script>
+	<script src="lib/CodeMirror/lib/codemirror.js"></script>
+	<script src="lib/CodeMirror/mode/javascript/javascript.js"></script>
 	<script src="http://fiddle.tinymce.com/tinymce/3.5.4.1/jquery.tinymce.js"></script>
 	<script src="http://fiddle.tinymce.com/tinymce/3.5.4.1/tiny_mce_jquery_src.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -24,9 +24,8 @@
 	<link rel="stylesheet" href="angular-ui/build/angular-ui.css" >
 	<link rel="stylesheet" href="css/prettify.css" >
 	<link rel="stylesheet" href="lib/select2/select2.css" >
-	<link rel="stylesheet" href="lib/qTip2/dist/jquery.qtip.css" >
-	<link rel="stylesheet" href="lib/CodeMirror2/lib/codemirror.css" >
-	<link rel="stylesheet" href="lib/CodeMirror2/theme/monokai.css" >
+	<link rel="stylesheet" href="lib/CodeMirror/lib/codemirror.css" >
+	<link rel="stylesheet" href="lib/CodeMirror/theme/monokai.css" >
 	<link rel="stylesheet" href="css/app.css" >
 </head>
 <body data-spy="scroll">
@@ -53,6 +52,7 @@
 								<li><a scrollto href="#directives-keypress">Keypress</a></li>
 								<li><a scrollto href="#directives-mask">Mask</a></li>
 								<li><a scrollto href="#directives-if">If</a></li>
+								<li><a scrollto href="#directives-validate">Validate</a></li>
 								<li><a scrollto href="#directives-reset">Reset</a></li>
 								<li><a scrollto href="#directives-animate">Animate</a></li>
 								<li><a scrollto href="#directives-modal">Modal</a></li>
@@ -125,6 +125,35 @@ myModule.value('ui.config', {
 				</div>
 			</section>
 
+
+			<section id="ieshiv">
+				<div class="page-header">
+					<h1>IE Shiv <small>shim or whatever you wanna call it</small></h1>
+				</div>
+
+					<h3>Why?</h3>
+					<p>In brief, custom tag elements (and thus directives that support them) like <code>&lt;ng-view&gt;</code> or <code>&lt;ui-currency&gt;</code> are ignored by IE 8 and older. Custom tags are cool because they are terse and give semantic to your awesome html5 app. AngularJS has provided a <a href="http://docs.angularjs.org/guide/ie" target="_blank">recipe</a> for doing this, however, our solution saves you the fuss.</p>
+
+					<h3>How?</h3>
+					<p>Below is how you would incorporate shiv by putting it into the <code>&lt;head&gt;</code> of your html code. For more,
+						 see <a href="https://github.com/angular-ui/angular-ui/tree/master/common/ieshiv" target="_blank">code page</a> on github
+					</p>
+<pre class="prettyprint linenums" ng-non-bindable>&lt;head&gt;
+
+&lt;!--[if lte IE 8]&gt;
+    &lt;script&gt;
+    // The ieshiv takes care of our ui.directives and AngularJS's ng-view, ng-include and ng-pluralize.
+    // However, IF you have custom directives (yours or someone else's) then
+    // add the directly containing module into <code>window.myAngularModules</code>
+
+    window.myAngularModules = [ 'yourModule.ThatContainsAtLeastSomeDirectives', 'somebodyElsesModule' ]; // optional
+    &lt;/script&gt;
+    &lt;script src="build/angular-ui-ieshiv.js"&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+
+&lt;/head&gt;</pre>
+			</section>
+
 			<section id="directives-jq">
 				<div class="page-header">
 					<h1>jQuery Passthrough</h1>
@@ -133,8 +162,14 @@ myModule.value('ui.config', {
 					<div class="span6">
 						<h3>What?</h3>
 						<p>Call the jQuery function or plugin specified on the element.</p>
-						<p>This example shows how to call <a href="http://craigsworks.com/projects/qtip2/">jQuery qTip</a> with almost no work:</p>
-						<p class="well"><a title="Easiest. Binding. Ever!" ui-jq="qtip" ui-options="{position:{my:'left center',at:'right center'},style:{classes:'ui-tooltip-shadow ui-tooltip-jtools'}}">Hover over me for qTip Tooltip</a></p>
+						<p>This example shows how to call <a href="http://twitter.github.com/bootstrap/javascript.html#tooltips">the bootstrap tooltip</a> with almost no work:</p>
+						<div class="well">
+							<p><a title="Easiest. Binding. Ever!" ui-jq="tooltip" ui-options="{placement:'right'}">Hover over me for static Tooltip</a></p>
+							<p>
+								<a data-original-title="{{tooltip}}" ui-jq="tooltip" ui-options="{placement:'right'}">Fill the input for a dynamic Tooltip:</a>
+								<input type="text" ng-model="tooltip" placeholder="Tooltip Content">
+							</p>
+						</div>
 					</div>
 					<div class="span6">
 						<h3>Why?</h3>
@@ -144,26 +179,23 @@ myModule.value('ui.config', {
 				</div>
 
 				<h3>How?</h3>
-				<p>To call something like <code>$.fn.qtip()</code> simply do <code>ui-jq="qtip"</code>. Note that the name of the function must be identical. This also works for normal jQuery commands such as <code>$.fn.slideUp()</code>.</p>
+				<p>To call something like <code>$.fn.tooltip()</code> simply do <code>ui-jq="tooltip"</code>. Note that the name of the function must be identical. This also works for normal jQuery commands such as <code>$.fn.slideUp()</code>.</p>
 				<p>To pass parameters use the <code>ui-options</code> attribute. The value will be evaluated in the <code>$scope</code> context and passed to the function. If defaults are set, the passed options will extend them. If a string is passed, the default options will be ignored.</p>
 				<p>Use the directive name <code>jq</code> for namespacing inside <code>ui.config</code>. Then sub-namespace options for each function by the name of that function (exactly as it is passed to <code>ui-jq</code>) so that you don't have to pass options every time you call the directive.</p>
 <pre class="prettyprint linenums" ng-non-bindable>
-&lt;script src=&quot;http://craigsworks.com/projects/qtip_new/packages/nightly/jquery.qtip.js&quot;&gt;&lt;/script&gt;
-&lt;link href=&quot;http://craigsworks.com/projects/qtip_new/packages/nightly/jquery.qtip.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;a title=&quot;Easiest. Binding. Ever!&quot; ui-jq=&quot;tooltip&quot;&gt;Hover over me for static Tooltip&lt;/a&gt;
 
-&lt;a title=&quot;Peasy!&quot; ui-jq=&quot;qtip&quot; ui-options=&quot;{style:{classes:&#x27;ui-tooltip-jtools&#x27;}}&quot;&gt;Hover for qTip&lt;/a&gt;
+&lt;a data-original-title=&quot;{{tooltip}}&quot; ui-jq=&quot;tooltip&quot;&gt;Fill the input for a dynamic Tooltip:&lt;/a&gt;
+&lt;input type=&quot;text&quot; ng-model=&quot;tooltip&quot; placeholder=&quot;Tooltip Content&quot;&gt;
 
 &lt;script&gt;
 myModule.value(&#x27;ui.config&#x27;, {
    // The ui-jq directive namespace
-   jq: { 
-      // The qtip namespace
-      qtip: {
-         // qTip options. This object will be used as the defaults
-         position: {
-            my: &#x27;left center&#x27;,
-            at:&#x27;right center&#x27;
-         }
+   jq: {
+      // The Tooltip namespace
+      tooltip: {
+         // Tooltip options. This object will be used as the defaults
+         placement: 'right'
       }
    }
 });
@@ -217,7 +249,7 @@ $scope.blurCallback = function() {
 					</div>
 				</div>
 			</section>
-			
+
 			<section id="directives-map" ng-controller="MapCtrl">
 				<div class="page-header">
 					<h1>Google Maps</h1>
@@ -234,23 +266,24 @@ $scope.blurCallback = function() {
 									</a>
 								</li>
 							</ul>
-							
+
 							<!-- this is the confusing part. we have to point the map marker directive
 								at an existing google.maps.Marker object, so it can hook up events -->
 							<div ng-repeat="marker in myMarkers" ui-map-marker="myMarkers[$index]"
 								ui-event="{'map-click': 'openMarkerInfo(marker)'}">
 							</div>
-							
+
 							<div ui-map-info-window="myInfoWindow">
 								<h1>Marker</h1>
 								Lat: <input ng-model="currentMarkerLat">, Lng: <input ng-model="currentMarkerLng">
 								<a class="btn btn-primary" ng-click="setMarkerPosition(currentMarker, currentMarkerLat, currentMarkerLng)">Set Position</a>
 							</div>
 						</div>
+
                         <!--Giving the div an id="map_canvas" fix problems with twitter bootstrap affecting
                         google maps-->
 						<div id="map_canvas" ui-map="myMap" class="span8 map"
-							ui-event="{'map-click': 'addMarker($event)', 'map-zoom_changed': 'setZoomMessage(myMap.getZoom())' }" 
+							ui-event="{'map-click': 'addMarker($event)', 'map-zoom_changed': 'setZoomMessage(myMap.getZoom())' }"
 							ui-options="mapOptions">
 						</div>
 					</div>
@@ -281,7 +314,7 @@ $scope.blurCallback = function() {
 &lt;!-- Giving the div an id="map_canvas" fix problems with twitter bootstrap affecting
 google maps --&gt;
 &lt;div id=&quot;map_canvas&quot; ui-map=&quot;myMap&quot; class=&quot;map&quot;
-  ui-event=&quot;{&#x27;map-click&#x27;: &#x27;addMarker($event)&#x27;, &#x27;map-zoom_changed&#x27;: &#x27;setZoomMessage(myMap.getZoom())&#x27; }&quot; 
+  ui-event=&quot;{&#x27;map-click&#x27;: &#x27;addMarker($event)&#x27;, &#x27;map-zoom_changed&#x27;: &#x27;setZoomMessage(myMap.getZoom())&#x27; }&quot;
   ui-options=&quot;mapOptions&quot;&gt;
 &lt;/div&gt;
 
@@ -292,7 +325,7 @@ $scope.mapOptions = {
   center: new google.maps.LatLng(35.784, -78.670),
   zoom: 15,
   mapTypeId: google.maps.MapTypeId.ROADMAP
-}; 
+};
 
 $scope.addMarker = function($event) {
   $scope.myMarkers.push(new google.maps.Marker({
@@ -337,13 +370,13 @@ $scope.setMarkerPosition = function(marker, lat, lng) {
 						<p>Calendar picker with ng-model integration</p>
 						<div class="well">
 							<ng-form name="dateForm">
-								<p><input name="dateField" value="Click Here for Datepicker" ng-model="date" ui-date></p>					
+								<p><input name="dateField" value="Click Here for Datepicker" ng-model="date" ui-date></p>
 							</ng-form>
 							<p>Selected Date: {{ date }}</p>
 							<p>Formatted Date: {{ date | date: 'mediumDate'}}</p>
 							<p>Selected Month: {{ date.getMonth() }}</p>
 							<div ng-model="date" ui-date></div>
-						</div>	
+						</div>
 					</div>
 					<div class="span6">
 						<h3>Why?</h3>
@@ -365,6 +398,7 @@ Selected Month: {{ date.getMonth() }}
 				<div class="page-header">
 					<h1>Keypress</h1>
 				</div>
+				<p class="alert alert-error">This directive needs to be rewritten! Want to help us out by taking this on? <a href="https://github.com/angular-ui/angular-ui/issues/154">Check out the thread here</a>.</p>
 				<div class="row">
 					<div class="span6">
 						<h3>What?</h3>
@@ -404,7 +438,7 @@ $scope.keypressCallback = function($event) {
 				<h3>How?</h3>
 <pre class="prettyprint" ng-non-bindable>
 &lt;input ng-model="maskDemo" ui-mask="'99-99-9999'"&gt;
-	
+
 </pre>
 			</section>
 
@@ -460,6 +494,53 @@ $scope.keypressCallback = function($event) {
 				</div>
 			</section>
 
+            <section id="directives-validate">
+                <div class="page-header">
+                    <h1>Validate</h1>
+                </div>
+                <div class="row">
+                    <div class="span6">
+                        <h3>What?</h3>
+                        <p>The <code>ui-validate</code> directive makes it very easy to use any function as a validation function for input elements using ngModel.</p>
+                        <div class="well" ng-controller="ValidateCtrl">
+                            <form name="form">
+
+                                <label>e-mail</label>
+                                <input name="email" type="email" required ng-model="email" ui-validate='{blacklist : notBlackListed}'>
+                                <span ng-show='form.email.$error.blacklist'>This e-mail is black-listed!</span>
+                                <br>is form valid: {{form.$valid}}
+                                <br>email errors: {{form.email.$error | json}}
+                            </form>
+                        </div>
+                        <h3>Why?</h3>
+                        <p>AngularJS comes with several built-in validation mechanism for input fields (ngRequired, ngPattern etc.) but using an arbitrary validation function requires creation of custom formatters and / or parsers. The ui-validate directive makes it easy to use any function(s) defined in scope as a validator function(s).</p>
+                    </div>
+                    <div class="span6">
+                        <h3>How?</h3>
+                        <p>Just add the 'ui-validate' directive to your input field.</p>
+                        <p>2 types of syntax are supported:
+                        <ul>
+                            <li><code>ui-validate="validateFoo"</code></li>
+                            <li><code>ui-validate="{foo : validateFoo, bar : validateBar}"</code></li>
+                        </ul>
+<pre class="prettyprint" ng-non-bindable>
+&lt;input ng-model="email" ui-validate='{blacklist : notBlackListed}'&gt;
+&lt;span ng-show='form.email.$error.blacklist'&gt;This e-mail is black-listed!&lt;/span&gt;
+</pre>
+                        and in a controller:
+<pre class="prettyprint" ng-non-bindable>
+function ValidateCtrl($scope) {
+  $scope.blackList = ['bad@domain.com','verybad@domain.com'];
+  $scope.notBlackListed = function(value) {
+    return $scope.blackList.indexOf(value) === -1;
+  };
+}
+</pre>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
 			<section id="directives-reset" ng-controller="ResetCtrl">
 				<div class="page-header">
 					<h1>Reset</h1>
@@ -486,7 +567,7 @@ $scope.resetModal = &#x27;Hover over me&#x27;;
 					</div>
 				</div>
 			</section>
-			
+
 			<section id="directives-animate" ng-controller="AnimateCtrl">
 				<div class="page-header">
 					<h1>Animate</h1>
@@ -502,7 +583,7 @@ $scope.resetModal = &#x27;Hover over me&#x27;;
 						</ul>
 						<pre>$scope.items: {{items}}</pre>
 						<h3>Why?</h3>
-						<p>People have been asking for a way to animate the addition and removal of DOM elements. This is a simple way of doing it using CSS3 transitions. A 'hidden' transitionable class (that doesn't use <code>dislay:none</code>) is attached to the node before it's injected and then immediately removed after.</p>
+						<p>People have been asking for a way to animate the addition and removal of DOM elements. This is a simple way of doing it using CSS3 transitions. A 'hidden' transitionable class (that doesn't use <code>display:none</code>) is attached to the node before it's injected and then immediately removed after.</p>
 					</div>
 					<div class="span6">
 						<h3>How?</h3>
@@ -546,7 +627,7 @@ li.ui-animate {
 						<h3>What?</h3>
 						<p>Takes the twitter bootstrap modal and lets you assign an ng-model to it.  You can open/close the modal any way you want: data-* attributes, or use elm.modal('show'), or whatever.  The ng-model you give will always correspond to whether the modal is opened or not, and if you set it it will also change the modal.
 						<p>
-							<div id="modalGuy" class="modal hide" ui-modal ng-model="modalShown">
+							<div id="modalGuy" class="fade" ui-modal ng-model="modalShown">
 								<div class="modal-header"><h1>Modalin'!</h1></div>
 								<div class="modal-body">
 									<p>Cool beans, dude.</p>
@@ -566,7 +647,7 @@ li.ui-animate {
 						<h3>How?</h3>
 						<pre class="prettyprint linenums" ng-non-bindable>
 &lt;script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-modal.js"&gt;&lt;/script&gt;
-&lt;div ui-modal ng-model="modalShown" id="myModal"&gt;
+&lt;div ui-modal class="fade" ng-model="modalShown" id="myModal"&gt;
   Cool, a modal dialog!
   &lt;a data-dismiss="modal"&gt;Close 1&lt;/a&gt;
   &lt;a ng-click="modalShown=false"&gt;Close 2&lt;/a&gt;
@@ -689,7 +770,7 @@ li.ui-animate {
 				<p>Using <code>ui-show</code> or <code>ui-hide</code> will add a class of the same name when the expression is true.</p>
 				<p>Use <code>ui-toggle</code> if you want to leverage both classes, as <code>ui-show</code> will be added when true and <code>ui-hide</code> when false.</p>
 			</section>
-			
+
 			<section id="directives-tinymce">
 				<div class="page-header">
 					<h1>TinyMCE</h1>
@@ -723,7 +804,7 @@ myModule.value(&#x27;ui.config&#x27;, {
 					</div>
 				</div>
 
-				
+
 			</section>
 
 			<section id="directives-currency" ng-controller="CurrencyCtrl">
@@ -742,8 +823,8 @@ myModule.value(&#x27;ui.config&#x27;, {
 					</div>
 					<div class="span6">
 						<h3>Why?</h3>
-						<p>In angular, you are able to specify what the currency symbol is (however, you might not want to change it for localization). 
-							This directive gives greater control over your currency elements by allowing you to set CSS styles based on the number's sign. 
+						<p>In angular, you are able to specify what the currency symbol is (however, you might not want to change it for localization).
+							This directive gives greater control over your currency elements by allowing you to set CSS styles based on the number's sign.
 						</p>
 					</div>
 				</div>
@@ -781,7 +862,7 @@ span[ui-currency] {
 					</div>
 				</div>
 
-				
+
 			</section>
 
 			<section id="filters-length" ng-controller="LengthCtrl">
@@ -830,7 +911,7 @@ $scope.items = [&#x27;First&#x27;,&#x27;Second&#x27;,&#x27;Third&#x27;,&#x27;Fou
 					<p><input placeholder="Enter some text to highlight" ng-model="highlightText"></p>
 					<p ng-bind-html-unsafe="'Hello there, how are you today? I\'m fine thank you.' | highlight:highlightText:caseSensitive"></p>
 				</div>
-				
+
 				<h3>How?</h3>
 <pre class="prettyprint linenums" ng-non-bindable>
 &lt;label&gt;&lt;input type=&quot;checkbox&quot; ng-model=&quot;caseSensitive&quot;&gt; Case Sensitive?&lt;/label&gt;
@@ -870,7 +951,7 @@ $scope.items = [&#x27;First&#x27;,&#x27;Second&#x27;,&#x27;Third&#x27;,&#x27;Fou
 
 &lt;script&gt;
 $scope.inflectorText = &#x27;Here Is my_phoneNumber&#x27;;
-$scope.inflectorType = &#x27;humanize&#x27;;	
+$scope.inflectorType = &#x27;humanize&#x27;;
 &lt;/script&gt;
 </pre>
 			</section>

@@ -66,6 +66,14 @@ function KeypressCtrl($scope) {
 	};
 }
 
+function ValidateCtrl($scope) {
+
+  $scope.blackList = ['bad@domain.com','verybad@domain.com'];
+  $scope.notBlackListed = function(value) {
+    return $scope.blackList.indexOf(value) === -1;
+  };
+}
+
 function ScrollfixCtrl($scope) {
 	$scope.scrollfix = -50;
 }
