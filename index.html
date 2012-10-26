@@ -68,7 +68,6 @@
 								<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a scrollto href="#filters-length">Length</a></li>
 								<li><a scrollto href="#filters-highlight">Highlight</a></li>
 								<li><a scrollto href="#filters-inflector">Inflector</a></li>
 								<li><a scrollto href="#filters-unique">Unique</a></li>
@@ -864,41 +863,6 @@ span[ui-currency] {
 				</div>
 
 
-			</section>
-
-			<section id="filters-length" ng-controller="LengthCtrl">
-				<div class="page-header">
-					<h1>Length</h1>
-				</div>
-				<div class="row">
-					<div class="span6">
-						<h3>What?</h3>
-						<p>Get the length attribute of an array, string, or object</p>
-						<div class="well">
-							<p><input ng-model="lengthFilter" placeholder="Filter the list"></p>
-							<p>There are {{(items | filter:lengthFilter).length}} items.</p>
-							<ul>
-								<li ng-repeat="value in items | filter:lengthFilter">{{value}}</li>
-							</ul>
-						</div>
-					</div>
-					<div class="span6">
-						<h3>Why?</h3>
-						<p>If you used another filter to modify the array or string, you cannot look at its inherit properties. This allows you to get the length property.</p>
-					</div>
-				</div>
-				<h3>How?</h3>
-<pre class="prettyprint linenums" ng-non-bindable>
-&lt;input ng-model=&quot;lengthFilter&quot; placeholder=&quot;Filter the list&quot;&gt;
-&lt;p&gt;There are {{(items | filter:lengthFilter).length}} items.&lt;/p&gt;
-&lt;ul&gt;
-	&lt;li ng-repeat=&quot;value in items | filter:lengthFilter&quot;&gt;{{value}}&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;script&gt;
-$scope.items = [&#x27;First&#x27;,&#x27;Second&#x27;,&#x27;Third&#x27;,&#x27;Fourth&#x27;,&#x27;Fifth&#x27;];
-&lt;/script&gt;
-</pre>
 			</section>
 
 			<section id="filters-highlight">
