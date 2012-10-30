@@ -775,13 +775,12 @@ li.ui-animate {
 				<div class="page-header">
 					<h1>TinyMCE</h1>
 				</div>
-				<p class="alert alert-error"><i class="icon-info-sign"></i> Demo disabled temporarily due to conflicts with other directives. Use at your own risk!</p>
 				<div class="row">
 					<div class="span6">
 						<h3>What?</h3>
 						<p>TinyMCE WYSIWYG integration</p>
 						<div class="well">
-							<textarea ng-model="tinymce"></textarea>
+							<textarea ui-tinymce="{theme:'simple'}" ng-model="tinymce"></textarea>
 							<h4>Output:</h4>
 							<p>{{tinymce}}</p>
 						</div>
