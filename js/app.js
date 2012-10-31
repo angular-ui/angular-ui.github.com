@@ -49,16 +49,6 @@ function ResetCtrl($scope) {
 	$scope.resetModel = 'Hover over me';
 }
 
-function LengthCtrl($scope) {
-	$scope.items = [
-		'First',
-		'Second',
-		'Third',
-		'Fourth',
-		'Fifth'
-	];
-}
-
 function KeypressCtrl($scope) {
 	$scope.keypressCallback = function($event) {
 		$event.preventDefault();
@@ -106,7 +96,7 @@ function MapCtrl($scope) {
     center: new google.maps.LatLng(35.784, -78.670),
     zoom: 15,
     mapTypeId: google.maps.MapTypeId.ROADMAP
-  }; 
+  };
 
   $scope.addMarker = function($event) {
     $scope.myMarkers.push(new google.maps.Marker({
