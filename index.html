@@ -398,25 +398,41 @@ Selected Month: {{ date.getMonth() }}
 				<div class="page-header">
 					<h1>Keypress</h1>
 				</div>
-				<p class="alert alert-error">This directive needs to be rewritten! Want to help us out by taking this on? <a href="https://github.com/angular-ui/angular-ui/issues/154">Check out the thread here</a>.</p>
 				<div class="row">
 					<div class="span6">
 						<h3>What?</h3>
 						<p>Bind an event to a particular keypress</p>
-						<p><textarea ui-keypress="{13:'keypressCallback($event)'}">Type something in and hit [Enter]. Remember that this normally adds a new line in textareas</textarea></p>
-						<h3>Why?</h3>
-						<p>Cuz you feel like it? Maybe I should stop doing the 'Why' sections, running out of explanations...</p>
+						<p><textarea ui-keypress="{13:'keypressCallback($event)'}">ui-keypress
+
+Hit [Enter] or [Alt]+[Space] and remember that this normally adds a new line if we don't $event.preventDefault()</textarea></p>
+						<p><textarea ui-keydown="{'enter alt-space':'keypressCallback($event)'}">ui-keydown
+
+Hit [Enter]. The $event here is different from keypress, but fires earlier.</textarea></p>
+						<p><textarea ui-keyup="{'enter':'keypressCallback($event)'}">ui-keyup
+
+Hit [Enter]. Remember not to close the alert using [Enter] or it will refire keyup.</textarea></p>
 					</div>
 					<div class="span6">
+						<h3>Why?</h3>
+						<p>Cuz you feel like it? Maybe I should stop doing the 'Why' sections, running out of explanations...</p>
 						<h3>How?</h3>
 						<p>The directive takes a hash (object) with the key code as the key and the callback function to fire as the value. The callback function takes an 'event' param</p>
 						<p class="alert alert-info">Note that <strong>13</strong> represents the <code>RETURN</code> key code.</p>
 <pre class="prettyprint" ng-non-bindable>
-&lt;textarea ui-keypress=&quot;{ 13 : 'keypressCallback($event)' }&quot;&gt;&lt;/textarea&gt;
+&lt;textarea
+  ui-keypress=&quot;{13:'keypressCallback($event)'}&quot;&gt;
+&lt;/textarea&gt;
+&lt;textarea
+  ui-keydown=&quot;{'enter alt-space':'keypressCallback($event)'}&quot;&gt;
+&lt;/textarea&gt;
+&lt;textarea
+  ui-keyup=&quot;{'enter':'keypressCallback($event)'}&quot;&gt;
+&lt;/textarea&gt;
 
 &lt;script&gt;
 $scope.keypressCallback = function($event) {
 	alert('Voila!');
+	$event.preventDefault();
 };
 &lt;/script&gt;
 </pre>
@@ -549,16 +565,16 @@ function ValidateCtrl($scope) {
 					<div class="span6">
 						<h3>What?</h3>
 						<p>Adds an icon or link that empties the input element</p>
-						<p><input ng-model="resetModel" ui-reset></p>
-						<p class="alert alert-info"><i class="icon-info-sign"></i> Remember that you have control over the CSS. Make the icon always show by changing the CSS to match  the <code>:hover</code> state.</p>
+						<p>Resets to empty: &nbsp; &nbsp;<input ng-model="resetModel" ui-reset></p>
+						<p>Resets to "Empty": <input ng-model="resetModel" ui-reset=" 'Empty' "></p>
+						<p class="alert alert-info"><i class="icon-info-sign"></i> Remember that you control the CSS. Make the icon always show by changing the CSS to match  the <code>:hover</code> state.</p>
 					</div>
 					<div class="span6">
-						<h3>Why?</h3>
-						<p>Convenience?</p>
-
 						<h3>How?</h3>
+						<p>You can set an app-wide reset value using <code>ui.config</code></p>
 <pre class="prettyprint" ng-non-bindable>
 &lt;input ng-model="resetModel" ui-reset&gt;
+&lt;input ng-model="resetModel" ui-reset=" 'Empty' "&gt;
 
 &lt;script&gt;
 $scope.resetModal = &#x27;Hover over me&#x27;;
@@ -775,13 +791,13 @@ li.ui-animate {
 				<div class="page-header">
 					<h1>TinyMCE</h1>
 				</div>
-				<p class="alert alert-error"><i class="icon-info-sign"></i> Demo disabled temporarily due to conflicts with other directives. Use at your own risk!</p>
+				<p class="alert alert-error" ng-hide="true"><i class="icon-info-sign"></i> Demo disabled temporarily due to conflicts with other directives. Use at your own risk!</p>
 				<div class="row">
 					<div class="span6">
 						<h3>What?</h3>
 						<p>TinyMCE WYSIWYG integration</p>
 						<div class="well">
-							<textarea ng-model="tinymce"></textarea>
+							<textarea ng-model="tinymce" ui-tinymce></textarea>
 							<h4>Output:</h4>
 							<p>{{tinymce}}</p>
 						</div>
