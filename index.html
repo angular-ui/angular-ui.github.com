@@ -140,11 +140,12 @@ myModule.value('ui.config', {
 
 &lt;!--[if lte IE 8]&gt;
     &lt;script&gt;
-    // The ieshiv takes care of our ui.directives and AngularJS's ng-view, ng-include and ng-pluralize.
+    // The ieshiv takes care of our ui.directives, bootstrap module directives and 
+    // AngularJS's ng-view, ng-include, ng-pluralize and ng-switch directives.
     // However, IF you have custom directives (yours or someone else's) then
-    // add the directly containing module into <code>window.myAngularModules</code>
+    // enumerate the list of tags in <code>window.myCustomTags</code>
 
-    window.myAngularModules = [ 'yourModule.ThatContainsAtLeastSomeDirectives', 'somebodyElsesModule' ]; // optional
+    window.myCustomTags = [ 'yourDirective', 'somebodyElsesDirective' ]; // optional
     &lt;/script&gt;
     &lt;script src="build/angular-ui-ieshiv.js"&gt;&lt;/script&gt;
 &lt;![endif]--&gt;
