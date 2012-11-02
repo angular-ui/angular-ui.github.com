@@ -12,20 +12,20 @@ angular.module('demoApp', ['ui'], function($locationProvider) {
 		symbol: 'USD $'
 	}
 }).directive('scrollto', [function(){
-  return function(scope, elm, attrs) {
-    elm.bind('click', function(e){
-      e.preventDefault();
-      if (attrs.href) {
-        attrs.scrollto = attrs.href;
-      }
-      var top = $(attrs.scrollto).offset().top;
-      $('body').animate({ scrollTop: top }, 800);
-    });
-  };
+	return function(scope, elm, attrs) {
+		elm.bind('click', function(e){
+			e.preventDefault();
+			if (attrs.href) {
+				attrs.scrollto = attrs.href;
+			}
+			var top = $(attrs.scrollto).offset().top;
+			$('body').animate({ scrollTop: top }, 800);
+		});
+	};
 }]);
 
 function CodeMirrorCtrl($scope) {
-    $scope.codeMirrorModel = "var helloWorld = 'Success!';";
+	$scope.codeMirrorModel = "var helloWorld = 'Success!';";
 }
 
 function TooltipCtrl($scope) {
@@ -33,13 +33,13 @@ function TooltipCtrl($scope) {
 		title : 'Title',
 		body  : 'Tooltip Body...'
 	};
-};
+}
 
 function EventCtrl($scope) {
 	$scope.blurCallback = function() {
 		alert('Goodbye');
 	};
-};
+}
 
 function ModalCtrl($scope) {
 	$scope.modalShown = false;
@@ -58,10 +58,10 @@ function KeypressCtrl($scope) {
 
 function ValidateCtrl($scope) {
 
-  $scope.blackList = ['bad@domain.com','verybad@domain.com'];
-  $scope.notBlackListed = function(value) {
-    return $scope.blackList.indexOf(value) === -1;
-  };
+	$scope.blackList = ['bad@domain.com','verybad@domain.com'];
+	$scope.notBlackListed = function(value) {
+		return $scope.blackList.indexOf(value) === -1;
+	};
 }
 
 function ScrollfixCtrl($scope) {
@@ -75,51 +75,51 @@ function InflectorCtrl($scope) {
 
 function UniqueCtrl($scope) {
 	$scope.items = [
-		{ firstName: 'Dean',	lastName: 'Sofer',	id: 1, gender: 'Male'	},
-		{ firstName: 'Dean',	lastName: 'Kuntz',	id: 2, gender: 'Male'	},
-		{ firstName: 'Peter',	lastName: 'Piper',	id: 3, gender: 'Female'	},
-		{ firstName: 'Peter',	lastName: 'Darwin',	id: 4, gender: 'Male'	},
-		{ firstName: 'Janet',	lastName: 'Piper',	id: 5, gender: 'Female'	},
-		{ firstName: 'Dan',		lastName: 'Doyon',	id: 6, gender: 'Male'	},
-		{ firstName: 'Andy',	lastName: 'Joslin',	id: 1, gender: 'Male'	},
+	{ firstName: 'Dean',	lastName: 'Sofer',	id: 1, gender: 'Male'	},
+	{ firstName: 'Dean',	lastName: 'Kuntz',	id: 2, gender: 'Male'	},
+	{ firstName: 'Peter',	lastName: 'Piper',	id: 3, gender: 'Female'	},
+	{ firstName: 'Peter',	lastName: 'Darwin',	id: 4, gender: 'Male'	},
+	{ firstName: 'Janet',	lastName: 'Piper',	id: 5, gender: 'Female'	},
+	{ firstName: 'Dan',		lastName: 'Doyon',	id: 6, gender: 'Male'	},
+	{ firstName: 'Andy',	lastName: 'Joslin',	id: 1, gender: 'Male'	}
 	];
 }
 
 function AnimateCtrl($scope) {
-  $scope.items = [];
+	$scope.items = [];
 }
 
 function MapCtrl($scope) {
-  $scope.myMarkers = [];
+	$scope.myMarkers = [];
 
-  $scope.mapOptions = {
-    center: new google.maps.LatLng(35.784, -78.670),
-    zoom: 15,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
+	$scope.mapOptions = {
+		center: new google.maps.LatLng(35.784, -78.670),
+		zoom: 15,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
 
-  $scope.addMarker = function($event) {
-    $scope.myMarkers.push(new google.maps.Marker({
-      map: $scope.myMap,
-      position: $event.latLng
-      }));
-    };
+	$scope.addMarker = function($event) {
+		$scope.myMarkers.push(new google.maps.Marker({
+			map: $scope.myMap,
+			position: $event.latLng
+		}));
+	};
 
-    $scope.setZoomMessage = function(zoom) {
-      $scope.zoomMessage = 'You just zoomed to '+zoom+'!';
-      console.log(zoom,'zoomed')
-    };
+	$scope.setZoomMessage = function(zoom) {
+		$scope.zoomMessage = 'You just zoomed to '+zoom+'!';
+		console.log(zoom,'zoomed');
+	};
 
-    $scope.openMarkerInfo = function(marker) {
-      $scope.currentMarker = marker;
-      $scope.currentMarkerLat = marker.getPosition().lat();
-      $scope.currentMarkerLng = marker.getPosition().lng();
-      $scope.myInfoWindow.open($scope.myMap, marker);
-    };
+	$scope.openMarkerInfo = function(marker) {
+		$scope.currentMarker = marker;
+		$scope.currentMarkerLat = marker.getPosition().lat();
+		$scope.currentMarkerLng = marker.getPosition().lng();
+		$scope.myInfoWindow.open($scope.myMap, marker);
+	};
 
-    $scope.setMarkerPosition = function(marker, lat, lng) {
-      marker.setPosition(new google.maps.LatLng(lat, lng));
-    };
+	$scope.setMarkerPosition = function(marker, lat, lng) {
+		marker.setPosition(new google.maps.LatLng(lat, lng));
+	};
 }
 
 function CurrencyCtrl($scope) {
@@ -128,5 +128,18 @@ function CurrencyCtrl($scope) {
 		neg : -12345,
 		zero: 0
 	};
-};
+}
+
+function FormatCtrl($scope) {
+	$scope.sentence = 'Hello :name, how is the :subject? Are you on the $0, $1 or $2?';
+	$scope.mode = 'string';
+	$scope.tokens = {
+		'string': 'Single',
+		'array': ['first', 'second', 'third'],
+		'object': {
+			'name': 'Bob',
+			'subject': 'wife'
+		}
+	};
+}
 /* EOF */
