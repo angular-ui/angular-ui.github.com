@@ -6,7 +6,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 
 	<script src="lib/bootstrap/docs/assets/js/bootstrap.min.js"></script>
-	<script src="http://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
+	<script src="http://code.angularjs.org/1.0.3/angular.js"></script>
 	<script src="angular-ui/build/angular-ui.js"></script>
 	<script src="js/prettify.js"></script>
 	<script src="lib/maskedinput/jquery.maskedinput.js"></script>
@@ -16,6 +16,7 @@
 	<script src="http://fiddle.tinymce.com/tinymce/3.5.4.1/jquery.tinymce.js"></script>
 	<script src="http://fiddle.tinymce.com/tinymce/3.5.4.1/tiny_mce_jquery_src.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script src="lib/calendar/fullcalendar.js"></script> 
 	<script src="js/app.js"></script>
 
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css">
@@ -25,6 +26,7 @@
 	<link rel="stylesheet" href="lib/select2/select2.css" >
 	<link rel="stylesheet" href="lib/CodeMirror/lib/codemirror.css" >
 	<link rel="stylesheet" href="lib/CodeMirror/theme/monokai.css" >
+	<link rel="stylesheet" href="lib/calendar/fullcalendar.css" >
 	<link rel="stylesheet" href="css/app.css" >
 </head>
 <body data-spy="scroll">
@@ -32,7 +34,7 @@
 		<div class="navbar-inner">
 			<div class="container">
 				<div class="dropdown">
-					<a class="brand dropdown-toggle" role="button" data-toggle="dropdown">
+					<a class="brand dropdown-toggle" role="button" data-toggle="dropdown"> 
 						AngularUI
 						<b class="caret"></b>
 					</a>
@@ -60,6 +62,7 @@
 								<li><a scrollto href="#directives-codemirror">CodeMirror IDE</a></li>
 								<li><a scrollto href="#directives-event">Event Binder</a></li>
 								<li><a scrollto href="#directives-map">Google Maps</a></li>
+								<li><a scrollto href="#directives-calendar">Calendar</a></li>
 								<li><a scrollto href="#directives-date">Date</a></li>
 								<li><a scrollto href="#directives-keypress">Keypress</a></li>
 								<li><a scrollto href="#directives-mask">Mask</a></li>
@@ -261,6 +264,68 @@ $scope.blurCallback = function() {
 </pre>
 					</div>
 				</div>
+			</section>
+
+			<section id="directives-calendar" ng-controller="CalendarCtrl">
+				<div class="page-header">
+					<h1>Calendar</h1>
+				</div>
+				<div class="well">
+					<div class="row">
+						<div class="span3">
+							<h3>What?</h3>
+							<p>Attach Angular objects to a calendar.</p>
+							<h3>Why?</h3>
+							<p>For easy integration with scope objects.</p>
+							<h4>Click to add an Event!</h4>
+						    </b>
+							<button style="margin-bottom: 3px;" class="btn btn-primary" ng-click="addChild()">Add Child</button>
+						    <ul>
+						        <li ng-repeat="e in events">
+						            <p class="alert alert-info">
+						              {{e.title}}
+						              <a style="float: right; margin-top: -5px;" class="btn btn-danger" ng-click="remove($index)">x</a>
+						            </p>
+						        </li>
+						    </ul>
+
+						</div>
+
+						<div ui-calendar="{height: 450,editable: true}" class="span8 calendar" ng-model="events"></div>
+					</div>
+				</div>
+				<h3>How?</h3>
+				<pre class="prettyprint linenums">
+&lt;div ui-calendar="{height: 450,editable: true}" class="span8 calendar" ng-model="events"&gt;&lt;/div&gt; 
+
+function CalendarCtrl($scope) {
+	var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+    
+    $scope.events = [
+	  {title: 'All Day Event',start: new Date(y, m, 1)},
+	  {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
+	  {id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false},
+	  {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
+	  {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
+	  {title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
+    ]
+
+    $scope.addChild = function() {
+      $scope.events.push({
+        title: 'Open Sesame',
+        start: new Date(y, m, 28),
+        end: new Date(y, m, 29)
+      });
+    }
+
+    $scope.remove = function(index) {
+      $scope.events.splice(index,1);
+    }
+}
+</pre>
 			</section>
 
 			<section id="directives-map" ng-controller="MapCtrl">
