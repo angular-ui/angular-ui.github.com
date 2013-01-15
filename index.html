@@ -116,12 +116,35 @@
 					<a class="btn btn-large btn-primary" href="https://github.com/angular-ui/angular-ui/tags"><i class="icon-download-alt icon-white"></i> Download</a>
 				</p>
 				<h1>AngularUI</h1>
-				<p>The enhancement companion suite to the <a href="http://angularjs.org">AngularJS</a> framework.</p>
+				<p>The companion suite to the <a href="http://angularjs.org">AngularJS</a> framework.</p>
 				<h3 class="alert alert-info pagination-centered" style="margin:2em 0 0">
 					Check out the new <a href="http://angular-ui.github.com/bootstrap" class="btn btn-primary btn-large">Bootstrap Project</a> by the AngularUI Team!
 				</h3>
 			</header>
-			<section class="" id="defaults">
+			
+			<section id="setup">
+				<h1>Getting Started</h1>
+				<p>Setup is easy and designed to be highly modular. Just follow these steps <strong>in order</strong>:</p>
+				<ol>
+					<li><span class="label label-info">Optional</span> Include the <a href="#ieshiv">Internet Explorer Shiv</a> (<a href="http://docs.angularjs.org/guide/ie">read why here</a>)</li>
+					<li><span class="label label-info">Optional</span> Include jQuery if using jQuery Plugins</li>
+					<li><span class="label label-info">Optional</span> Include any jQuery(UI) plugins you wish to use (<strong>plugins are not bundled with AngularUI</strong>)</li>
+					<li>Include AngularJS</li>
+					<li>Include AngularUI in one of the following ways:
+						<ul>
+							<li>Include the entire library (located in <code>/build</code> directory)</li>
+							<li>Include the <code>/common/module.js</code> and any directives or filters you wish to use</li>
+							<li><span class="label label-info">Coming Soon</span> Create a custom build and include it</li>
+						</ul>
+					</li>
+					<li>Add the <code>'ui'</code> module as a dependency:
+						<pre class="prettyprint">angular.module('myModule', ['ui'])</pre>
+					</li>
+					<li><span class="label label-info">Optional</span> Setup your <a href="#defaults">Global Defaults</a> for plugins and directives</li>
+				</ol>
+			</section>
+			
+			<section id="defaults">
 				<h1>Global Defaults</h1>
 				<div class="row">
 					<div class="span6">
