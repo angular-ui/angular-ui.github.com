@@ -548,10 +548,10 @@ Selected Month: {{ date.getMonth() }}
 						<p>Bind an event to a particular keypress</p>
 						<p><textarea ui-keypress="{13:'keypressCallback($event)'}">ui-keypress
 
-Hit [Enter] or [Alt]+[Space] and remember that this normally adds a new line if we don't $event.preventDefault()</textarea></p>
+Hit [Enter]. The $event here is different from keypress, but fires earlier.</textarea></p>
 						<p><textarea ui-keydown="{'enter alt-space':'keypressCallback($event)'}">ui-keydown
 
-Hit [Enter]. The $event here is different from keypress, but fires earlier.</textarea></p>
+Hit [Enter] or [Alt]+[Space] and remember that this normally adds a new line if we don't $event.preventDefault()</textarea></p>
 						<p><textarea ui-keyup="{'enter':'keypressCallback($event)'}">ui-keyup
 
 Hit [Enter]. Remember not to close the alert using [Enter] or it will refire keyup.</textarea></p>
