@@ -29,7 +29,7 @@
 	<link rel="stylesheet" href="lib/calendar/fullcalendar.css" >
 	<link rel="stylesheet" href="css/app.css" >
 </head>
-<body data-spy="scroll">
+<body data-spy="scroll" ng-controller="MainCtrl">
 	<header class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
@@ -117,7 +117,7 @@
 				</h1>
 				<p>The companion suite to the <strong><a href="http://angularjs.org">AngularJS</a></strong> framework.</p>
 				<p class="btn-group">
-					<a class="btn btn-large" href="https://github.com/angular-ui/angular-ui"><i class="icon-github"></i> Code on Github</a><a class="btn btn-large btn-primary" href="https://github.com/angular-ui/angular-ui/tags"><i class="icon-download-alt icon-white"></i> Download</a>
+					<a class="btn btn-large" href="https://github.com/angular-ui/angular-ui"><i class="icon-github"></i> Code on Github</a><a class="btn btn-large btn-primary" href="https://github.com/angular-ui/angular-ui/tags"><i class="icon-download-alt icon-white"></i> Download</a><a class="btn btn-large" ng-click="showBuildModal()">Create a Build</a>
 				</p>
 			</div>
 			<div class="bs-docs-social">
@@ -1201,5 +1201,26 @@ $scope.tokens = { name:&#39;Bob&#39;, subject:&#39;wife&#39; };
   })();
 
 </script>
+
+<div ui-modal class="fade" ng-model="buildModalShown">
+  <div class="modal-header"><h2>Create a Custom Build</h2></div>
+  <div class="modal-body">
+    <div ng-show="buildErrorText">
+      <h3 style="text-align: center;">{{buildErrorText}}</h3>
+    </div>
+    <div ng-hide="buildErrorText">
+      <h3 style="text-align: center;">Select the modules you wish to download:</h3>
+      <select style="width: 100%;" ui-select2 multiple 
+        ui-options="{multiple: true}"
+        ng-model="selectedModules">
+        <option ng-repeat="m in modules" value="{{m}}">{{m | inflector:'humanize'}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class="btn btn-primary" ng-disabled="!selectedModules.length" ng-click="selectedModules.length && downloadBuild()"><i class="icon-download-alt icon-white"></i> Download {{selectedModules.length}} Modules</a>
+    <a class="btn" ng-click="buildModalShown = false">Cancel</a>
+  </div>
+</div>
 </body>
 </html>
