@@ -1218,6 +1218,7 @@ $scope.tokens = { name:&#39;Bob&#39;, subject:&#39;wife&#39; };
     </div>
   </div>
   <div class="modal-footer">
+  	<a class="btn pull-left" ng-click="selectedModules=['event','if','jq','keypress','showhide','validate']">Recommended Modules</a>
     <a class="btn btn-primary" ng-disabled="!selectedModules.length" ng-click="selectedModules.length && downloadBuild()"><i class="icon-download-alt icon-white"></i> Download {{selectedModules.length}} Modules</a>
     <a class="btn" ng-click="buildModalShown = false">Cancel</a>
   </div>
