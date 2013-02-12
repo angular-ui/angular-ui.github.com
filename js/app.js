@@ -19,7 +19,7 @@ angular.module('demoApp', ['ui'], function($locationProvider) {
 				attrs.scrollto = attrs.href;
 			}
 			var top = $(attrs.scrollto).offset().top;
-			$('body').animate({ scrollTop: top }, 800);
+			$('body,html').animate({ scrollTop: top }, 800);
 		});
 	};
 }]);
