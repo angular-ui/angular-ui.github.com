@@ -19,7 +19,7 @@ angular.module('demoApp', ['ui'], function($locationProvider) {
 				attrs.scrollto = attrs.href;
 			}
 			var top = $(attrs.scrollto).offset().top;
-			$('body').animate({ scrollTop: top }, 800);
+			$('body,html').animate({ scrollTop: top }, 800);
 		});
 	};
 }]);
@@ -157,6 +157,16 @@ function CurrencyCtrl($scope) {
 		neg : -12345,
 		zero: 0
 	};
+}
+
+function RouteCtrl($scope, $window){
+	$scope.sample = "{{ var }}"
+	$scope.reload = function($event, route){
+		$event.preventDefault();
+		$window.location.href = '#route-' + route;
+		document.location.reload();
+	}
+	$scope.routes = [1,2,3];
 }
 
 function FormatCtrl($scope) {
