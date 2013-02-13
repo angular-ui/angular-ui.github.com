@@ -1176,7 +1176,12 @@ span[ui-currency] {
 							</li>
 							<li>Using <code>ui-route</code> with <code>href</code> attribute:
 								<ul style="margin-top: 5px;">
-									<li>Static Only: <code>&lt;a ui-route ng-href="/page"&gt;</code></li>
+									<li>Static Only: <code>&lt;a ui-route href="/page"&gt;</code></li>
+								</ul>
+							</li>
+							<li>You can also pass a model to <code>ui-route</code>. This model could then be used the same as <code>$uiRoute</code>.
+								<ul style="margin-top: 5px;">
+									<li><code>&lt;li ui-route="/page/{{ sample }}" ng-model="current"&gt;</code></li>
 								</ul>
 							</li>
 						</ul>
