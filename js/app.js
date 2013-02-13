@@ -93,6 +93,15 @@ function ValidateCtrl($scope) {
 	};
 }
 
+function SortableCtrl($scope) {
+	$scope.parents = [
+		{ name: 'Anna', children: ['Alvin', 'Becky' ,'Charlie'] },
+		{ name: 'Barney', children: ['Dorothy', 'Eric'] },
+		{ name: 'Chris', children: ['Frank', 'Gary', 'Henry'] }
+	];
+	$scope.items = ['One', 'Two', 'Three'];
+}
+
 function ScrollfixCtrl($scope) {
 	$scope.scrollfix = -50;
 }
