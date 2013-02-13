@@ -164,16 +164,6 @@ function CurrencyCtrl($scope) {
 	};
 }
 
-function RouteCtrl($scope, $window){
-	$scope.sample = "{{ var }}"
-	$scope.reload = function($event, route){
-		$event.preventDefault();
-		$window.location.href = '#route-' + route;
-		document.location.reload();
-	}
-	$scope.routes = [1,2,3];
-}
-
 function FormatCtrl($scope) {
 	$scope.sentence = 'Hello :name, how is the :subject? Are you on the $0, $1 or $2?';
 	$scope.mode = 'string';

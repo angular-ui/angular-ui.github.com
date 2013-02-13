@@ -657,52 +657,64 @@ $scope.keypressCallback = function($event) {
 				</div>
 			</section>
 
-            <section id="directives-validate">
-                <div class="page-header">
-                    <h1>Validate</h1>
-                </div>
-                <div class="row">
-                    <div class="span6">
-                        <h3>What?</h3>
-                        <p>The <code>ui-validate</code> directive makes it very easy to use any function as a validation function for input elements using ngModel.</p>
-                        <div class="well" ng-controller="ValidateCtrl">
-                            <form name="form">
+			<section id="directives-validate">
+				<div class="page-header">
+					<h1>Validate</h1>
+				</div>
+				<div class="row">
+					<div class="span6">
+						<h3>What?</h3>
+						<p>The <code>ui-validate</code> directive makes it very easy to use any function as a validation function for input elements using ngModel.</p>
+						<div class="well" ng-controller="ValidateCtrl">
+							<form name="form">
 
-                                <label>e-mail</label>
-                                <input name="email" type="email" required ng-model="email" ui-validate='{blacklist : notBlackListed}'>
-                                <span ng-show='form.email.$error.blacklist'>This e-mail is black-listed!</span>
-                                <br>is form valid: {{form.$valid}}
-                                <br>email errors: {{form.email.$error | json}}
-                            </form>
-                        </div>
-                        <h3>Why?</h3>
-                        <p>AngularJS comes with several built-in validation mechanism for input fields (ngRequired, ngPattern etc.) but using an arbitrary validation function requires creation of custom formatters and / or parsers. The ui-validate directive makes it easy to use any function(s) defined in scope as a validator function(s).</p>
-                    </div>
-                    <div class="span6">
-                        <h3>How?</h3>
-                        <p>Just add the 'ui-validate' directive to your input field.</p>
-                        <p>2 types of syntax are supported:
-                        <ul>
-                            <li><code>ui-validate="validateFoo"</code></li>
-                            <li><code>ui-validate="{foo : validateFoo, bar : validateBar}"</code></li>
-                        </ul>
+								<label>e-mail</label>
+								<input name="email" type="email" required ng-model="email" ui-validate="{ blacklist : 'notBlackListed($value)' }">
+								<span ng-show='form.email.$error.blacklist'>This e-mail is black-listed!</span>
+								<br>is form valid: {{form.$valid}}
+								<br>email errors: {{form.email.$error | json}}
+							</form>
+						</div>
+						<h3>Why?</h3>
+						<p>AngularJS comes with several built-in validation mechanism for input fields (ngRequired, ngPattern etc.) but using an arbitrary validation function requires creation of custom formatters and / or parsers. The ui-validate directive makes it easy to use any function(s) defined in scope as a validator function(s).</p>
+					</div>
+					<div class="span6">
+						<h3>How?</h3>
+						<p>Just add the 'ui-validate' directive to your input field.</p>
+						<ul>
+							<li>Expressions and methods should be passed as strings: <code>ui-validate="'method($value)'"</code></li>
+							<li>Methods should be passed the <code>$value</code> variable.</li>
+							<li>2 types of syntax are supported:
+								<ul>
+									<li><code>ui-validate="'validateFoo($value)'"</code></li>
+									<li><code>ui-validate="{foo : 'validateFoo($value)', bar : 'validateBar($value)'}"</code></li>
+								</ul>
+							</li>
+							<li>The attribute <code>ui-validate-watch</code> can be used to watch another model and updates <code>ui-validate</code> whenever the passed model changes.
+								<ul>
+									<li><code>ui-validate-watch="'anotherModel'"</code></li>
+									<li><code>ui-validate-watch="{foo: 'anotherModel'}"</code></li>
+								</ul>
+							</li>
+						</ul>
 <pre class="prettyprint" ng-non-bindable>
-&lt;input ng-model="email" ui-validate='{blacklist : notBlackListed}'&gt;
+&lt;input ng-model="email" ui-validate="{blacklist : 'notBlackListed($value)'}"&gt;
 &lt;span ng-show='form.email.$error.blacklist'&gt;This e-mail is black-listed!&lt;/span&gt;
 </pre>
-                        and in a controller:
+						and in a controller:
 <pre class="prettyprint" ng-non-bindable>
 function ValidateCtrl($scope) {
-  $scope.blackList = ['bad@domain.com','verybad@domain.com'];
-  $scope.notBlackListed = function(value) {
-    return $scope.blackList.indexOf(value) === -1;
-  };
+	$scope.blackList = ['bad@domain.com','verybad@domain.com'];
+	$scope.notBlackListed = function(value) {
+	return $scope.blackList.indexOf(value) === -1;
+	};
 }
 </pre>
-                        </p>
-                    </div>
-                </div>
-            </section>
+						</p>
+					</div>
+
+				</div>
+			</section>
 
 			<section id="directives-reset" ng-controller="ResetCtrl">
 				<div class="page-header">
