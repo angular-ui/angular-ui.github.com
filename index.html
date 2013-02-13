@@ -1357,8 +1357,8 @@ $scope.tokens = { name:&#39;Bob&#39;, subject:&#39;wife&#39; };
   })();
 
 </script>
-
-<div ui-modal class="fade" ng-model="buildModalShown">
+<div class="modal-backdrop fade" ng-class="{in:buildModalShown}"></div>
+<div class="modal fade" ng-class="{in:buildModalShown}">
   <div class="modal-header"><h2>Create a Custom Build</h2></div>
   <div class="modal-body">
     <div ng-show="buildErrorText">
