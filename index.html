@@ -76,6 +76,7 @@
 								<li><a scrollto href="#directives-select2">Select2</a></li>
 								<li><a scrollto href="#directives-showhide">Show / Hide / Toggle</a></li>
 								<li><a scrollto href="#directives-tinymce">TinyMCE</a></li>
+                                <li><a scrollto href="#directives-sortable">Sortable</a></li>
 								<li><a scrollto href="#directives-currency">Currency</a></li>
 								<li><a scrollto href="#directives-routing">Route Matching</a></li>
 							</ul>
@@ -968,8 +969,99 @@ myModule.value(&#x27;ui.config&#x27;, {
 					</div>
 				</div>
 
-
 			</section>
+
+            <section id="directives-sortable" ng-controller="SortableCtrl">
+                <div class="page-header">
+                    <h1>Sortable</h1>
+                </div>
+                <div class="row">
+                    <div class="span6">
+                        <h3>What?</h3>
+
+                        <div class="row">
+                            <div class="span3">
+                                <p>Drag and drop the parents and children</p>
+                                <div class="well">
+                                    <h3>Destroy Families</h3>
+                                    <p>You're not fit to be a mother!</p>
+                                    <ul ui-sortable ng-model="parents">
+                                        <li ng-repeat="parent in parents">
+                                            <ul>
+                                                <h5>{{parent.name}}</h5>
+                                                <ul class="children" ui-sortable="{connectWith:'.children'}" ng-model="parent.children">
+                                                    <li ng-repeat="child in parent.children">{{child}}</li>
+                                                </ul>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="span3">
+                                <pre>Parents: {{parents|json}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <h3>How?</h3>
+                        <pre class="prettyprint linenums" ng-non-bindable>
+&lt;script&gt;
+$scope.parents = [
+  { name: 'Anna', 
+    children: ['Alvin', 'Becky' ,'Charlie'] },
+  { name: 'Barney', 
+    children: ['Dorothy', 'Eric'] },
+  { name: 'Chris', 
+    children: ['Frank', 'Gary', 'Henry'] }
+];
+&lt;/script&gt;
+
+&lt;ul <strong>ui-sortable ng-model=&quot;parents&quot;</strong>&gt;
+  &lt;li ng-repeat=&quot;parent in parents&quot;&gt;
+    &lt;h3&gt;{{parent.name}}&lt;/h3&gt;
+    &lt;ul <strong>class=&quot;children&quot;
+      ui-sortable=&quot;{connectWith:&#39;.children&#39;}&quot;
+      ng-model=&quot;parent.children&quot;&gt;</strong> 
+      &lt;li ng-repeat=&quot;child in parent.children&quot;&gt;
+        {{child}}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</pre>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span6">
+                        <div class="row">
+                            <div class="span3">
+                                <div class="well">
+                                    <h3>Static Items</h3>
+                                    <ul ng-model="items" ui-sortable>
+                                        <li>First</li>
+                                        <li>Second</li>
+                                        <li>Third</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="span3">
+                                <pre>Static Items: {{items|json}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <pre class="prettyprint linenums" ng-non-bindable>
+&lt;script&gt;
+$scope.items = ['One', 'Two', 'Three'];
+&lt;/script&gt;
+
+&lt;ul ng-model=&quot;items&quot; ui-sortable&gt;
+  &lt;li&gt;First&lt;/li&gt;
+  &lt;li&gt;Second&lt;/li&gt;
+  &lt;li&gt;Third&lt;/li&gt;
+&lt;/ul&gt;</pre>
+                    </div>
+                </div>
+            </section>
 
 			<section id="directives-currency" ng-controller="CurrencyCtrl">
 				<div class="page-header">
