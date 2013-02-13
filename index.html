@@ -71,7 +71,6 @@
 								<li><a scrollto href="#directives-validate">Validate</a></li>
 								<li><a scrollto href="#directives-reset">Reset</a></li>
 								<li><a scrollto href="#directives-animate">Animate</a></li>
-								<li><a scrollto href="#directives-modal">Modal</a></li>
 								<li><a scrollto href="#directives-scrollfix">Scrollfix</a></li>
 								<li><a scrollto href="#directives-select2">Select2</a></li>
 								<li><a scrollto href="#directives-showhide">Show / Hide / Toggle</a></li>
@@ -778,47 +777,6 @@ li.ui-animate {
 }
 &lt;/style&gt;
 </pre>
-					</div>
-				</div>
-			</section>
-
-			<section id="directives-modal" ng-controller="ModalCtrl">
-				<div class="page-header">
-					<h1>Modal</h1>
-				</div>
-				<div class="row">
-					<div class="span6">
-						<h3>What?</h3>
-						<p>Takes the twitter bootstrap modal and lets you assign an ng-model to it.  You can open/close the modal any way you want: data-* attributes, or use elm.modal('show'), or whatever.  The ng-model you give will always correspond to whether the modal is opened or not, and if you set it it will also change the modal.
-						<p>
-							<div id="modalGuy" class="fade" ui-modal ng-model="modalShown">
-								<div class="modal-header"><h1>Modalin'!</h1></div>
-								<div class="modal-body">
-									<p>Cool beans, dude.</p>
-								</div>
-								<div class="modal-footer">
-									<a class="btn" data-dismiss="modal">Close bootstrap way</a>
-									<a class="btn" ng-click="modalShown=false">Close ng-model way</a>
-								</div>
-							</div>
-							<a class="btn" ng-click="modalShown=true">Open Modal with ng-model</a><br>
-							<a class="btn" data-toggle="modal" href="#modalGuy">Open Modal with data-toggle="modal"</a>
-						</p>
-						<h3>Why?</h3>
-						<p>We wanted to be able to open/close a modal programatically, so we stuck an ng-model onto the bootstrap modal and called it a day.</p>
-					</div>
-					<div class="span6">
-						<h3>How?</h3>
-						<pre class="prettyprint linenums" ng-non-bindable>
-&lt;script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-modal.js"&gt;&lt;/script&gt;
-&lt;div ui-modal class="fade" ng-model="modalShown" id="myModal"&gt;
-  Cool, a modal dialog!
-  &lt;a data-dismiss="modal"&gt;Close 1&lt;/a&gt;
-  &lt;a ng-click="modalShown=false"&gt;Close 2&lt;/a&gt;
-&lt;/div&gt;
-&lt;a ng-click="modalShown=true"&gt;Open 1&lt;/a&gt;
-&lt;a data-toggle="modal" href="#myModal"&gt;Open 2&lt;/a&gt;
-						</pre>
 					</div>
 				</div>
 			</section>

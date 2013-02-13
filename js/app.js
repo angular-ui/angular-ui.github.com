@@ -70,10 +70,6 @@ function EventCtrl($scope) {
 	};
 }
 
-function ModalCtrl($scope) {
-	$scope.modalShown = false;
-}
-
 function ResetCtrl($scope) {
 	$scope.resetModel = 'Hover over me';
 }
