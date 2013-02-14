@@ -17,6 +17,7 @@
 	<script src="http://fiddle.tinymce.com/tinymce/3.5.4.1/tiny_mce_jquery_src.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	<script src="lib/calendar/fullcalendar.js"></script> 
+	<script src="http://arshaw.com/js/fullcalendar-1.5.3/fullcalendar/gcal.js"></script>
 	<script src="js/app.js"></script>
 
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css">
@@ -345,9 +346,9 @@ $scope.blurCallback = function() {
 							<p>Attach Angular objects to a calendar.</p>
 							<h3>Why?</h3>
 							<p>For easy integration with scope objects.</p>
-							<h4>Click to add an Event!</h4>
+							<!-- <h4>Click to add an Event!</h4>
 						    </b>
-							<button style="margin-bottom: 3px;" class="btn btn-primary" ng-click="addChild()">Add Child</button>
+							 <button style="margin-bottom: 3px;" class="btn btn-primary" ng-click="addEvent()">Add Event</button>
 						    <ul>
 						        <li ng-repeat="e in events">
 						            <p class="alert alert-info">
@@ -355,11 +356,10 @@ $scope.blurCallback = function() {
 						              <a style="float: right; margin-top: -5px;" class="btn btn-danger" ng-click="remove($index)">x</a>
 						            </p>
 						        </li>
-						    </ul>
+						    </ul> -->
 
 						</div>
-
-						<div ui-calendar="{height: 450,editable: true}" class="span8 calendar" ng-model="events"></div>
+						<div ui-calendar="{height: 450,editable: true}" class="span8 calendar" ng-model="eventSources"></div>
 					</div>
 				</div>
 				<h3>How?</h3>
@@ -367,11 +367,17 @@ $scope.blurCallback = function() {
 &lt;div ui-calendar="{height: 450,editable: true}" class="span8 calendar" ng-model="events"&gt;&lt;/div&gt; 
 
 function CalendarCtrl($scope) {
-	var date = new Date();
+    var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
-    
+
+    $scope.eventSource = {
+            url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
+            className: 'gcal-event',           // an option!
+            currentTimezone: 'America/Chicago' // an option!
+        };
+
     $scope.events = [
 	  {title: 'All Day Event',start: new Date(y, m, 1)},
 	  {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
@@ -379,9 +385,11 @@ function CalendarCtrl($scope) {
 	  {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
 	  {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
 	  {title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
-    ]
+    ];
 
-    $scope.addChild = function() {
+    $scope.eventSources = [$scope.events, $scope.eventSource];
+
+    $scope.addEvent = function() {
       $scope.events.push({
         title: 'Open Sesame',
         start: new Date(y, m, 28),

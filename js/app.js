@@ -192,7 +192,13 @@ function CalendarCtrl($scope) {
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
-    
+
+    $scope.eventSource = {
+            url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
+            className: 'gcal-event',           // an option!
+            currentTimezone: 'America/Chicago' // an option!
+        };
+
     $scope.events = [
 	  {title: 'All Day Event',start: new Date(y, m, 1)},
 	  {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
@@ -200,9 +206,11 @@ function CalendarCtrl($scope) {
 	  {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
 	  {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
 	  {title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
-    ]
+    ];
 
-    $scope.addChild = function() {
+    $scope.eventSources = [$scope.events, $scope.eventSource];
+
+    $scope.addEvent = function() {
       $scope.events.push({
         title: 'Open Sesame',
         start: new Date(y, m, 28),
