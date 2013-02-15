@@ -189,6 +189,11 @@ section {
 	width:400px;
 }
 
+/*** Sortable ***/
+.directives-sortable ul.children {
+	padding: 5px 0;
+}
+
 /*** Highlight ***/
 .ui-match {
 	background: yellow;

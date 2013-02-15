@@ -964,11 +964,9 @@ myModule.value(&#x27;ui.config&#x27;, {
                                     <p>You're not fit to be a mother!</p>
                                     <ul ui-sortable ng-model="parents">
                                         <li ng-repeat="parent in parents">
-                                            <ul>
-                                                <h5>{{parent.name}}</h5>
-                                                <ul class="children" ui-sortable="{connectWith:'.children'}" ng-model="parent.children">
-                                                    <li ng-repeat="child in parent.children">{{child}}</li>
-                                                </ul>
+                                            <h5>{{parent.name}}</h5>
+                                            <ul class="children" ui-sortable="{connectWith:'.children'}" ng-model="parent.children">
+                                                <li ng-repeat="child in parent.children">{{child}}</li>
                                             </ul>
                                         </li>
                                     </ul>
