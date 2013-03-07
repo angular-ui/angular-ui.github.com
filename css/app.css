@@ -218,3 +218,29 @@ span[ui-currency] {
 .ui-currency-zero {
   color: #000;
 }
+/*** Calendar ***/
+.calBtn{
+	float: left;  margin-left: 5px;
+}
+
+.calAlert{
+	width: 680px; float: right; margin-bottom: 5px;
+}
+
+.calXBtn{
+	float: right; margin-top: -5px; margin-right: -5px;
+}
+
+.calWell{
+	float: left; margin-bottom: 40px;
+}
+
+.fc-event.openSesame .fc-event-skin{
+	background-color: rgb(229, 229, 11);
+	color: black;
+}
+
+.fc-event.customFeed .fc-event-skin{
+	background-color: rgb(132, 222, 175);
+	color: black;
+}
