@@ -1,5 +1,5 @@
 [submodule "angular-ui"]
-	path = angular-ui
+	path = lib/angular-ui
 	url = git://github.com/angular-ui/angular-ui.git
 [submodule "lib/select2"]
 	path = lib/select2
