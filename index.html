@@ -170,7 +170,7 @@
 				<h1>Getting Started</h1>
 				<p>Setup is easy and designed to be highly modular. Just follow these steps <strong>in order</strong>:</p>
 				<ol>
-					<li><span class="label label-info">Optional</span> Include the <a href="#ieshiv">Internet Explorer Shiv</a> (<a href="http://docs.angularjs.org/guide/ie">read why here</a>)</li>
+					<li><span class="label label-info">Optional</span> Include the <a href="#ieshim">Internet Explorer Shim</a> (<a href="http://docs.angularjs.org/guide/ie">read why here</a>)</li>
 					<li><span class="label label-info">Optional</span> Include jQuery if using jQuery Plugins</li>
 					<li><span class="label label-info">Optional</span> Include any jQuery(UI) plugins you wish to use (<strong>plugins are not bundled with AngularUI</strong>)</li>
 					<li>Include AngularJS</li>
@@ -210,23 +210,23 @@ myModule.value('ui.config', {
 			</section>
 
 
-			<section id="ieshiv">
+			<section id="ieshim">
 				<div class="page-header">
-					<h1>IE Shiv <small>shim or whatever you wanna call it</small></h1>
+					<h1>IE Shim</h1>
 				</div>
 
 					<h3>Why?</h3>
 					<p>In brief, custom tag elements (and thus directives that support them) like <code>&lt;ng-view&gt;</code> or <code>&lt;ui-currency&gt;</code> are ignored by IE 8 and older. Custom tags are cool because they are terse and give semantic to your awesome html5 app. AngularJS has provided a <a href="http://docs.angularjs.org/guide/ie" target="_blank">recipe</a> for doing this, however, our solution saves you the fuss.</p>
 
 					<h3>How?</h3>
-					<p>Below is how you would incorporate shiv by putting it into the <code>&lt;head&gt;</code> of your html code. For more,
+					<p>Below is how you would incorporate shim by putting it into the <code>&lt;head&gt;</code> of your html code. For more,
 						 see <a href="https://github.com/angular-ui/angular-ui/tree/master/common/ieshiv" target="_blank">code page</a> on github
 					</p>
 <pre class="prettyprint linenums" ng-non-bindable>&lt;head&gt;
 
 &lt;!--[if lte IE 8]&gt;
     &lt;script&gt;
-    // The ieshiv takes care of our ui.directives, bootstrap module directives and 
+    // The ieshim takes care of our ui.directives, bootstrap module directives and 
     // AngularJS's ng-view, ng-include, ng-pluralize and ng-switch directives.
     // However, IF you have custom directives (yours or someone else's) then
     // enumerate the list of tags in <code>window.myCustomTags</code>
