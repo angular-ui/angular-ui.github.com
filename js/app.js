@@ -7,10 +7,6 @@ angular.module('demoApp', ['ui'], function($locationProvider) {
 	$locationProvider.hashPrefix('');
 	// Make code pretty
 	window.prettyPrint && prettyPrint();
-}).value('ui.config', {
-	currency: {
-		symbol: 'USD $'
-	}
 }).directive('scrollto', [function(){
 	return function(scope, elm, attrs) {
 		elm.bind('click', function(e){

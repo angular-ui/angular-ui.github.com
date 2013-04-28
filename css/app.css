@@ -39,6 +39,9 @@ section {
 .hero-unit p {
 	margin: 1em 0;
 }
+.hero-unit .alert-error {
+	color: #B94A48;
+}
 .bs-docs-social {
 	margin-top: 1em;
 	padding: 15px 0;
