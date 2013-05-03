@@ -35,64 +35,42 @@
 		<div class="navbar-inner">
 			<div class="container">
 				<div class="dropdown pull-left">
-					<a class="brand dropdown-toggle" role="button" data-toggle="dropdown" href="#"> 
+					<a class="brand" href="http://angular-ui.github.io/"> 
 						AngularUI
-						<b class="caret"></b>
 					</a>
-					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-						<li><a href="https://github.com/angular-ui/"><strong>Related Projects:</strong></a></li>
-						<li class="divider"></li>
-						<li><a href="http://angular-ui.github.com/bootstrap/">Bootstrap</a></li>
-						<li><a href="http://angular-ui.github.com/ng-grid/">Grid</a></li>
-						<li><a href="https://github.com/angular-ui/AngularJs.tmbundle">AngularJS.tmbundle</a></li>
-						<li><a href="http://angular-ui.github.com/ui-router/sample">Router</a></li>
-					</ul>
 				</div>
-				<div class="nav-collapse">
+				<div class="nav-collapse pull-right">
 					<ul class="nav">
-						<li class="active">
-							<a scrollto href="#top">Home</a>
-						</li>
-						<li class="dropdown">
-							<a class="dropdown-toggle" href="#" data-toggle="dropdown">
-								Utils Module
-								<b class="caret"></b>
+						<li>
+							<a href="https://github.com/angular-ui/ui-utils">
+								UI-Utils
 							</a>
-							<ul class="dropdown-menu">
-								<li><a scrollto href="#jq">jQuery Passthrough</a></li>
-								<li><a scrollto href="#event">Event Binder</a></li>
-								<li><a scrollto href="#keypress">Keypress</a></li>
-								<li><a scrollto href="#mask">Mask</a></li>
-								<li><a scrollto href="#if">If Statement</a></li>
-								<li><a scrollto href="#validate">Validate</a></li>
-								<li><a scrollto href="#reset">Reset</a></li>
-								<li><a scrollto href="#scrollfix">Scrollfix</a></li>
-								<li><a scrollto href="#showhide">Show / Hide / Toggle</a></li>
-								<li><a scrollto href="#routing">Route Matching</a></li>
-								<li><a scrollto href="#highlight">Highlight</a></li>
-								<li><a scrollto href="#inflector">Inflector</a></li>
-								<li><a scrollto href="#unique">Unique</a></li>
-								<li><a scrollto href="#format">Format</a></li>
-							</ul>
 						</li>
-						<li class="dropdown">
-							<a class="dropdown-toggle" href="#" data-toggle="dropdown">
-								Standalone Modules
-								<b class="caret"></b>
+            <li>
+              <a href="http://angular-ui.github.io/#ui-modules">
+                UI-Modules
+              </a>
+            </li>
+            <li>
+              <a href="http://angular-ui.github.io/bootstrap">
+                UI-Bootstrap
+              </a>
+            </li>
+            <li>
+              <a href="http://angular-ui.github.io/ng-grid">
+                NG-Grid
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/angular-ui/ui-router">
+                UI-Router
+              </a>
+            </li>
+						<li>
+							<a href="http://angular-ui.github.io/#ide-plugins">
+								IDE Plugins
 							</a>
-							<ul class="dropdown-menu">
-								<li><a scrollto href="#codemirror">CodeMirror IDE</a></li>
-								<li><a scrollto href="#calendar">Calendar</a></li>
-								<li><a scrollto href="#map">Google Maps</a></li>
-								<li><a scrollto href="#date">Date</a></li>
-								<li><a scrollto href="#select2">Select2</a></li>
-								<li><a scrollto href="#tinymce">TinyMCE</a></li>
-                                <li><a scrollto href="#sortable">Sortable</a></li>
-							</ul>
 						</li>
-					</ul>
-					<ul class="pull-right nav">
-						<li><a href="https://github.com/angular-ui/angular-ui.github.com/issues">Demos Broken?</a></li>
 					</ul>
 				</div>
 			</div>
@@ -101,14 +79,15 @@
 	<div role="main">
 
 		<header class="hero-unit" id="overview">
-			<div class="container">
-				<h1>
-					AngularUI
-				</h1>
-				<p>The companion suite to the <strong><a href="http://angularjs.org">AngularJS</a></strong> framework.</p>
-				<p class="alert alert-error">
-					AngularUI is currently being broken up into sub-projects!<br>
-					You can find download and issue tracker links on each demo
+      <div class="container">
+        <img src="Under_construction.gif" width="300px" class="pull-right" title="Geocities much?">
+        <h1>
+          AngularUI
+        </h1>
+        <p>The companion suite(s) to the <strong><a href="http://angularjs.org">AngularJS</a></strong> framework.</p>
+        <p class="alert alert-error">
+          AngularUI is currently being broken up into sub-projects!<br>
+          Please excuse our dust...
 				</p>
 			</div>
 			<div class="bs-docs-social">
@@ -145,41 +124,98 @@
 		</header>
 
 		<div class="container">
-
-			<h3 class="alert alert-info pagination-centered">
-				Check out the new 
-				<span class="btn-group">
-					<a href="http://angular-ui.github.com/bootstrap" class="btn btn-primary btn-large">Bootstrap Project</a><!-- <a href="http://angular-ui.github.com/ng-grid" class="btn btn-primary btn-large">Grid</a> -->
-				</span>
-				 by the AngularUI Team!
-			</h3>
-
-			<p></p>
-			
-			<section id="setup">
-				<h1 class="page-header">Getting Started</h1>
-				<p>Setup is easy and designed to be highly modular. Just follow these steps <strong>in order</strong>:</p>
-				<ol>
-					<li><span class="label label-info">Optional</span> Include the <a href="#ieshiv">Internet Explorer Shiv</a> (<a href="http://docs.angularjs.org/guide/ie">read why here</a>)</li>
-					<li><span class="label label-info">Optional</span> Include jQuery if using jQuery Plugins</li>
-					<li><span class="label label-info">Optional</span> Include any jQuery(UI) plugins you wish to use (<strong>plugins are not bundled with AngularUI</strong>)</li>
-					<li>Include AngularJS</li>
-					<li>Include AngularUI in one of the following ways:
-						<ul>
-							<li>Include the entire library (located in <code>/build</code> directory)</li>
-							<li>Include the <code>/common/module.js</code> and any directives or filters you wish to use</li>
-							<li><a ng-click="showBuildModal()">Create a custom build</a> and include it</li>
-						</ul>
-					</li>
-					<li>Add the <code>'ui'</code> module as a dependency:
-						<pre class="prettyprint">angular.module('myModule', ['ui'])</pre>
-					</li>
-					<li><span class="label label-info">Optional</span> Setup your <a href="#defaults">Global Defaults</a> for plugins and directives</li>
-				</ol>
-			</section>
+      <section>
+        <h1 class="page-header">
+          UI-Utils
+          <small>A utility package with no external dependencies</small>
+          <span class="btn-group pull-right">
+            <a class="btn btn-primary btn-large" href="http://angular-ui.github.io/ui-utils">Site</a>
+            <a class="btn btn-inverse btn-large" href="https://github.com/angular-ui/ui-utils">Code</a>
+          </span>
+        </h1>
+        <p>Although these modules are together in one project, they are still written standalone and can be included individually</p>
+        <ul class="nav nav-tabs nav-stacked">
+          <li><a href="https://github.com/angular-ui/ui-utils#jq">jQuery Passthrough</a></li>
+          <li><a href="https://github.com/angular-ui/ui-utils#event">Event Binder</a></li>
+          <li><a href="https://github.com/angular-ui/ui-utils#keypress">Keypress</a></li>
+          <li><a href="https://github.com/angular-ui/ui-utils#mask">Mask</a></li>
+          <li><a href="https://github.com/angular-ui/ui-utils#if">If Statement</a></li>
+          <li><a href="https://github.com/angular-ui/ui-utils#validate">Validate</a></li>
+          <li><a href="https://github.com/angular-ui/ui-utils#reset">Reset</a></li>
+          <li><a href="https://github.com/angular-ui/ui-utils#scrollfix">Scrollfix</a></li>
+          <li><a href="https://github.com/angular-ui/ui-utils#showhide">Show / Hide / Toggle</a></li>
+          <li><a href="https://github.com/angular-ui/ui-utils#routing">Route Matching</a></li>
+          <li><a href="https://github.com/angular-ui/ui-utils#highlight">Highlight</a></li>
+          <li><a href="https://github.com/angular-ui/ui-utils#inflector">Inflector</a></li>
+          <li><a href="https://github.com/angular-ui/ui-utils#unique">Unique</a></li>
+          <li><a href="https://github.com/angular-ui/ui-utils#format">Format</a></li>
+        </ul>
+      </section>
 			<section>
-
+				<h1 class="page-header" id="ui-modules">
+          UI-Modules
+          <small>Standalone AngularUI modules with external dependencies</small>
+        </h1>
+        <ul class="nav nav-tabs nav-stacked">
+          <li><a href="http://github.com/angular-ui/ui-codemirror">CodeMirror IDE</a></li>
+          <li><a href="http://github.com/angular-ui/ui-ace">Ace IDE</a></li>
+          <li><a href="http://github.com/angular-ui/ui-calendar">Calendar</a></li>
+          <li><a href="http://github.com/angular-ui/ui-map">Google Maps</a></li>
+          <li><a href="http://github.com/angular-ui/ui-date">Date</a></li>
+          <li><a href="http://github.com/angular-ui/ui-select2">Select2</a></li>
+          <li><a href="http://github.com/angular-ui/ui-tinymce">TinyMCE</a></li>
+          <li><a href="http://github.com/angular-ui/ui-sortable">Sortable</a></li>
+        </ul>
 			</section>
+      <section>
+        <h1 class="page-header">
+          UI-Bootstrap
+          <small>Twitter Bootstrap written natively in AngularJS</small>
+          <span class="btn-group pull-right">
+            <a class="btn btn-primary btn-large" href="http://angular-ui.github.io/bootstrap">Site</a>
+            <a class="btn btn-inverse btn-large" href="https://github.com/angular-ui/bootstrap">Code</a>
+          </span>
+        </h1>
+      </section>
+      <section>
+        <h1 class="page-header">
+          NG-Grid
+          <small>Grid virtualization written natively in AngularJS</small>
+          <span class="btn-group pull-right">
+            <a class="btn btn-primary btn-large" href="http://angular-ui.github.io/ng-grid">Site</a>
+            <a class="btn btn-inverse btn-large" href="https://github.com/angular-ui/ng-grid">Code</a>
+          </span>
+        </h1>
+      </section>
+      <section>
+        <h1 class="page-header">
+          UI-Router
+          <small>Grid virtualization written natively in AngularJS</small>
+          <span class="btn-group pull-right">
+            <a class="btn btn-primary btn-large" href="http://angular-ui.github.io/ui-router">Site</a>
+            <a class="btn btn-inverse btn-large" href="https://github.com/angular-ui/ui-router">Code</a>
+          </span>
+        </h1>
+      </section>
+      <section>
+        <h1 class="page-header" id="ide-plugins">
+          IDE Plugins
+          <small>AngularJS support in your favorite text editors</small>
+        </h1>
+        <ul class="nav nav-tabs nav-stacked">
+          <li><a href="http://github.com/angular-ui/AngularJS.tmbundle">AngularJS.tmbundle <span class="muted">TextMate</span></a></li>
+          <li><a href="http://github.com/angular-ui/AngularJS-sublime-package">AngularJS.sublime-package <span class="muted">SublimeText</span></a></li>
+        </ul>
+      </section>
+
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li><a href="https://github.com/angular-ui/"><strong>Related Projects:</strong></a></li>
+            <li class="divider"></li>
+            <li><a href="http://angular-ui.github.io/bootstrap/">Bootstrap</a></li>
+            <li><a href="http://angular-ui.github.io/ng-grid/">Grid</a></li>
+            <li><a href="https://github.com/angular-ui/AngularJs.tmbundle">AngularJS.tmbundle</a></li>
+            <li><a href="http://angular-ui.github.io/ui-router/sample">Router</a></li>
+          </ul>
 		</div>
 	</div>
 <script type="text/javascript">
