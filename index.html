@@ -1,51 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="demoApp" id="top">
 <head>
-	<title>AngularUI for AngularJS</title>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+  <title>AngularUI for AngularJS</title>
+  
+  <script src="lib/bootstrap/docs/assets/js/bootstrap.min.js"></script>
+  <script src="//code.angularjs.org/1.0.4/angular.js"></script>
+  <script src="js/prettify.js"></script>
+  <script src="js/app.js"></script>
 
-	<script src="lib/bootstrap/docs/assets/js/bootstrap.min.js"></script>
-	<script src="http://code.angularjs.org/1.0.4/angular.js"></script>
-	<script src="lib/angular-ui/build/angular-ui.js"></script>
-	<script src="js/prettify.js"></script>
-	<script src="lib/maskedinput/jquery.maskedinput.js"></script>
-	<script src="lib/select2/select2.js"></script>
-	<script src="lib/CodeMirror/lib/codemirror.js"></script>
-	<script src="lib/CodeMirror/mode/javascript/javascript.js"></script>
-	<script src="http://fiddle.tinymce.com/tinymce/3.5.4.1/jquery.tinymce.js"></script>
-	<script src="http://fiddle.tinymce.com/tinymce/3.5.4.1/tiny_mce_jquery_src.js"></script>
-	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-	<script src="lib/calendar/fullcalendar.js"></script> 
-	<script src="http://arshaw.com/js/fullcalendar-1.5.3/fullcalendar/gcal.js"></script>
-	<script src="js/app.js"></script>
-
-	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="lib/bootstrap/docs/assets/css/bootstrap.css" >
-	<link rel="stylesheet" href="lib/angular-ui/build/angular-ui.css" >
-	<link rel="stylesheet" href="css/prettify.css" >
-	<link rel="stylesheet" href="lib/select2/select2.css" >
-	<link rel="stylesheet" href="lib/CodeMirror/lib/codemirror.css" >
-	<link rel="stylesheet" href="lib/CodeMirror/theme/monokai.css" >
-	<link rel="stylesheet" href="lib/calendar/fullcalendar.css" >
-	<link rel="stylesheet" href="css/app.css" >
+  <link rel="stylesheet" href="lib/bootstrap/docs/assets/css/bootstrap.css" >
+  <link rel="stylesheet" href="css/prettify.css" >
+  <link rel="stylesheet" href="css/app.css" >
 </head>
 <body data-spy="scroll" ng-controller="MainCtrl">
-	<header class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<div class="dropdown pull-left">
-					<a class="brand" href="http://angular-ui.github.io/"> 
-						AngularUI
-					</a>
-				</div>
-				<div class="nav-collapse pull-right">
-					<ul class="nav">
-						<li>
-							<a href="https://github.com/angular-ui/ui-utils">
-								UI-Utils
-							</a>
-						</li>
+  <header class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <div class="dropdown pull-left">
+          <a class="brand" href="http://angular-ui.github.io/"> 
+            AngularUI
+          </a>
+        </div>
+        <div class="nav-collapse pull-right">
+          <ul class="nav">
+            <li>
+              <a href="https://github.com/angular-ui/ui-utils">
+                UI-Utils
+              </a>
+            </li>
             <li>
               <a href="http://angular-ui.github.io/#ui-modules">
                 UI-Modules
@@ -66,19 +48,19 @@
                 UI-Router
               </a>
             </li>
-						<li>
-							<a href="http://angular-ui.github.io/#ide-plugins">
-								IDE Plugins
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</header>
-	<div role="main">
+            <li>
+              <a href="http://angular-ui.github.io/#ide-plugins">
+                IDE Plugins
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div role="main">
 
-		<header class="hero-unit" id="overview">
+    <header class="hero-unit" id="overview">
       <div class="container">
         <img src="Under_construction.gif" width="300px" class="pull-right" title="Geocities much?">
         <h1>
@@ -88,42 +70,42 @@
         <p class="alert alert-error">
           AngularUI is currently being broken up into sub-projects!<br>
           Please excuse our dust...
-				</p>
-			</div>
-			<div class="bs-docs-social">
-				<div class="container">
-					<ul class="bs-docs-social-buttons">
-						<li>
-							<iframe src="http://ghbtns.com/github-btn.html?user=angular-ui&repo=angular-ui&type=watch&count=true"
-	  allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
-						</li>
-						<li>
-							<iframe src="http://ghbtns.com/github-btn.html?user=angular-ui&repo=angular-ui&type=fork&count=true"
-	  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
-						</li>
-						<li>
-							<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="angularjs">Tweet</a>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-						</li>
-						<li>
-							<!-- Place this tag where you want the +1 button to render. -->
-							<div class="g-plusone" data-size="medium"></div>
+        </p>
+      </div>
+      <div class="bs-docs-social">
+        <div class="container">
+          <ul class="bs-docs-social-buttons">
+            <li>
+              <iframe src="http://ghbtns.com/github-btn.html?user=angular-ui&repo=angular-ui&type=watch&count=true"
+    allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+            </li>
+            <li>
+              <iframe src="http://ghbtns.com/github-btn.html?user=angular-ui&repo=angular-ui&type=fork&count=true"
+    allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+            </li>
+            <li>
+              <a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="angularjs">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </li>
+            <li>
+              <!-- Place this tag where you want the +1 button to render. -->
+              <div class="g-plusone" data-size="medium"></div>
 
-							<!-- Place this tag after the last +1 button tag. -->
-							<script type="text/javascript">
-							  (function() {
-							    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-							    po.src = 'https://apis.google.com/js/plusone.js';
-							    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-							  })();
-							</script>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</header>
+              <!-- Place this tag after the last +1 button tag. -->
+              <script type="text/javascript">
+                (function() {
+                  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                  po.src = 'https://apis.google.com/js/plusone.js';
+                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                })();
+              </script>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
 
-		<div class="container">
+    <div class="container">
       <section>
         <h1 class="page-header">
           UI-Utils
@@ -144,8 +126,8 @@
           </ul>
           <ul class="nav nav-tabs nav-stacked span4">
             <li><a href="https://github.com/angular/angular.js/blob/master/src/ng/directive/ngIf.js">
-            	<strike>If Statement</strike>
-            	<span class="label label-important">Removed</span>
+              <strike>If Statement</strike>
+              <span class="label label-important">Removed</span>
             </a></li>
             <li><a href="https://github.com/angular-ui/ui-utils#validate">Validate</a></li>
             <li><a href="https://github.com/angular-ui/ui-utils#reset">Reset</a></li>
@@ -161,8 +143,8 @@
           </ul>
         </div>
       </section>
-			<section>
-				<h1 class="page-header" id="ui-modules">
+      <section>
+        <h1 class="page-header" id="ui-modules">
           UI-Modules
           <small>Standalone AngularUI modules with external dependencies</small>
         </h1>
@@ -180,7 +162,7 @@
             <li><a href="http://github.com/angular-ui/ui-sortable">Sortable</a></li>
           </ul>
         </div>
-			</section>
+      </section>
       <section>
         <h1 class="page-header">
           UI-Bootstrap
@@ -234,8 +216,8 @@
             <li><a href="https://github.com/angular-ui/AngularJs.tmbundle">AngularJS.tmbundle</a></li>
             <li><a href="http://angular-ui.github.io/ui-router/sample">Router</a></li>
           </ul>
-		</div>
-	</div>
+    </div>
+  </div>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -266,7 +248,7 @@
     </div>
   </div>
   <div class="modal-footer">
-  	<a class="btn pull-left" ng-click="selectedModules=['event','if','jq','keypress','showhide','validate']">Recommended Modules</a>
+    <a class="btn pull-left" ng-click="selectedModules=['event','if','jq','keypress','showhide','validate']">Recommended Modules</a>
     <a class="btn btn-primary" ng-disabled="!selectedModules.length" ng-click="selectedModules.length && downloadBuild()"><i class="icon-download-alt icon-white"></i> Download {{selectedModules.length}} Modules</a>
     <a class="btn" ng-click="buildModalShown = false">Cancel</a>
   </div>

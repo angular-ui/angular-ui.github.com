@@ -1,15 +1,3 @@
-[submodule "angular-ui"]
-	path = lib/angular-ui
-	url = git://github.com/angular-ui/angular-ui.git
-[submodule "lib/select2"]
-	path = lib/select2
-	url = git://github.com/ivaynberg/select2.git
 [submodule "lib/bootstrap"]
 	path = lib/bootstrap
 	url = git://github.com/twitter/bootstrap.git
-[submodule "lib/tinymce"]
-	path = lib/tinymce
-	url = git://github.com/tinymce/tinymce.git
-[submodule "lib/CodeMirror"]
-	path = lib/CodeMirror
-	url = git://github.com/marijnh/CodeMirror.git
