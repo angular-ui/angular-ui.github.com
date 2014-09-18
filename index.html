@@ -1,18 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="demoApp" id="top">
+<html lang="en" id="top">
 <head>
   <title>AngularUI for AngularJS</title>
 
-  <script src="lib/bootstrap/docs/assets/js/bootstrap.min.js"></script>
-  <script src="//code.angularjs.org/1.0.4/angular.js"></script>
-  <script src="js/prettify.js"></script>
-  <script src="js/app.js"></script>
-
   <link rel="stylesheet" href="lib/bootstrap/docs/assets/css/bootstrap.css" >
-  <link rel="stylesheet" href="css/prettify.css" >
   <link rel="stylesheet" href="css/app.css" >
 </head>
-<body data-spy="scroll" ng-controller="MainCtrl">
+<body>
   <header class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
@@ -24,48 +18,43 @@
         <div class="nav-collapse pull-right">
           <ul class="nav">
             <li>
-              <a href="https://angular-ui.github.io/ui-utils">
+              <a href="#ui-utils">
                 UI-Utils
               </a>
             </li>
             <li>
-              <a href="http://angular-ui.github.io/#ui-modules">
+              <a href="#ui-modules">
                 UI-Modules
               </a>
             </li>
             <li>
-              <a href="https://github.com/angular-ui/alias">
+              <a href="#ui-alias">
                 UI-Alias
               </a>
             </li>
             <li>
-              <a href="http://angular-ui.github.io/bootstrap">
+              <a href="#ui-bootstrap">
                 UI-Bootstrap
               </a>
             </li>
             <li>
-              <a href="http://angular-ui.github.io/ng-grid">
+              <a href="#ng-grid">
                 NG-Grid
               </a>
             </li>
             <li>
-              <a href="https://github.com/angular-ui/ui-router">
+              <a href="#ui-router">
                 UI-Router
               </a>
             </li>
             <li>
-              <a href="https://github.com/angular-ui/ui-select">
+              <a href="#ui-select">
                 UI-Select
               </a>
             </li>
             <li>
-              <a href="http://angular-ui.github.io/#ide-plugins">
+              <a href="#ide-plugins">
                 IDE Plugins
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/angular-ui/angular-ui.github.com/wiki/GSoC-Ideas-List">
-                GSoC
               </a>
             </li>
           </ul>
@@ -107,20 +96,7 @@
       </div>
     </header>
 
-    <div class="container">
-      <!-- GOOGLE SUMMER OF CODE BANNER -->
-      <section class="row-fluid" style="display:none">
-        <div class="span12 well lead clearfix">
-          <div class="pull-left">
-            <a href="https://github.com/angular-ui/angular-ui.github.com/wiki/GSoC-Ideas-List"><img src="/img/GoogleSummer_2014logo_small.jpg"></a>
-          </div>
-          <div class="pull-right span9">
-            <strong>AngularUI</strong> is applying to be a mentoring organization for <a href="http://www.google-melange.com/gsoc/homepage/google/gsoc2014">Google Summer of Code 2014</a>! Please check out and add to our <a href="https://github.com/angular-ui/angular-ui.github.com/wiki/GSoC-Ideas-List">ideas list</a> <small>(direct edits and PRs welcome)</small>.
-          </div>
-        </div>
-      </section>
-      <!--/ GOOGLE SUMMER OF CODE BANNER -->
-
+    <div class="container" id="ui-utils">
       <section>
         <h1 class="page-header">
           UI-Utils
@@ -162,8 +138,8 @@
           </ul>
         </div>
       </section>
-      <section>
-        <h1 class="page-header" id="ui-modules">
+      <section id="ui-modules">
+        <h1 class="page-header">
           UI-Modules
           <small>Standalone AngularUI modules with external dependencies</small>
         </h1>
@@ -182,7 +158,7 @@
           </ul>
         </div>
       </section>
-      <section>
+      <section id="ui-alias">
         <h1 class="page-header">
           UI-Alias
           <small>Rename plugin directives and create mini templates</small>
@@ -191,7 +167,7 @@
           </span>
         </h1>
       </section>
-      <section>
+      <section id="ui-bootstrap">
         <h1 class="page-header">
           UI-Bootstrap
           <small>Twitter Bootstrap written natively in AngularJS</small>
@@ -201,7 +177,7 @@
           </span>
         </h1>
       </section>
-      <section>
+      <section id="ng-grid">
         <h1 class="page-header">
           NG-Grid
           <small>Grid virtualization written natively in AngularJS</small>
@@ -211,7 +187,7 @@
           </span>
         </h1>
       </section>
-      <section>
+      <section id="ui-router">
         <h1 class="page-header">
           UI-Router
           <small>Nested Routing for AngularJS</small>
@@ -221,7 +197,7 @@
           </span>
         </h1>
       </section>
-      <section>
+      <section id="ui-select">
         <h1 class="page-header">
           UI-Select
           <small>AngularJS-native version of Select2 and Selectize</small>
@@ -230,8 +206,8 @@
           </span>
         </h1>
       </section>
-      <section>
-        <h1 class="page-header" id="ide-plugins">
+      <section id="ide-plugins">
+        <h1 class="page-header">
           IDE Plugins
           <small>AngularJS support in your favorite text editors</small>
         </h1>
@@ -246,15 +222,6 @@
           </ul>
         </div>
       </section>
-
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-            <li><a href="https://github.com/angular-ui/"><strong>Related Projects:</strong></a></li>
-            <li class="divider"></li>
-            <li><a href="http://angular-ui.github.io/bootstrap/">Bootstrap</a></li>
-            <li><a href="http://angular-ui.github.io/ng-grid/">Grid</a></li>
-            <li><a href="https://github.com/angular-ui/AngularJs.tmbundle">AngularJS.tmbundle</a></li>
-            <li><a href="http://angular-ui.github.io/ui-router/sample">Router</a></li>
-          </ul>
     </div>
   </div>
 <script type="text/javascript">
@@ -270,27 +237,5 @@
   })();
 
 </script>
-<div class="modal-backdrop fade" ng-class="{in:buildModalShown}"></div>
-<div class="modal fade hide" ng-class="{in:buildModalShown}">
-  <div class="modal-header"><h2>Create a Custom Build</h2></div>
-  <div class="modal-body">
-    <div ng-show="buildErrorText">
-      <h3 style="text-align: center;">{{buildErrorText}}</h3>
-    </div>
-    <div ng-hide="buildErrorText">
-      <h3 style="text-align: center;">Select the modules you wish to download:</h3>
-      <select style="width: 100%;" ui-select2 multiple
-        ui-options="{multiple: true}"
-        ng-model="selectedModules">
-        <option ng-repeat="m in modules" value="{{m}}">{{m | inflector:'humanize'}}</option>
-      </select>
-    </div>
-  </div>
-  <div class="modal-footer">
-    <a class="btn pull-left" ng-click="selectedModules=['event','if','jq','keypress','showhide','validate']">Recommended Modules</a>
-    <a class="btn btn-primary" ng-disabled="!selectedModules.length" ng-click="selectedModules.length && downloadBuild()"><i class="icon-download-alt icon-white"></i> Download {{selectedModules.length}} Modules</a>
-    <a class="btn" ng-click="buildModalShown = false">Cancel</a>
-  </div>
-</div>
 </body>
 </html>
