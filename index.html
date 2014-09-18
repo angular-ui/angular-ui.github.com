@@ -2,7 +2,7 @@
 <html lang="en" ng-app="demoApp" id="top">
 <head>
   <title>AngularUI for AngularJS</title>
-  
+
   <script src="lib/bootstrap/docs/assets/js/bootstrap.min.js"></script>
   <script src="//code.angularjs.org/1.0.4/angular.js"></script>
   <script src="js/prettify.js"></script>
@@ -17,7 +17,7 @@
     <div class="navbar-inner">
       <div class="container">
         <div class="dropdown pull-left">
-          <a class="brand" href="http://angular-ui.github.io/"> 
+          <a class="brand" href="http://angular-ui.github.io/">
             AngularUI
           </a>
         </div>
@@ -120,7 +120,7 @@
         </div>
       </section>
       <!--/ GOOGLE SUMMER OF CODE BANNER -->
-      
+
       <section>
         <h1 class="page-header">
           UI-Utils
@@ -176,7 +176,7 @@
           </ul>
           <ul class="nav nav-tabs nav-stacked span6">
             <li><a href="http://github.com/angular-ui/ui-date">Date</a></li>
-            <li><a href="http://github.com/angular-ui/ui-select2"><s>Select2</s></a> - deprecated, use UI-Select instead</li>
+            <li><a href="http://github.com/angular-ui/ui-select2"><s>Select2</s> <span class="label label-important">Deprecated, use UI-Select instead</span></a></li>
             <li><a href="http://github.com/angular-ui/ui-tinymce">TinyMCE</a></li>
             <li><a href="http://github.com/angular-ui/ui-sortable">Sortable</a></li>
           </ul>
@@ -279,7 +279,7 @@
     </div>
     <div ng-hide="buildErrorText">
       <h3 style="text-align: center;">Select the modules you wish to download:</h3>
-      <select style="width: 100%;" ui-select2 multiple 
+      <select style="width: 100%;" ui-select2 multiple
         ui-options="{multiple: true}"
         ng-model="selectedModules">
         <option ng-repeat="m in modules" value="{{m}}">{{m | inflector:'humanize'}}</option>
