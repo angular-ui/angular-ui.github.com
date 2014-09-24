@@ -42,6 +42,19 @@ section {
 .hero-unit .alert-error {
 	color: #B94A48;
 }
+.hero-unit .container {
+	position: relative;
+}
+.hero-unit h1:before {
+	display: block;
+	content: '';
+	height: 200px;
+	width: 200px;
+	background: url('../logo/UI_Shield.png') no-repeat;
+	background-size: contain;
+	position: absolute;
+	left: 0;
+}
 .bs-docs-social {
 	margin-top: 1em;
 	padding: 15px 0;
