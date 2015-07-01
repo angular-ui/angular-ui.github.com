@@ -5,37 +5,37 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
             name: 'Event Binder',
             desc: 'Bind a callback to any event not natively supported by Angular',
             src: 'https://github.com/angular-ui/ui-event',
-            home: ''
+            home: 'http://htmlpreview.github.io/?https://github.com/angular-ui/ui-event/master/demo/index.html'
         },
         {
             name: 'Mask',
             desc: 'Apply a mask on an input field so the user can only type pre-determined pattern.',
             src: 'https://github.com/angular-ui/ui-mask',
-            home: ''
+            home: 'http://htmlpreview.github.io/?https://github.com/angular-ui/ui-mask/master/demo/index.html'
         },
         {
             name: 'Indeterminate',
             desc: 'Provides an easy way to toggle a checkbox input\'s special "indeterminate" property. This is a visual toggle only and in no way affects the model or value outside of native browser behavior at this time.',
             src: 'https://github.com/angular-ui/ui-indeterminate',
-            home: ''
+            home: 'http://htmlpreview.github.io/?https://github.com/angular-ui/ui-indeterminate/master/demo/index.html'
         },
         {
             name: 'Validate',
             desc: 'General-purpose validator for ngModel.',
             src: 'https://github.com/angular-ui/ui-validate',
-            home: ''
+            home: 'http://htmlpreview.github.io/?https://github.com/angular-ui/ui-validate/master/demo/index.html'
         },
         {
             name: 'Scrollpoint',
             desc: 'Add a "ui-scrollpoint" class to elements when the page scrolls past them. (previously known as scrollfix)',
             src: 'https://github.com/angular-ui/ui-scrollpoint',
-            home: ''
+            home: 'http://htmlpreview.github.io/?https://github.com/angular-ui/ui-scrollpoint/master/demo/index.html'
         },
         {
             name: 'Uploader',
             desc: 'Customizable file uploader',
             src: 'https://github.com/angular-ui/ui-uploader',
-            home: ''
+            home: 'http://htmlpreview.github.io/?https://github.com/angular-ui/ui-uploader/master/demo/index.html'
         },
         {
             name: 'CodeMirror',
