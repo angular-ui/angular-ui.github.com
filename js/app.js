@@ -1,221 +1,120 @@
 
-/**
- * demoApp - 1.0.0rc2
- */
-
-angular.module('demoApp', ['ui'], function($locationProvider) {
-	$locationProvider.hashPrefix('');
-	// Make code pretty
-	window.prettyPrint && prettyPrint();
-}).directive('scrollto', [function(){
-	return function(scope, elm, attrs) {
-		elm.bind('click', function(e){
-			e.preventDefault();
-			if (attrs.href) {
-				attrs.scrollto = attrs.href;
-			}
-			var top = $(attrs.scrollto).offset().top;
-			$('body,html').animate({ scrollTop: top }, 800);
-		});
-	};
-}]);
-
-function MainCtrl($scope, $http, orderByFilter) {
-  var url = "http://50.116.42.77:3001";
-  $scope.selectedModules = [];
-  //iFrame for downloading
-  var $iframe = $("<iframe>").css('display','none').appendTo(document.body);
-
-  $scope.showBuildModal = function() {
-    $scope.buildModalShown = true;
-    //Load modules if they aren't loaded yet
-    if (!$scope.modules) {
-      $http.get(url + "/api/angular-ui").then(function(response) {
-        $scope.modules = response.data.modules;
-      }, function() {
-        $scope.buildGetErrorText = "Error retrieving build files from server.";
-      });
-    }
-  };
-
-  $scope.downloadBuild = function() {
-    var downloadUrl = url + "/api/angular-ui/download?";
-    angular.forEach($scope.selectedModules, function(module) {
-      downloadUrl += "modules=" + module + "&";
-    });
-    $iframe.attr('src','');
-    $iframe.attr('src', downloadUrl);
-    $scope.buildModalShown = false;
-  };
-}
-
-function CodeMirrorCtrl($scope) {
-	$scope.codeMirrorModel = "var helloWorld = 'Success!';";
-}
-
-function TooltipCtrl($scope) {
-	$scope.item =  {
-		title : 'Title',
-		body  : 'Tooltip Body...'
-	};
-}
-
-function EventCtrl($scope) {
-	$scope.blurCallback = function() {
-		alert('Goodbye');
-	};
-}
-
-function ResetCtrl($scope) {
-	$scope.resetModel = 'Hover over me';
-}
-
-function KeypressCtrl($scope) {
-	$scope.keypressCallback = function($event) {
-		$event.preventDefault();
-		alert('Voila!');
-	};
-}
-
-function ValidateCtrl($scope) {
-
-	$scope.blackList = ['bad@domain.com','verybad@domain.com'];
-	$scope.notBlackListed = function(value) {
-		return $scope.blackList.indexOf(value) === -1;
-	};
-}
-
-function SortableCtrl($scope) {
-	$scope.parents = [
-		{ name: 'Anna', children: ['Alvin', 'Becky' ,'Charlie'] },
-		{ name: 'Barney', children: ['Dorothy', 'Eric'] },
-		{ name: 'Chris', children: ['Frank', 'Gary', 'Henry'] }
-	];
-	$scope.items = ['One', 'Two', 'Three'];
-}
-
-function ScrollfixCtrl($scope) {
-	$scope.scrollfix = -50;
-}
-
-function InflectorCtrl($scope) {
-	$scope.inflectorText = 'Here Is my_phoneNumber';
-	$scope.inflectorType = 'humanize';
-}
-
-function UniqueCtrl($scope) {
-	$scope.items = [
-	{ firstName: 'Dean',	lastName: 'Sofer',	id: 1, gender: 'Male'	},
-	{ firstName: 'Dean',	lastName: 'Kuntz',	id: 2, gender: 'Male'	},
-	{ firstName: 'Peter',	lastName: 'Piper',	id: 3, gender: 'Female'	},
-	{ firstName: 'Peter',	lastName: 'Darwin',	id: 4, gender: 'Male'	},
-	{ firstName: 'Janet',	lastName: 'Piper',	id: 5, gender: 'Female'	},
-	{ firstName: 'Dan',		lastName: 'Doyon',	id: 6, gender: 'Male'	},
-	{ firstName: 'Andy',	lastName: 'Joslin',	id: 1, gender: 'Male'	}
-	];
-}
-
-function AnimateCtrl($scope) {
-	$scope.items = [];
-}
-
-function MapCtrl($scope) {
-	$scope.myMarkers = [];
-
-	$scope.mapOptions = {
-		center: new google.maps.LatLng(35.784, -78.670),
-		zoom: 15,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	};
-
-	$scope.addMarker = function($event) {
-		$scope.myMarkers.push(new google.maps.Marker({
-			map: $scope.myMap,
-			position: $event.latLng
-		}));
-	};
-
-	$scope.setZoomMessage = function(zoom) {
-		$scope.zoomMessage = 'You just zoomed to '+zoom+'!';
-		console.log(zoom,'zoomed');
-	};
-
-	$scope.openMarkerInfo = function(marker) {
-		$scope.currentMarker = marker;
-		$scope.currentMarkerLat = marker.getPosition().lat();
-		$scope.currentMarkerLng = marker.getPosition().lng();
-		$scope.myInfoWindow.open($scope.myMap, marker);
-	};
-
-	$scope.setMarkerPosition = function(marker, lat, lng) {
-		marker.setPosition(new google.maps.LatLng(lat, lng));
-	};
-}
-
-function CurrencyCtrl($scope) {
-	$scope.nums =  {
-		pos : 1000,
-		neg : -12345,
-		zero: 0
-	};
-}
-
-function RouteCtrl($scope, $window){
-	$scope.sample = "{{ var }}"
-	$scope.reload = function($event, route){
-		$event.preventDefault();
-		$window.location.href = '#route-' + route;
-		document.location.reload();
-	}
-	$scope.routes = [1,2,3];
-}
-
-function FormatCtrl($scope) {
-	$scope.sentence = 'Hello :name, how is the :subject? Are you on the $0, $1 or $2?';
-	$scope.mode = 'string';
-	$scope.tokens = {
-		'string': 'Single',
-		'array': ['first', 'second', 'third'],
-		'object': {
-			'name': 'Bob',
-			'subject': 'wife'
-		}
-	};
-}
-
-function CalendarCtrl($scope) {
-	var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
-
-    $scope.eventSource = {
-            url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
-            className: 'gcal-event',           // an option!
-            currentTimezone: 'America/Chicago' // an option!
-        };
-
-    $scope.events = [
-	  {title: 'All Day Event',start: new Date(y, m, 1)},
-	  {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
-	  {id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false},
-	  {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
-	  {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
-	  {title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
+var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
+    $scope.modules = [
+        {
+            name: 'Event Binder',
+            desc: 'Bind a callback to any event not natively supported by Angular',
+            src: 'https://github.com/angular-ui/ui-event',
+            home: ''
+        },
+        {
+            name: 'Mask',
+            desc: 'Apply a mask on an input field so the user can only type pre-determined pattern.',
+            src: 'https://github.com/angular-ui/ui-mask',
+            home: ''
+        },
+        {
+            name: 'Indeterminate',
+            desc: 'Provides an easy way to toggle a checkbox input\'s special "indeterminate" property. This is a visual toggle only and in no way affects the model or value outside of native browser behavior at this time.',
+            src: 'https://github.com/angular-ui/ui-indeterminate',
+            home: ''
+        },
+        {
+            name: 'Validate',
+            desc: 'General-purpose validator for ngModel.',
+            src: 'https://github.com/angular-ui/ui-validate',
+            home: ''
+        },
+        {
+            name: 'Scrollpoint',
+            desc: 'Add a "ui-scrollpoint" class to elements when the page scrolls past them. (previously known as scrollfix)',
+            src: 'https://github.com/angular-ui/ui-scrollpoint',
+            home: ''
+        },
+        {
+            name: 'Uploader',
+            desc: 'Customizable file uploader',
+            src: 'https://github.com/angular-ui/ui-uploader',
+            home: ''
+        },
+        {
+            name: 'CodeMirror',
+            desc: 'This directive allows you to add CodeMirror editor to your textarea elements.',
+            src: 'https://github.com/angular-ui/ui-codemirror',
+            home: 'http://angular-ui.github.io/ui-codemirror/'
+        },
+        {
+            name: 'Ace',
+            desc: 'This directive allows you to add ACE editor elements.',
+            src: 'https://github.com/angular-ui/ui-ace',
+            home: 'http://angular-ui.github.io/ui-ace/'
+        },
+        {
+            name: 'Calendar',
+            desc: 'A complete AngularJS directive for the Arshaw FullCalendar.',
+            src: 'https://github.com/angular-ui/ui-calendar',
+            home: 'http://angular-ui.github.io/ui-calendar/'
+        },
+        {
+            name: 'Map',
+            desc: 'This directive allows you to add Google Maps Javascript API elements.',
+            src: 'https://github.com/angular-ui/ui-map',
+            home: 'http://angular-ui.github.io/ui-map/'
+        },
+        {
+            name: 'Date',
+            desc: 'jQueryUI Datepicker for AngularJS',
+            src: 'https://github.com/angular-ui/ui-date',
+            home: 'http://angular-ui.github.io/ui-date/'
+        },
+        {
+            name: 'Select',
+            desc: 'AngularJS-native version of Select2 and Selectize',
+            src: 'https://github.com/angular-ui/ui-select',
+            home: ''
+        },
+        {
+            name: 'TinyMCE',
+            desc: 'This directive allows you to add a TinyMCE editor to your form elements.',
+            src: 'https://github.com/angular-ui/ui-tinymce',
+            home: ''
+        },
+        {
+            name: 'Sortable',
+            desc: 'AngularJS bindings for jQuery UI Sortable',
+            src: 'https://github.com/angular-ui/ui-sortable',
+            home: ''
+        },
+        {
+            name: 'Alias',
+            desc: 'Create concise aliases for third-party directives and templates',
+            src: 'https://github.com/angular-ui/ui-alias',
+            home: ''
+        },
+        {
+            name: 'Bootstrap',
+            desc: 'Bootstrap components written in pure AngularJS',
+            src: 'https://github.com/angular-ui/bootstrap',
+            home: 'http://angular-ui.github.io/bootstrap/'
+        },
+        {
+            name: 'Grid',
+            desc: 'Grid virtualization written natively in AngularJS',
+            src: 'https://github.com/angular-ui/ng-grid',
+            home: 'http://ui-grid.info/'
+        },
+        {
+            name: 'Router',
+            desc: 'The de-facto solution to flexible routing with nested views in AngularJS',
+            src: 'https://github.com/angular-ui/ui-router',
+            home: 'http://angular-ui.github.io/ui-router/site/'
+        },
+        {
+            name: 'Google maps',
+            desc: 'AngularJS directives for the Google Maps Javascript API',
+            src: 'https://github.com/angular-ui/angular-google-maps',
+            home: 'http://angular-ui.github.io/angular-google-maps'
+        }
     ];
 
-    $scope.eventSources = [$scope.events, $scope.eventSource];
-
-    $scope.addEvent = function() {
-      $scope.events.push({
-        title: 'Open Sesame',
-        start: new Date(y, m, 28),
-        end: new Date(y, m, 29)
-      });
-    }
-
-    $scope.remove = function(index) {
-      $scope.events.splice(index,1);
-    }
-}
-/* EOF */
+});

@@ -1,236 +1,31 @@
-/*** Docs ***/
 body {
-	margin-top: 40px;
+    margin-top: 40px;
+    margin-bottom: 80px;
+
 }
-section {
-	padding-top: 40px;
-}
-.icon-github {
-	background: no-repeat url('../lib/bootstrap/docs/assets/img/github-16px.png');
-	width: 16px;
-	height: 16px;
-}
-.hero-unit {
-	position: relative;
-	padding: 40px 0;
-	color: #fff;
-	text-align: center;
-	text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
-	background: #020031;
-	background: -moz-linear-gradient(45deg, #020031 0%, #6d3353 100%);
-	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#020031), color-stop(100%,#6d3353));
-	background: -webkit-linear-gradient(45deg, #020031 0%,#6d3353 100%);
-	background: -o-linear-gradient(45deg, #020031 0%,#6d3353 100%);
-	background: -ms-linear-gradient(45deg, #020031 0%,#6d3353 100%);
-	background: linear-gradient(45deg, #020031 0%,#6d3353 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020031', endColorstr='#6d3353',GradientType=1 );
-	-webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
-	-moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
-	box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
-	border-radius: 0;
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-	-o-border-radius: 0;
-}
-.hero-unit .btn, .pagination-centered .btn {
-	float: none;
-	font-weight: normal;
-}
-.hero-unit p {
-	margin: 1em 0;
-}
-.hero-unit .alert-error {
-	color: #B94A48;
-}
-.hero-unit .container {
-	position: relative;
-}
-.hero-unit h1:before {
-	display: block;
-	content: '';
-	height: 200px;
-	width: 200px;
-	background: url('../logo/UI_Shield.png') no-repeat;
-	background-size: contain;
-	position: absolute;
-	left: 0;
+.logo {
+    height: 150px;
+    background: url('../logo/UI_Shield.png') no-repeat;
+    background-size: contain;
+    background-position-x: 100%;
+    margin-top: 10px;
 }
 .bs-docs-social {
-	margin-top: 1em;
-	padding: 15px 0;
-	text-align: center;
-	background-color: rgba(245,245,245,0.3);
-	border-top: 1px solid rgba(255,255,255,0.3);
-	border-bottom: 1px solid rgba(221,221,221,0.3);
+    text-align: center;
 }
 .bs-docs-social-buttons {
-	margin-left: 0;
-	margin-bottom: 0;
-	padding-left: 0;
-	list-style: none;
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
 }
 .bs-docs-social-buttons li {
-	display: inline-block;
-	padding: 5px 8px;
-	line-height: 1;
+    display: inline-block;
+    padding: 5px 8px;
+    line-height: 1;
 }
 
-/* Allows .modal-backdrop to remain on the page without blocking */
-.modal-backdrop {
-	overflow: hidden;
-	height: 0;
-	-webkit-transition: opacity 0.15s linear, height 0 0.2s linear;
-	-moz-transition: opacity 0.15s linear, height 0 0.2s linear;
-	-ms-transition: opacity 0.15s linear, height 0 0.2s linear;
-	-o-transition: opacity 0.15s linear, height 0 0.2s linear;
-	transition: opacity 0.15s linear, height 0 0.2s linear;
-}
-.modal-backdrop.in {
-	height: 100%;
-	-webkit-transition: opacity 0.15s linear;
-	-moz-transition: opacity 0.15s linear;
-	-ms-transition: opacity 0.15s linear;
-	-o-transition: opacity 0.15s linear;
-	transition: opacity 0.15s linear;
-}
-
-/*** Reset ***/
-.ui-reset {
-	width: 14px;
-	height: 14px;
-	margin: 5px;
-	*margin-right: .3em;
-	line-height: 14px;
-	vertical-align: text-top;
-	background-image: url("http://twitter.github.com/bootstrap/assets/img/glyphicons-halflings.png");
-	background-position: 14px 14px;
-	background-repeat: no-repeat;
-    background-position: -48px -96px;
-}
-
-/*** Map ***/
-#directives-map .map {
-  height: 400px;
-}
-
-/*** Animate ***/
-#directives-animate .animations {
-	list-style: none;
-	padding: 0;
-	margin: 10px 0;
-}
-#directives-animate .animations li {
-	transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-webkit-transition: all 0.5s ease;
-	background: lightblue;
-	max-height: 50px;
-	overflow: hidden;
-	padding: 5px;
-}
-#directives-animate .animations li.ui-animate {
-	opacity: 0;
-	max-height: 0;
-	padding: 0 5px;
-}
-
-/*** If ***/
-#directives-if ul.piped-list {
-	padding: 0;
-	margin: 10px 0;
-}
-#directives-if .piped-list li {
-	display: inline-block;
-	border-left: 2px solid;
-	margin-left: 5px;
-	padding-left: 10px;
-}
-#directives-if .piped-list li:first-child {
-	border-left: none;
-	margin-left: 0;
-}
-
-/*** ShowHide ***/
-.ui-show {
-	display: block;
-}
-.ui-hide {
-	display: none;
-}
-.animate span {
-	display: block;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-ms-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	transition: all 0.5s ease;
-}
-.animate .ui-show {
-	color: blue;
-}
-.animate .ui-hide {
-	opacity: 0;
-}
-#EmptyField {
-
-	width:300px;
-	height:100px;
-	overflow: scroll;
-}
-/*** Select2 ***/
-#directives-select2 select {
-	width: 200px;
-}
-/*** Scrollfix ***/
-#scrollExample p {
-	font-size: 20px;
-	color:red;
-	text-shadow: 0px 2px 3px #555;
-}
-#scrollExample.ui-scrollfix .ui-scrollfix {
-	top: -50px;
-    -webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-	transition: all 0.5s ease;
-}
-#scrollExample .ui-scrollfix {
-	position: fixed;
-	top: 50px;
-}
-#scrollExample {
-	height: 45px;
-	width:400px;
-}
-
-/*** Sortable ***/
-.directives-sortable ul.children {
-	padding: 5px 0;
-}
-
-/*** Highlight ***/
-.ui-match {
-	background: yellow;
-}
-
-/*** Keypress ***/
-#directives-keypress textarea {
-	width: 100%;
-	height: 100px;
-}
-
-span[ui-currency] {
-	display:block;
-}
-/*** Currency ***/
-.ui-currency-pos {
-  font-weight: bold;
-}
-.ui-currency-neg {
-  font-size: 125%;
-}
-.ui-currency-zero {
-  color: #000;
+.jumbotron {
+    padding-top: 28px;
+    padding-bottom: 18px;
 }

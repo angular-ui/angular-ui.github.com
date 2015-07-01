@@ -1,261 +1,140 @@
 <!DOCTYPE html>
-<html lang="en" id="top">
-<head>
-  <title>AngularUI for AngularJS</title>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.js"></script>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.css">
-  <link rel="stylesheet" href="css/app.css" >
-  <link rel="shortcut icon" href="logo/UI_Shield.png" >
-</head>
-<body>
-  <header class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <div class="dropdown pull-left">
-          <a class="brand" href="http://angular-ui.github.io/">
-            AngularUI
-          </a>
-        </div>
-        <div class="nav-collapse pull-right">
-          <ul class="nav">
-            <li>
-              <a href="#ui-utils">
-                UI-Utils
-              </a>
-            </li>
-            <li>
-              <a href="#ui-modules">
-                UI-Modules
-              </a>
-            </li>
-            <li>
-              <a href="#ui-alias">
-                UI-Alias
-              </a>
-            </li>
-            <li>
-              <a href="#ui-bootstrap">
-                UI-Bootstrap
-              </a>
-            </li>
-            <li>
-              <a href="#ng-grid">
-                NG-Grid
-              </a>
-            </li>
-            <li>
-              <a href="#ui-router">
-                UI-Router
-              </a>
-            </li>
-            <li>
-              <a href="#ui-select">
-                UI-Select
-              </a>
-            </li>
-            <li>
-              <a href="#ide-plugins">
-                IDE Plugins
-              </a>
-            </li>
-            <li>
-              <a href="#ui-gmap">
-                UI-Gmap
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </header>
-  <div role="main">
+<html id="top" lang="en" ng-app="demo">
+    <head>
+        <title>AngularUI for AngularJS</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.js"></script>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <script src="js/app.js"></script>
+        <link href="css/app.css" rel="stylesheet">
+        <link href="logo/UI_Shield.png" rel="shortcut icon">
+    </head>
 
-    <header class="hero-unit" id="overview">
-      <div class="container">
-        <h1>
-          AngularUI
-        </h1>
-        <p>The companion suite(s) to the <strong><a href="http://angularjs.org">AngularJS</a></strong> framework.</p>
-      </div>
-      <div class="bs-docs-social">
-        <div class="container">
-          <ul class="bs-docs-social-buttons">
-            <li>
-              <a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="angularjs">Tweet</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-            </li>
-            <li>
-              <!-- Place this tag where you want the +1 button to render. -->
-              <div class="g-plusone" data-size="medium"></div>
+    <body ng-controller="DemoCtrl">
+        <header class="navbar navbar-fixed-top navbar-default">
+            <div class="navbar-inner">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="http://angular-ui.github.io/">AngularUI</a>
+                    </div>
 
-              <!-- Place this tag after the last +1 button tag. -->
-              <script type="text/javascript">
-                (function() {
-                  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                  po.src = 'https://apis.google.com/js/plusone.js';
-                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                })();
-              </script>
-            </li>
-          </ul>
+                    <div class="container">
+                        <div class="container">
+                            <div class="dropdown"></div>
+
+                            <div class="navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <a href="#modules">Modules</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#ide-plugins">IDE Plugins</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div>
+            <header class="jumbotron" id="overview">
+                <div class="container">
+                    <div class="col-sm-3 logo"></div>
+                    <div class="col-sm-7">
+                        <h1>AngularUI</h1>
+
+                        <p>The companion suite(s) to the <a href="http://angularjs.org">AngularJS</a> framework.</p>
+                    </div>
+                </div>
+
+                <div class="bs-docs-social">
+                    <div class="container">
+                        <ul class="bs-docs-social-buttons">
+                            <li>
+                                <a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="angularjs">Tweet</a>
+                                <script>!function(d, s, id) {
+                                                var js, fjs = d.getElementsByTagName(s)[0];
+                                                if (!d.getElementById(id)) {
+                                                    js = d.createElement(s);
+                                                    js.id = id;
+                                                    js.src = "//platform.twitter.com/widgets.js";
+                                                    fjs.parentNode.insertBefore(js, fjs);
+                                                }
+                                            }(document, "script", "twitter-wjs");</script>
+                            </li>
+
+                            <li>
+                                <!-- Place this tag where you want the +1 button to render. -->
+
+                                <div class="g-plusone" data-size="medium"></div><!-- Place this tag after the last +1 button tag. -->
+                                <!-- Place this tag after the last +1 button tag. -->
+                                <script type="text/javascript">
+                                            (function() {
+                                                var po = document.createElement('script');
+                                                po.type = 'text/javascript';
+                                                po.async = true;
+                                                po.src = 'https://apis.google.com/js/plusone.js';
+                                                var s = document.getElementsByTagName('script')[0];
+                                                s.parentNode.insertBefore(po, s);
+                                            })();
+                                </script>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <div class="container" >
+                <section id="modules">
+                    <h1 class="page-header">Modules</h1>
+                    <p class="text-muted">
+                        <input class="form-control" autofocus="autofocus" style="max-width: 15em; display: inline-block;" ng-model="searchText" placeholder="search...">
+                        {{(modules| filter:searchText).length}} modules found
+                    </p>
+                    <div class="list-group">
+                        <div ng-repeat="module in modules| filter:searchText | orderBy: 'name'" href="{{module.src}}" class="list-group-item">
+                            <p class="pull-right">
+                                <a href="{{module.home}}" title="Home / Demo page" ng-if="module.home"><i class="fa fa-3x fa-home"></i></a>
+                                <a href="{{module.src}}" title="Code"><i class="fa fa-3x fa-github"></i></a>
+                            </p>
+                            <h4 class="list-group-item-heading">{{module.name}}</h4>
+                            <p class="list-group-item-text text-muted">{{module.desc}}</p>
+                        </div>
+                    </div>
+
+                </section>
+
+
+                <section id="ide-plugins">
+                    <h1 class="page-header">IDE Plugins <small>AngularJS support in your favorite text editors</small></h1>
+
+                    <div class="clearfix">
+                        <ul class="nav nav-tabs nav-stacked col-md-6">
+                            <li>
+                                <a href="http://github.com/angular-ui/AngularJS.tmbundle">AngularJS.tmbundle <span class="text-muted">TextMate</span></a>
+                            </li>
+
+                            <li>
+                                <a href="http://github.com/angular-ui/AngularJS-Atom">AngularJS-Atom <span class="text-muted">Atom</span></a>
+                            </li>
+                        </ul>
+
+                        <ul class="nav nav-tabs nav-stacked col-md-6">
+                            <li>
+                                <a href="http://github.com/angular-ui/AngularJS-sublime-package">AngularJS.sublime-package <span class="text-muted">SublimeText</span></a>
+                            </li>
+
+                            <li>
+                                <a href="http://github.com/angular-ui/AngularJS-brackets">AngularJS-brackets <span class="text-muted">Brackets</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
         </div>
-      </div>
-    </header>
-
-    <div class="container" id="ui-utils">
-      <section>
-        <h1 class="page-header">
-          UI-Utils
-          <small>A utility package with no external dependencies</small>
-          <span class="btn-group pull-right">
-            <a class="btn btn-primary btn-large" href="http://angular-ui.github.io/ui-utils">Site</a>
-            <a class="btn btn-inverse btn-large" href="https://github.com/angular-ui/ui-utils">Code</a>
-          </span>
-        </h1>
-        <p>Although these modules are together in one project, they are still written standalone and can be included individually</p>
-        <div class="clearfix">
-          <ul class="nav nav-tabs nav-stacked span4">
-            <li><a href="https://angular-ui.github.io/ui-utils#ie">IE Shiv</a></li>
-            <li><a href="https://angular-ui.github.io/ui-utils#jq">jQuery Passthrough</a></li>
-            <li><a href="https://angular-ui.github.io/ui-utils#event">Event Binder</a></li>
-            <li><a href="https://angular-ui.github.io/ui-utils#keypress">Keypress</a></li>
-            <li><a href="https://angular-ui.github.io/ui-utils#mask">Mask</a></li>
-            <li><a href="https://angular-ui.github.io/ui-utils#indeterminate">
-              Indeterminate
-              <span class="label label-success">New</span>
-            </a></li>
-          </ul>
-          <ul class="nav nav-tabs nav-stacked span4">
-            <li><a href="https://github.com/angular/angular.js/blob/master/src/ng/directive/ngIf.js">
-              <strike>If Statement</strike>
-              <span class="label label-important">Removed</span>
-            </a></li>
-            <li><a href="https://angular-ui.github.io/ui-utils#validate">Validate</a></li>
-            <li><a href="https://angular-ui.github.io/ui-utils#reset">Reset</a></li>
-            <li><a href="https://angular-ui.github.io/ui-utils#scrollfix">Scrollfix</a></li>
-            <li><a href="https://angular-ui.github.io/ui-utils#showhide">Show / Hide / Toggle</a></li>
-            <li><a href="https://angular-ui.github.io/ui-utils#uploader">
-              Uploader
-              <span class="label label-success">New</span>
-            </a></li>
-          </ul>
-          <ul class="nav nav-tabs nav-stacked span4">
-            <li><a href="https://angular-ui.github.io/ui-utils#routing">Route Matching</a></li>
-            <li><a href="https://angular-ui.github.io/ui-utils#highlight">Highlight</a></li>
-            <li><a href="https://angular-ui.github.io/ui-utils#inflector">Inflector</a></li>
-            <li><a href="https://angular-ui.github.io/ui-utils#unique">Unique</a></li>
-            <li><a href="https://angular-ui.github.io/ui-utils#format">Format</a></li>
-          </ul>
-        </div>
-      </section>
-      <section id="ui-modules">
-        <h1 class="page-header">
-          UI-Modules
-          <small>Standalone AngularUI modules with external dependencies</small>
-        </h1>
-        <div class="clearfix">
-          <ul class="nav nav-tabs nav-stacked span6">
-            <li><a href="http://github.com/angular-ui/ui-codemirror">CodeMirror IDE</a></li>
-            <li><a href="http://github.com/angular-ui/ui-ace">Ace IDE</a></li>
-            <li><a href="http://github.com/angular-ui/ui-calendar">Calendar</a></li>
-            <li><a href="http://github.com/angular-ui/ui-map">Google Maps</a></li>
-          </ul>
-          <ul class="nav nav-tabs nav-stacked span6">
-            <li><a href="http://github.com/angular-ui/ui-date">Date</a></li>
-            <li><a href="http://github.com/angular-ui/ui-select2"><s>Select2</s> <span class="label label-important">Deprecated, use UI-Select instead</span></a></li>
-            <li><a href="http://github.com/angular-ui/ui-tinymce">TinyMCE</a></li>
-            <li><a href="http://github.com/angular-ui/ui-sortable">Sortable</a></li>
-          </ul>
-        </div>
-      </section>
-      <section id="ui-alias">
-        <h1 class="page-header">
-          UI-Alias
-          <small>Rename plugin directives and create mini templates</small>
-          <span class="btn-group pull-right">
-            <a class="btn btn-inverse btn-large" href="https://github.com/angular-ui/alias">Code</a>
-          </span>
-        </h1>
-      </section>
-      <section id="ui-bootstrap">
-        <h1 class="page-header">
-          UI-Bootstrap
-          <small>Twitter Bootstrap written natively in AngularJS</small>
-          <span class="btn-group pull-right">
-            <a class="btn btn-primary btn-large" href="http://angular-ui.github.io/bootstrap">Site</a>
-            <a class="btn btn-inverse btn-large" href="https://github.com/angular-ui/bootstrap">Code</a>
-          </span>
-        </h1>
-      </section>
-      <section id="ng-grid">
-        <h1 class="page-header">
-          NG-Grid
-          <small>Grid virtualization written natively in AngularJS</small>
-          <span class="btn-group pull-right">
-            <a class="btn btn-primary btn-large" href="http://angular-ui.github.io/ng-grid">Site</a>
-            <a class="btn btn-inverse btn-large" href="https://github.com/angular-ui/ng-grid">Code</a>
-          </span>
-        </h1>
-      </section>
-      <section id="ui-router">
-        <h1 class="page-header">
-          UI-Router
-          <small>Nested Routing for AngularJS</small>
-          <span class="btn-group pull-right">
-            <a class="btn btn-primary btn-large" href="http://angular-ui.github.io/ui-router/site">Site</a>
-            <a class="btn btn-inverse btn-large" href="https://github.com/angular-ui/ui-router">Code</a>
-          </span>
-        </h1>
-      </section>
-      <section id="ui-select">
-        <h1 class="page-header">
-          UI-Select
-          <small>AngularJS-native version of Select2 and Selectize</small>
-          <span class="btn-group pull-right">
-            <a class="btn btn-inverse btn-large" href="https://github.com/angular-ui/ui-select">Code</a>
-          </span>
-        </h1>
-      </section>
-      <section id="ide-plugins">
-        <h1 class="page-header">
-          IDE Plugins
-          <small>AngularJS support in your favorite text editors</small>
-        </h1>
-        <div class="clearfix">
-          <ul class="nav nav-tabs nav-stacked span6">
-            <li><a href="http://github.com/angular-ui/AngularJS.tmbundle">AngularJS.tmbundle <span class="muted">TextMate</span></a></li>
-            <li><a href="http://github.com/angular-ui/AngularJS-Atom">AngularJS-Atom <span class="muted">Atom</span></a></li>
-          </ul>
-          <ul class="nav nav-tabs nav-stacked span6">
-            <li><a href="http://github.com/angular-ui/AngularJS-sublime-package">AngularJS.sublime-package <span class="muted">SublimeText</span></a></li>
-            <li><a href="http://github.com/angular-ui/AngularJS-brackets">AngularJS-brackets <span class="muted">Brackets</span></a></li>
-          </ul>
-        </div>
-      </section>
-      <section id="ui-gmap">
-        <h1 class="page-header">
-          UI-Gmap
-          <small>Directives to integrate Google Maps into your app.</small>
-          <span class="btn-group pull-right">
-            <a class="btn btn-primary btn-large" href="http://angular-google-maps.org">Site</a>
-            <a class="btn btn-inverse btn-large" href="https://github.com/angular-ui/angular-google-maps">Code</a>
-          </span>
-        </h1>
-      </section>
-    </div>
-  </div>
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-17352735-3']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-</body>
+    </body>
 </html>
