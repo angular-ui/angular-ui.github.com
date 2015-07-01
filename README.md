@@ -1,12 +1,3 @@
-## Setup
+## Angular UI homepage
 
-To add/update required submodules at any time:
-```
-git submodule update --init
-```
-
-To hack on a submodule from within this project:
-```
-cd angular-ui
-git remote set-url origin git@github.com:[YOUR-FORK]/angular-ui.github.com.git
-```
+To modify Angular UI homepage, edit index.html and push to GitHub. See the result at: http://angular-ui.github.io/
