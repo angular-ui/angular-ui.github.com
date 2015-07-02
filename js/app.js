@@ -83,7 +83,7 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
             name: 'Sortable',
             desc: 'AngularJS bindings for jQuery UI Sortable',
             src: 'https://github.com/angular-ui/ui-sortable',
-            home: ''
+            home: 'https://angular-ui.github.io/ui-sortable/'
         },
         {
             name: 'Alias',
