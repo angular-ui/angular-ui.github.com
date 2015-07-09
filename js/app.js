@@ -114,6 +114,12 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
             desc: 'AngularJS directives for the Google Maps Javascript API',
             src: 'https://github.com/angular-ui/angular-google-maps',
             home: 'http://angular-ui.github.io/angular-google-maps'
+        },
+        {
+            name: 'Slider',
+            desc: 'Slider based on jQuery slider',
+            src: 'https://github.com/angular-ui/ui-slider',
+            home: 'http://angular-ui.github.io/ui-slider/demo/demo.html'
         }
     ];
 
