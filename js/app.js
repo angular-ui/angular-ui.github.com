@@ -120,6 +120,24 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
             desc: 'Slider based on jQuery slider',
             src: 'https://github.com/angular-ui/ui-slider',
             home: 'http://angular-ui.github.io/ui-slider/demo/demo.html'
+        },
+        {
+            name: 'Layout',
+            desc: 'This directive allows you to split stuff',
+            src: 'https://github.com/angular-ui/ui-layout',
+            home: 'http://angular-ui.github.io/ui-layout/'
+        },
+        {
+            name: 'Chart with jQplot',
+            desc: 'This directive allows you to add a jqPlot graph to your application',
+            src: 'https://github.com/angular-ui/ui-chart',
+            home: 'http://angular-ui.github.io/ui-chart'
+        },
+        {
+            name: 'Tour',
+            desc: 'A native tour-type directive that will lace easily-controllable tooltips throughout your app',
+            src: 'https://github.com/angular-ui/ui-tour',
+            home: 'http://angular-ui.github.io/ui-tour/demo/demo.html'
         }
     ];
 
