@@ -138,6 +138,12 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
             desc: 'A native tour-type directive that will lace easily-controllable tooltips throughout your app',
             src: 'https://github.com/angular-ui/ui-tour',
             home: 'http://angular-ui.github.io/ui-tour/demo/demo.html'
+        },
+        {
+            name: 'Scroll',
+            desc: 'uiScroll directive solves this problem by dynamically destroying elements as they become invisible and recreating them if they become visible again',
+            src: 'https://github.com/angular-ui/ui-scroll',
+            home: ''
         }
     ];
 
