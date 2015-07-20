@@ -100,7 +100,7 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
         {
             name: 'Grid',
             desc: 'Grid virtualization written natively in AngularJS',
-            src: 'https://github.com/angular-ui/ng-grid',
+            src: 'https://github.com/angular-ui/ui-grid',
             home: 'http://ui-grid.info/'
         },
         {
