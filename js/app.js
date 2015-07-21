@@ -143,7 +143,7 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
             name: 'Scroll',
             desc: 'uiScroll directive solves this problem by dynamically destroying elements as they become invisible and recreating them if they become visible again',
             src: 'https://github.com/angular-ui/ui-scroll',
-            home: ''
+            home: 'http://angular-ui.github.io/ui-scroll/demo/'
         }
     ];
 
