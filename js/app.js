@@ -3,7 +3,7 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
     $scope.modules = [
         {
             name: 'Event Binder',
-            desc: 'Bind a callback to any event not natively supported by Angular',
+            desc: 'Bind a callback to any event not natively supported by AngularJS',
             src: 'https://github.com/angular-ui/ui-event',
             home: 'http://htmlpreview.github.io/?https://github.com/angular-ui/ui-event/master/demo/index.html'
         },
@@ -63,7 +63,7 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
         },
         {
             name: 'Date',
-            desc: 'jQueryUI Datepicker for AngularJS',
+            desc: 'jQuery UI Datepicker for AngularJS',
             src: 'https://github.com/angular-ui/ui-date',
             home: 'http://angular-ui.github.io/ui-date/'
         },
@@ -81,7 +81,7 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
         },
         {
             name: 'Sortable',
-            desc: 'AngularJS bindings for jQuery UI Sortable',
+            desc: 'jQuery UI Sortable for AngularJS',
             src: 'https://github.com/angular-ui/ui-sortable',
             home: 'https://angular-ui.github.io/ui-sortable/'
         },
@@ -117,7 +117,7 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
         },
         {
             name: 'Slider',
-            desc: 'Slider based on jQuery slider',
+            desc: 'jQuery UI Slider for AngularJS',
             src: 'https://github.com/angular-ui/ui-slider',
             home: 'http://angular-ui.github.io/ui-slider/demo/demo.html'
         },
