@@ -61,6 +61,12 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
             src: 'https://github.com/angular-ui/ui-map',
             home: 'http://angular-ui.github.io/ui-map/'
         },
+                {
+            name: 'Leaflet',
+            desc: 'This directive allows you to embed an interact with maps managed by Leaflet library.',
+            src: 'https://github.com/angular-ui/ui-leaflet',
+            home: 'http://angular-ui.github.io/ui-leaflet/'
+        },
         {
             name: 'Date',
             desc: 'jQuery UI Datepicker for AngularJS',
