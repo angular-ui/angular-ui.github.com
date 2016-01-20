@@ -125,7 +125,7 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
             name: 'Slider',
             desc: 'jQuery UI Slider for AngularJS',
             src: 'https://github.com/angular-ui/ui-slider',
-            home: 'https://angular-ui.github.io/ui-slider/demo/demo.html'
+            home: 'https://htmlpreview.github.io/?https://github.com/angular-ui/ui-slider/master/demo/index.html'
         },
         {
             name: 'Layout',
