@@ -63,7 +63,7 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
         },
                 {
             name: 'Leaflet',
-            desc: 'This directive allows you to embed an interact with maps managed by Leaflet library.',
+            desc: 'This directive allows you to embed and interact with maps managed by Leaflet library.',
             src: 'https://github.com/angular-ui/ui-leaflet',
             home: 'http://angular-ui.github.io/ui-leaflet/'
         },
