@@ -77,7 +77,7 @@ var app = angular.module('demo', []).controller('DemoCtrl', function($scope) {
             name: 'Select',
             desc: 'AngularJS-native version of Select2 and Selectize',
             src: 'https://github.com/angular-ui/ui-select',
-            home: ''
+            home: 'https://angular-ui.github.io/ui-select/'
         },
         {
             name: 'TinyMCE',
